@@ -22,19 +22,46 @@
 
 class game():
 
+    # 생성자 input문자 저장
     def __init__(self, input):
+        self.score = 0
+        self.prev_score = 0
         self.input = input
 
-    def set_prev_score(self, score):
-        self.prev_score = score
+    def total_score(self, score):
+        self.score = self.score + int(score)
 
-    def get_prev_score(self):
-        return self.prev_score
-
+    # 점수 계산을 위한 함수
     def cal_score(self, input):
-        pass
+        if input[-1] == '*':
+            power = self.power_score(input[-2])
+            prev_score = self.prev_score * 2
+            self.total_score(prev_score)
+            this_score = (int(input[0:-2]) ** power) * 2
+            self.prev_score = this_score
 
-    def find_split_index(self):
+        elif input[-1] == '#':
+            power = self.power_score(input[-2])
+            self.total_score(self.prev_score)
+            this_score = (int(input[0:-2]) ** power) * -1 
+            self.prev_score = this_score
+        
+        else:
+            power = self.power_score(input[-1])
+            self.total_score(self.prev_score)
+            this_score = (int(input[0:-1]) ** power)
+            self.prev_score = this_score
+
+    def power_score(self, power):
+        if power == 'S':
+            return 1
+        elif power == 'D':
+            return 2
+        elif power == 'T':
+            return 3
+
+    # 한 묶음으로 나누기
+    def split_input(self):
 
         num_index = list()
 
@@ -42,28 +69,43 @@ class game():
             if 48 <= ord(self.input[i]) <= 57:
                 num_index.append(i)
 
-        return self.delete_num_index(num_index)
+        return num_index
 
-    def delete_num_index(self, num_index):
+    def num_index_filter(self, num_index):
 
         delete_index = list()
-        
-        for i in range(len(num_index)-1):
-            if (num_index[i+1] - num_index[i]) == 1:
-                delete_index.append(i)
 
-        delete_index = delete_index.reverse()
+        num_len = len(num_index) - 1
+
+        if len(num_index) > 3:
+            for i in range(num_len, 0, -1):
+                if (num_index[i] - num_index[i-1]) == 1:
+                    delete_index.append(i)
 
         for i in delete_index:
-            del num_index[delete_index]
+            del num_index[i]
 
+        num_index.append(len(self.input))
         return num_index
 
     def run(self):
-        for i range(len(num_index)-1):
-            cal_score(input[num_index[i]:num_index[i+1]]):
+        num_index = self.split_input()
+        num_index = self.num_index_filter(num_index)
 
+        for i in range(len(num_index)-1):
+            self.cal_score(self.input[num_index[i]:num_index[i+1]])
+
+        self.total_score(self.prev_score)
+        print (self.score)
+            
 
 if __name__ == "__main__":
-    pass
-    
+    #game = game('1S2D*3T')      #37
+    #game = game('1D2S#10S')     #9
+    #game = game('1D2S0T')       #3
+    #game = game('1S*2T*3S')     #23
+    #game = game('1D#2S*3S')     #5
+    #game = game('1T2D3D#')      #-4
+    game = game('1D2S3T*')      #59
+
+    game.run()
