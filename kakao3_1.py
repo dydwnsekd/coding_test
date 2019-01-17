@@ -36,9 +36,19 @@ class game():
         self.t = t
         self.m = m
         self.p = p
-        self.alpha = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E']
-
-    def make_num_list(self):
-        self.num_list = self.alpha[:n]
         
+        num_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+        self.num_list = num_list[:self.n]
+
+    def find_num_index(self):
+        num_index = [i+self.p for i in range(self.m)]
+        return num_index
+
+    def make_num(self, last_index):
+        self.num_list
+        
+    
+
+
+
     
