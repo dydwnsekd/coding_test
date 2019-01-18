@@ -29,26 +29,62 @@ http://tech.kakao.com/2017/11/14/kakao-blind-recruitment-round-3/
 튜브가 말해야 하는 숫자 t개를 공백 없이 차례대로 나타낸 문자열. 단, 10~15는 각각 대문자 A~F로 출력한다.
 '''
 
-class game():
+class game(object):
 
     def __init__(self, n, t, m, p):
         self.n = n
         self.t = t
         self.m = m
-        self.p = p
-        
-        num_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
-        self.num_list = num_list[:self.n]
+        self.p = p-1
 
     def find_num_index(self):
-        num_index = [i+self.p for i in range(self.m)]
+        num_index = [(self.m)*i+self.p for i in range(self.t)]
         return num_index
 
-    def make_num(self, last_index):
-        self.num_list
+    def conversion(self, num):
+        conversion_list = list()
+
+        if (num < self.n):
+            conversion_list.append(num)
+
+        while(num >= self.n):
+            conversion_list.append(num % self.n)
+            if (num / self.n) < self.n:
+                conversion_list.append(num / self.n)
+
+            num = num / self.n
+
+        conversion_list.reverse()
+
+        return conversion_list
+
+    def num_over_convert(self, num_list):
+        convert_dict = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
+
+        for i in range(len(num_list)):
+            if num_list[i] in convert_dict.keys():
+                num_list[i] = convert_dict[num_list[i]]
+
+        return num_list
+
+    def run(self):
         
-    
+        num_index = self.find_num_index()
+        result = list()
+
+        count_num = 0
+
+        while(len(result) < num_index[-1]+1):
+            result.extend(self.conversion(count_num))
+            count_num = count_num + 1
+
+        result = self.num_over_convert(result)
+
+        for i in num_index:
+            print (result[i])
 
 
-
-    
+if __name__ == "__main__":
+    # n진법, t 말해야할 숫자 수, m 게임 참여 인원, p 튜브의 순서
+    game = game(16,16,2,2)
+    game.run()
