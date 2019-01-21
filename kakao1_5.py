@@ -31,7 +31,6 @@ http://tech.kakao.com/2017/09/27/kakao-blind-recruitment-round-1/
 입력으로 들어온 두 문자열의 자카드 유사도를 출력한다. 유사도 값은 0에서 1 사이의 실수이므로, 이를 다루기 쉽도록 65536을 곱한 후에 소수점 아래를 버리고 정수부만 출력한다.
 '''
 
-# 교집합, 합집합 연산하기 
 # 값 나누기 
 
 class Jaccard_similarity(object):
@@ -46,8 +45,8 @@ class Jaccard_similarity(object):
     def split_two(self, input_str):
         split_list = list()
 
-        for i in range(len(input_str)-2):
-            temp = input[i:i+1]
+        for i in range(len(input_str)-1):
+            temp = input_str[i:i+2]
             split_list.append(temp)
 
         return split_list
@@ -68,9 +67,11 @@ class Jaccard_similarity(object):
         
         for i in input_list:
             if i in stat_dict:
-                stat_dict(i) = stat_dict(i) + 1
+                stat_dict[i] = stat_dict[i] + 1
             else:
-                stat_dict(i) = 1
+                stat_dict[i] = 1
+
+        return stat_dict
     
     #교집합
     def intersection(self, dict1, dict2):
@@ -78,14 +79,14 @@ class Jaccard_similarity(object):
         for key in dict1.keys():
             if key in dict2:
                 if dict1[key] > dict2[key]:
-                    cross_dict[key] = dict2[key]
+                    intersection_dict[key] = dict2[key]
                 else:
-                    cross_dict[key] = dict1[key]
+                    intersection_dict[key] = dict1[key]
         
         return intersection_dict
 
     #합집합
-    def union(self, dict1, dict2)
+    def union(self, dict1, dict2):
         union_dict = dict()
         for key in dict1.keys():
             if key in dict2:
@@ -93,8 +94,55 @@ class Jaccard_similarity(object):
                     union_dict[key] = dict1[key]
                 else:
                     union_dict[key] = dict2[key]
+            else:
+                union_dict[key] = dict1[key]
 
         for key in dict2.keys():
-            if key in union_dict:
+            if key not in union_dict:
                 union_dict[key] = dict2[key]
+
+        return union_dict
+
+    #dict value의 합계 구하기
+    def sum_dict_value(self, input_dict):
+        sum = 0
+
+        for i in input_dict.values():
+            sum = sum + i
+
+        return sum
+
+    def run(self, str1, str2):
+        str1 = self.upper_case(str1)
+        str2 = self.upper_case(str2)
+
+        str1 = self.split_two(str1)
+        str2 = self.split_two(str2)
+
+        str1 = self.remove_special_character(str1)
+        str2 = self.remove_special_character(str2)
+
+        str1 = self.list_statistic(str1)
+        str2 = self.list_statistic(str2)
+
+        intersection_result = self.intersection(str1, str2)
+        union_result = self.union(str1, str2)
+
+        intersection_sum = self.sum_dict_value(intersection_result)
+        union_sum = self.sum_dict_value(union_result)
+
+        if intersection_sum == 0 and union_sum == 0:
+            print (65536)
+        else:
+            print (int(65536 * (intersection_sum/union_sum)))
+
+
+
+if __name__ == "__main__":
+
+    Jaccard = Jaccard_similarity()
+    Jaccard.run('FRANCE', 'french')         #16384
+    Jaccard.run('handshake', 'shake hands') #65536
+    Jaccard.run('aa1+aa2', 'AAAA12')        #43690
+    Jaccard.run('E=M*C^2', 'e=m*c^2')       #65536
     
