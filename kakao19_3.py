@@ -38,13 +38,14 @@ relation	result
 def subset(list_len):
 
     subset_list = list()
+    list_range = range(list_len)
 
-    for i in range(0, list_len):
+    for i in list_range:
         for j in range(i+1, list_len+1):
             for k in range(j, list_len+1):
                 temp_list = list()
-                temp_list.append(list_len[i])
-                temp_list.extend(list_len[j:k])
+                temp_list.append(list_range[i])
+                temp_list.extend(list_range[j:k])
 
                 if temp_list not in subset_list:
                     subset_list.append(temp_list)
@@ -55,10 +56,10 @@ def subset(list_len):
 
 if __name__ == "__main__":
 
-    input = [[100,ryan,music,2],[200,apeach,math,2],[300,tube,computer,3],[400,con,computer,4],[500,muzi,music,3],[600,apeach,music,2]]
+    input = [[100,'ryan','music',2],[200,'apeach','math',2],[300,'tube','computer',3],[400,'con','computer',4],[500,'muzi','music',3],[600,'apeach','music',2]]
 
-
-    list_len = 
+    list_len = len(input[0])
+    print (list_len)
     subset(list_len)
 
 
