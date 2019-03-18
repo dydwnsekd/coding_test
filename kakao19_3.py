@@ -34,36 +34,85 @@ relation	result
 입출력 예 설명
 입출력 예 #1 문제에 주어진 릴레이션과 같으며, 후보 키는 2개이다.
 '''
+import pandas as pd
+import copy
 
 def subset(list_len):
+    num_list = make_list(list_len)
+    result_list = list()
+    result_list.append(num_list[0])
+    
+    for i in range(1, list_len):
+        result_list = merge_list(result_list, num_list[i])
 
-    subset_list = list()
-    list_range = range(list_len)
+    return (result_list)
 
-    for i in list_range:
-        for j in range(i+1, list_len+1):
-            for k in range(j, list_len+1):
-                temp_list = list()
-                temp_list.append(list_range[i])
-                temp_list.extend(list_range[j:k])
+def make_list(list_len):
+    result_list = list()
 
-                if temp_list not in subset_list:
-                    subset_list.append(temp_list)
+    for i in range(list_len):
+        temp_list = list()
+        temp_list.append(i)
+        result_list.append(temp_list)
+        
+    #[[0],[1],[2],[3]]
+    return result_list
 
-    print (subset_list)
-    print (len(subset_list))
-    return subset_list
+def merge_list(input_list, new_num):
 
-if __name__ == "__main__":
+    merge_list = list()
+    list_len = len(input_list)
 
-    input = [[100,'ryan','music',2],[200,'apeach','math',2],[300,'tube','computer',3],[400,'con','computer',4],[500,'muzi','music',3],[600,'apeach','music',2]]
+    merge_list = copy.deepcopy(input_list)
 
-    list_len = len(input[0])
-    print (list_len)
-    subset(list_len)
+    for i in range(list_len):
+        input_list[i].append(new_num[0])
+
+        temp = input_list[i]
+        merge_list.append(temp)
+
+    merge_list.append(new_num)
+
+    return merge_list
 
 
+def solution(relation):
+    print (relation)
+    df = pd.DataFrame(relation)
 
+    list_len = len(relation[0])
+    input_len = len(relation)
+    subset_index = subset(list_len)
 
+    candidate_key = list()
 
-            
+    for i in subset_index:
+
+        temp_df = df[i]
+        temp_df = temp_df.drop_duplicates()
+
+        if len(temp_df) == input_len:
+            candidate_key.append(i)
+
+    candidate_result = list()
+    candidate_key = sorted(candidate_key, key=len)
+
+    while(candidate_key):
+        temp = candidate_key.pop(0)
+        del_list = list()
+        for i in range(len(candidate_key)):
+            cnt = 0
+            for t in temp:
+                if t in candidate_key[i]:
+                    cnt = cnt + 1
+            if cnt == len(temp):
+                del_list.append(i)
+
+        del_list.reverse()
+        for i in del_list:
+            del candidate_key[i]
+
+        candidate_result.append(temp)
+        
+        answer = len(candidate_result)
+    return answer
