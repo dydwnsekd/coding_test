@@ -32,7 +32,6 @@ INF
 '''
 
 import sys
-from pprint import pprint as pp
 
 class short_path(object):
 
@@ -52,66 +51,56 @@ class short_path(object):
         if self.path_dict[start_point][end_point] > weight:
             self.path_dict[start_point][end_point] = weight
 
-    def sort_dict(self):
-        return self.path_dict
-
     def find_path(self):
-        result_dict = self.path_dict[self.line]
-        process_node = []
-        process_node.append(self.line)
+        self.result_dict = self.path_dict[self.line]
+        process_node = [self.line]
         flag = True
 
         while flag:
-            # result_dict가 value순으로 정렬된 이중리스트
-            point_list = sorted(result_dict.items(), key=lambda t : t[1])
+            point_list = sorted(self.result_dict.items(), key=lambda t : t[1])
+            #point_list = list(self.result_dict.keys())
             
             for i in range(len(point_list)):
-                # start_point = 시작점에서 연결된 임의의 점
-                # weight = 시작점에서 연결된 임의의 점까지의 weight
                 start_point = point_list[i][0]
                 weight = point_list[i][1]
                 
-                if start_point in process_node:
-                    continue
-                elif i == len(point_list):
+                if start_point not in process_node:
+                    for key in self.path_dict[start_point]:
+                        if key not in self.result_dict:
+                            self.result_dict[key] = weight + self.path_dict[start_point][key]
+                        elif self.result_dict[key] > weight + self.path_dict[start_point][key]:
+                            self.result_dict[key] = weight + self.path_dict[start_point][key]
+                    process_node.append(start_point)
+                elif i == len(point_list)-1:
                     flag = False
                     break
-                else:
-                    for key in self.path_dict[start_point]:
-                        if key not in result_dict:
-                            result_dict[key] = weight + self.path_dict[start_point][key]
-                        elif result_dict[key] > self.path_dict[start_point][key]:
-                            result_dict[key] = weight + self.path_dict[start_point][key]
-                    process_node.append()
 
             if len(process_node) == self.v:
-                flag = False
+                flag = False    
 
-    # def print_path(self, line):
+    def print_path(self):
 
-    #     for i in range(self.v):
-    #         if self.path_list[i] == 999:
-    #             self.path_list[i] = 'INF'
-            
-    #         print (self.path_list[i])
-
+        for i in range(self.v):
+            if i in self.result_dict:
+                print (self.result_dict[i])
+            else:
+                print ('INF')
 
 if __name__ == "__main__":
+    v, e = sys.stdin.readline().split()
     
-    v, e = sys.stdin.read().split()
-    line = int(sys.stdin.read()) - 1
+    line = int(sys.stdin.readline()) - 1
     v = int(v)
     e = int(e)
     
     shortpath = short_path(v, e, line)
 
     for i in range(e):
-        start_point, end_point, weight = input().split()
+        start_point, end_point, weight = sys.stdin.readline().split()
         shortpath.input_line(int(start_point)-1, int(end_point)-1, int(weight))
 
-    pp(shortpath.sort_dict())
-
-    #shortpath.print_path(line-1)
+    shortpath.find_path()
+    shortpath.print_path()
     
 
     
