@@ -7,23 +7,16 @@ class short_path(object):
         self.v = v
         self.e = e
         self.line = line
-        self.path_list = []
-
-        for i in range(v):
-            self.path_list[i] = []
+        self.path_list = [[] for _ in range(self.v)]
 
     def input_line (self, start_point, end_point, weight):
-        for i in self.path_list[start_point]:
-            if i[0] > weight and i[1] == end_point:
-                i[0] = weight
-                break
-            elif i == self.v-1:
-                self.path_list.append([weight, end_point])
+        self.path_list[start_point].append([weight, end_point])
                 
 
     def find_path(self):
         pq = []
         dist = [987654321] * self.v
+        dist[self.line] = 0
         heapq.heappush(pq, (0, self.line))
 
         while pq:
@@ -54,10 +47,9 @@ if __name__ == "__main__":
 
     result = shortpath.find_path()
 
-    for i in len(result):
+    for i in range(len(result)):
         if result[i] != 987654321:
             print (result[i])
         else:
             print ('INF')
         
-    
