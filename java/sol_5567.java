@@ -1,5 +1,4 @@
 //https://www.acmicpc.net/problem/5567
-
 import java.util.*;
 
 public class sol_5567 {
@@ -8,13 +7,16 @@ public class sol_5567 {
         
         Scanner in = new Scanner(System.in);
 
-        in.nextInt();
+        int person_count = in.nextInt();
         int releation = in.nextInt();
         in.nextLine();
 
         ArrayList<Integer> result = new ArrayList<>();
         HashMap<Integer, ArrayList<Integer>> friend = new HashMap<>();
         ArrayList<Integer> temp = new ArrayList<>();
+
+        for (int i=0; i<person_count; i++)
+            friend.put(i+1,(ArrayList)temp.clone());
 
         for(int i=0; i<releation; i++)
         {
@@ -24,13 +26,10 @@ public class sol_5567 {
 
             if(a==1)
                 result.add(b);
-            else if(friend.containsKey(a))
-                friend.get(a).add(b);
             else
             {
-                temp.add(b);
-                friend.put(a,(ArrayList)temp.clone());
-                temp.clear();
+                friend.get(a).add(b);
+                friend.get(b).add(a);
             }
         }
 
@@ -39,10 +38,7 @@ public class sol_5567 {
 
         for(int i=0; i<result.size(); i++)
         {
-            if(friend.containsKey(result.get(i)))
-            {
-                t.addAll(friend.get(result.get(i)));
-            }
+            t.addAll(friend.get(result.get(i)));
         }
 
         ArrayList<Integer> r = new ArrayList<>();
