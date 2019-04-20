@@ -39,8 +39,11 @@ public class array_split {
             {
                 al_temp.add(st_temp.nextToken());
             }
-            sttr_al.add(al_temp.clone());
+            //System.out.println(al_temp);
+            sttr_al.add((ArrayList)al_temp.clone());
             al_temp.clear();
         }
+
+        System.out.println(sttr_al);
     }
 }
