@@ -1,5 +1,4 @@
 import java.util.*;
-import org.apache.commons.lang.StringUtils;
 
 //배열 형식으로 입력이 들어왔을 때 (String) 그걸 진짜 배열에 넣어서 반환하는 함수 개발
 //split와 StringTokenizer의 차이
@@ -10,29 +9,32 @@ public class array_split {
 
 	public static void main(String[] args) {
 
+        
+    }
+
+    public ArrayList OneArray(String s)
+    {
         // 1차원 배열
-        Scanner in = new Scanner(System.in);
-        String str = in.nextLine();
         ArrayList<String> str_al = new ArrayList<>();
     
-        str = str.replaceAll(" ", "");
-        str = str.substring(1, str.length()-1);
+        s = s.replaceAll(" ", "");
+        s = s.substring(1, s.length()-1);
 
-        for (String temp: str.split(","))
+        for (String temp: s.split(","))
             str_al.add(temp);
         
-        System.out.println(str_al);
+        return str_al;
+    }
 
+    public ArrayList TwoArray(String s)
+    {
         // 2차원 배열
-        String sttr = in.nextLine();
-        sttr = sttr.substring(1, sttr.length()-1).replaceAll(" ", "");
-        ArrayList<ArrayList<String>> sttr_al = new ArrayList<>();
+        s = s.substring(1, s.length()-1).replaceAll(" ", "");
+        ArrayList<ArrayList<String>> str_al = new ArrayList<>();
         ArrayList<String> al_temp = new ArrayList<>();
         StringTokenizer st_temp = null;
 
-        System.out.println(sttr);
-
-        for (String temp: sttr.split("\\],"))
+        for (String temp: s.split("\\],"))
         {
             st_temp = new StringTokenizer(temp, "[,]");
             while (st_temp.hasMoreTokens())
@@ -40,10 +42,10 @@ public class array_split {
                 al_temp.add(st_temp.nextToken());
             }
             //System.out.println(al_temp);
-            sttr_al.add((ArrayList)al_temp.clone());
+            str_al.add((ArrayList)al_temp.clone());
             al_temp.clear();
         }
 
-        System.out.println(sttr_al);
+        return str_al;
     }
 }
