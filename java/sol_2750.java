@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class sol_2751 {
+public class sol_2750 {
 
     public static void main(String[] args) {
         
