@@ -17,7 +17,7 @@ public class sort {
 
         System.out.println(a);
 
-        a = selection(a);
+        a = insertion(a);
 
         System.out.println(a);
 
@@ -56,6 +56,34 @@ public class sort {
             temp = input_arr.get(i);
             input_arr.set(i, input_arr.get(idx));
             input_arr.set(idx, temp);
+        }
+        return input_arr;
+    }
+
+
+    public static ArrayList<Integer> insertion(ArrayList<Integer> input_arr)
+    {
+        int temp;
+        int idx=0;
+        for(int i=1; i<input_arr.size(); i++)
+        {
+            idx = i;
+            temp = input_arr.get(i);
+            for(int j=i-1; j>=0; j--)
+            {  
+                if(temp < input_arr.get(j))
+                {
+                    input_arr.set(idx, input_arr.get(j));
+                    idx = j;
+                    if(j==0)
+                        input_arr.set(0, temp);
+                }
+                else
+                {
+                    input_arr.set(idx, temp);
+                    break;
+                }
+            }
         }
         return input_arr;
     }
