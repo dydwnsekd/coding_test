@@ -1,16 +1,19 @@
 import sys
 
-problem_count = int(sys.stdin.readline().split()[0])
+sys.stdin.readline()
+problem_list = list(map(int,sys.stdin.readline().split()))
 
-problem_list = sys.stdin.readline().split()
-
-for i in range(problem_count):
-    cur = int(problem_list[i])
-
+for i in problem_list:
     result = 0
 
-    for j in range(cur+1):
-        if j % 3 == 0 or j % 7 ==0:
-            result += j
+    count3 = int(i/3)
+    count7 = int(i/7)
+
+    for j in range(1, count3+1):
+        result += j*3
+
+    for j in range(1, count7+1):
+        if (j*7) % 3 != 0:
+            result += j*7
 
     print (result)
