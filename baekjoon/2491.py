@@ -2,35 +2,59 @@ import sys
 
 n = int(sys.stdin.readline())
 length = 0
-current_length = 0
+current_length = 1
+equal_length = 0
 pre_value = None
-flag = True     # True = 커지고 있을 때, False = 작아지고 있을 때
+flag = None     # True = 커지고 있을 때, False = 작아지고 있을 때
 
 num_list = list(map(int, sys.stdin.readline().split(" ")))
 
 pre_value = num_list[0]
 
 if n <= 2:
-    print (n)
+    length = n
+
 else:
-    if num_list[0] < num_list[1]:
-        
     for i in num_list[1:]:
-        if flag == True and pre_value <= i:
+        if pre_value < i:
+            if flag != False:
+                current_length += 1
+            else:
+                if current_length > length:
+                    length = current_length
+                    current_length = 2
+                    current_length += equal_length
+                    equal_length = 0
+            flag = True
+
+        elif pre_value == i:
+            if equal_length == 0:
+                equal_length = 1
+            else:
+                equal_length += 1
             current_length += 1
-        elif flag == True and pre_value > i:
-            if current_length > length:
-                length = current_length
-            current_length = 0
-        elif flag == False and pre_value >= i:
-            current_length += 1
+            
         else:
-            if current_length > length:
-                length = current_length
-            current_length = 0
+            if flag != True:
+                flag = False
+                current_length += 1
+            else:
+                if current_length > length:
+                    length = current_length
+                    current_length = 2
+                    current_length += equal_length
+                    equal_length = 0
+            flag = False
+            
         pre_value = i
+    
+        # print ('i', i)
+        # print ('current', current_length)
+        # print ('length', length)
+        # print ('equal', equal_length)
+        # print ('\n')
+
+if current_length > length:
+    length = current_length
 
 print (length)
-    
-        
-
