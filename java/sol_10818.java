@@ -5,16 +5,22 @@ public class sol_10818 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         Scanner in = new Scanner(System.in);
-        ArrayList<Integer> num_list = new ArrayList<Integer>();
-
+        
         int num_count = in.nextInt();
+        int max=-9999999;
+        int min=9999999;
+        int temp;
         
         for (int i=0;i<num_count;i++)
-            num_list.add(in.nextInt());
+        {
+            temp = in.nextInt();
+            if(temp>max)
+                max = temp;
+            if(temp<min)
+                min = temp;
+        }
 
-        Collections.sort(num_list);
-
-        System.out.printf("%d %d", num_list.get(0), num_list.get(num_count-1));
+        System.out.printf("%d %d", min, max);
 
 	}
 
