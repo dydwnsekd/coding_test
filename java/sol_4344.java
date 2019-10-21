@@ -12,11 +12,21 @@ public class sol_4344 {
         {
             int sum = 0;
             m = in.nextInt();
+            int[] num_list = new int[m];
             for(int j=0;j<m;j++)
             {   
-                sum += in.nextInt();
+                int temp = in.nextInt();
+                sum += temp;
+                num_list[j]= temp;
             }
-            System.out.printf("%.3f%%\n", (float)sum/m);
+            float avg = (float)sum/m;
+            int count = 0;
+            for(int j=0;j<m;j++)
+            {
+                if(num_list[j] > avg)
+                    count++;
+            }
+            System.out.printf("%.3f%%\n", (float)count/m * 100);
         }
     }
 }
