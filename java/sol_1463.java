@@ -8,25 +8,29 @@ public class sol_1463 {
 
 	public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        
-        int n = in.nextInt();
-        int count = 0;
-        
-        while(n!=1)
+        int result_list[] = new int[1000001];
+
+        result_list[1] = 0;
+        result_list[2] = 1;
+
+        for(int i=3; i<=1000000;i++)
         {
-            if(n%3==0)
-                n /= 3;
-            else if(n%2==0)
-                n /= 2;
-            else
-                n -= 1;
+            int temp = 1000000;
+            if(i%3==0)
+                if(result_list[i/3] < temp)
+                    temp = result_list[i/3];
+            if(i%2==0)
+                if(result_list[i/2] < temp)
+                    temp = result_list[i/2];
+            if(result_list[i-1] < temp)
+                temp = result_list[i-1];
             
-            System.out.println(n);
-            count++;
+            result_list[i] = temp+1;
         }
 
-        System.out.println(count);
-
+        int n = in.nextInt();
+        System.out.println(result_list[n]);
+        
 	}
 
 }
