@@ -1,9 +1,14 @@
 def solution(n, lost, reserve):
     
+    temp_list = []
+    
     for i in reserve:
         if (i) in lost:
-            lost.pop(lost.index(i))
+            print (i)
+            temp_list.append(lost.pop(lost.index(i)))
             reserve.pop(reserve.index(i))
+            
+        
     for i in reserve:
         if (i-1) in lost:
             lost.pop(lost.index(i-1))
