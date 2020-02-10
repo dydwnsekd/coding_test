@@ -1,3 +1,4 @@
+#체육복
 def solution(n, lost, reserve):
     
     temp_list = []
@@ -6,8 +7,9 @@ def solution(n, lost, reserve):
         if (i) in lost:
             print (i)
             temp_list.append(lost.pop(lost.index(i)))
-            reserve.pop(reserve.index(i))
             
+    for i in temp_list:
+        reserve.pop(reserve.index(i))
         
     for i in reserve:
         if (i-1) in lost:
