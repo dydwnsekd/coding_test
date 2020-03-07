@@ -18,29 +18,17 @@
 
 def solution(citations):
     answer = 0
-    h_high = 0
-    h_low = 0
+    h_count = 0
 
-    citations.sort()
-    start_index = 0
-    end_index = 0
+    len_c = len(citations)
 
-    if len(citations) % 2 == 0:
-        start_index = (len(citations) / 2) - 1
-        end_index = (len(citations) / 2)
-
-    else:
-        start_index = int(len(citations) / 2)
-        end_index = int(len(citations) / 2) + 1
-
-    for i in range(citations[start_index], citations[end_index]):
-        h_high = 0
-        h_low = 0
+    for i in range(len_c):
+        h_count = 0
 
         for j in citations:
             if i >= j:
-                h_high += 1
-            else:
-                h_low += 1
-    
+                h_hcount += 1
+            if i <= h_count <= len_c - i:
+                answer = h_count
+
     return answer
