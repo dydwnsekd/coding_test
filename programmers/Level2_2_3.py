@@ -22,12 +22,12 @@ def solution(citations):
 
     len_c = len(citations)
 
-    for i in range(len_c):
+    for i in range(len_c+1):
         h_count = 0
 
         for j in citations:
-            if i >= j:
-                h_hcount += 1
+            if i <= j:
+                h_count += 1
             if i <= h_count <= len_c - i:
                 answer = h_count
 
