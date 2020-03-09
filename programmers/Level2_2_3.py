@@ -16,6 +16,8 @@
 
 # ※ 공지 - 2019년 2월 28일 테스트케이스가 추가되었습니다.
 
+# [0,1,3,5,6]
+
 def solution(citations):
     answer = 0
     h_count = 0
@@ -28,7 +30,7 @@ def solution(citations):
         for j in citations:
             if i <= j:
                 h_count += 1
-            if i <= h_count <= len_c - i:
-                answer = h_count
+        if len_c - h_count <= i <= h_count:
+            answer = h_count
 
     return answer
