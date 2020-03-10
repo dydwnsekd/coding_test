@@ -31,6 +31,6 @@ def solution(citations):
             if i <= j:
                 h_count += 1
         if len_c - h_count <= i <= h_count:
-            answer = h_count
+            answer = i
 
     return answer
