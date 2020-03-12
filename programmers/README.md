@@ -1,3 +1,6 @@
+# 프로그래머스 코딩테스트 문제 풀이 python을 기본으로 scala를 이용한 풀이
+## https://programmers.co.kr/
+
 * 1주차
     * Level1_1_1.py - 모의고사(완전탐색)
       * https://programmers.co.kr/learn/courses/30/lessons/42840
