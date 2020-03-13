@@ -33,7 +33,12 @@ def solution(name):
             answer += ord(i) - ord('A')
         else:
             answer += ord('Z') - ord(i) + 1
-            
-    answer += len(name) - 1
+
+    # A는 변경하지 않아도 되고 BAZ의 경우 커서를 뒤로 이동해서 한번만 변경하는 경우도 생각해야함
+    # AZAZAA의 경우에는 앞으로 가는게 이득인지 뒤로 돌아가는게 이득인지도 판단해야하기 때문에 추가로 확인 필요        
+    #answer += len(name) - 1
+    
     
     return answer
+
+# AABAB
