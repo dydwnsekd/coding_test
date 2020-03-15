@@ -26,7 +26,16 @@
 
 def solution(name):
 
+    reverse_name = ''.join(reversed(name))
+
     answer = 0
+    first_A_index = None
+    last_A_index = None
+
+    if name in "A":
+        first_A_index = name.index("A")
+        last_A_index = last_A_index("A")
+
 
     for i in name:
         if ord(i) <= ord('N'):
