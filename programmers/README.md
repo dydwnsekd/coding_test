@@ -46,3 +46,30 @@
       * 하나씩 잘라서 int로 형변환이 되는지 확인하여 형변환이 안되는 경우 False로 변경
     * Level1_2_6.py - 서울에서 김서방 찾기
       * Kim이 있는 index 반환
+
+* 3주차
+    * Level1_3_1.py
+    * Level1_3_2.py
+ 
+ * 4주차
+    * Level1_4_1.py
+    * Level1_4_2.py
+    * Level1_4_3.py
+    * Level1_4_4.py
+    * Level1_4_5.py
+    * Level1_4_6.py
+    * Level1_4_7.py
+    * Level1_4_8.py
+    * Level1_4_9.py
+ 
+ * 5주차
+    * Level1_5_1.py
+    * Level1_5_2.py
+    * Level1_5_3.py
+    * Level1_5_4.py
+    * Level1_5_5.py
+    * Level1_5_6.py
+    * Level1_5_7.py
+    * Level1_5_8.py
+
+
