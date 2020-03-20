@@ -48,11 +48,13 @@
       * Kim이 있는 index 반환
 
 * 3주차
-    * Level1_3_1.py
-    * Level1_3_2.py
+    * Level1_3_1.py - 수박수박수박수박수박수?
+      * https://programmers.co.kr/learn/courses/30/lessons/12922
+    * Level1_3_2.py - 문자열을 정수로 바꾸기
+      * https://programmers.co.kr/learn/courses/30/lessons/12925
  
  * 4주차
-    * Level1_4_1.py
+    * Level1_4_1.py - 시저 암호
     * Level1_4_2.py
     * Level1_4_3.py
     * Level1_4_4.py
