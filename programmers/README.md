@@ -55,14 +55,23 @@
  
  * 4주차
     * Level1_4_1.py - 시저 암호
-    * Level1_4_2.py
-    * Level1_4_3.py
-    * Level1_4_4.py
-    * Level1_4_5.py
-    * Level1_4_6.py
-    * Level1_4_7.py
-    * Level1_4_8.py
-    * Level1_4_9.py
+      * https://programmers.co.kr/learn/courses/30/lessons/12926
+    * Level1_4_2.py - 약수의 합
+      * https://programmers.co.kr/learn/courses/30/lessons/12928
+    * Level1_4_3.py - 이상한 문자 만들기
+      * https://programmers.co.kr/learn/courses/30/lessons/12930
+    * Level1_4_4.py - 자릿수 더하기
+      * https://programmers.co.kr/learn/courses/30/lessons/12931
+    * Level1_4_5.py - 자연수 뒤집어 배열로 만들기
+      * https://programmers.co.kr/learn/courses/30/lessons/12932
+    * Level1_4_6.py - 정수 내림차순으로 배치하기
+      * https://programmers.co.kr/learn/courses/30/lessons/12933
+    * Level1_4_7.py - 정수 제곱근 판별
+      * https://programmers.co.kr/learn/courses/30/lessons/12934
+    * Level1_4_8.py - 제일 작은 수 제거하기
+      * https://programmers.co.kr/learn/courses/30/lessons/12935
+    * Level1_4_9.py - 짝수와 홀수
+      * https://programmers.co.kr/learn/courses/30/lessons/12937
  
  * 5주차
     * Level1_5_1.py
