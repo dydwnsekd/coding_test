@@ -74,13 +74,21 @@
       * https://programmers.co.kr/learn/courses/30/lessons/12937
  
  * 5주차
-    * Level1_5_1.py
-    * Level1_5_2.py
-    * Level1_5_3.py
-    * Level1_5_4.py
-    * Level1_5_5.py
-    * Level1_5_6.py
-    * Level1_5_7.py
-    * Level1_5_8.py
+    * Level1_5_1.py - 최대공약수와 최소공배수
+      * https://programmers.co.kr/learn/courses/30/lessons/12940
+    * Level1_5_2.py - 콜라츠 추측
+      * https://programmers.co.kr/learn/courses/30/lessons/12943
+    * Level1_5_3.py - 평균 구하기
+      * https://programmers.co.kr/learn/courses/30/lessons/12944
+    * Level1_5_4.py - 하샤드 수
+      * https://programmers.co.kr/learn/courses/30/lessons/12947
+    * Level1_5_5.py - 핸드폰 번호 가리기
+      * https://programmers.co.kr/learn/courses/30/lessons/12948
+    * Level1_5_6.py - 행렬의 덧셈
+      * https://programmers.co.kr/learn/courses/30/lessons/12950
+    * Level1_5_7.py - x만큼 간격이 있는 n개의 숫자
+      * https://programmers.co.kr/learn/courses/30/lessons/12954
+    * Level1_5_8.py - 직사각형 별찍기
+      * https://programmers.co.kr/learn/courses/30/lessons/12969
 
 
