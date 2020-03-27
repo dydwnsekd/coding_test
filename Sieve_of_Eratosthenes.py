@@ -20,7 +20,9 @@ def prime_list_custom(n):
     prime_flag[0] = False
     prime_flag[1] = False
 
-    for i in range(2, n+1):
+    m = int(n ** 0.5)
+
+    for i in range(2, m+1):
         if prime_flag[i]:
             for j in range(n):
                 if i*j > n:
