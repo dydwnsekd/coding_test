@@ -24,9 +24,7 @@ def prime_list_custom(n):
 
     for i in range(2, m+1):
         if prime_flag[i]:
-            for j in range(n):
-                if i*j > n:
-                    break
+            for j in range(i, n, i):
                 prime_flag[i*j] = False
             prime_num_list.append(i)
     
