@@ -96,13 +96,21 @@
 * Level 2
 * 1주차
     * 01.쇠막대기
+      * https://programmers.co.kr/learn/courses/30/lessons/42585
     * 02.프린터
+      * https://programmers.co.kr/learn/courses/30/lessons/42587
     * 03.기능개발
+      * https://programmers.co.kr/learn/courses/30/lessons/42586
     * 04.다리를 지나는 트럭
+      * https://programmers.co.kr/learn/courses/30/lessons/42583
     * 05.탑
+      * https://programmers.co.kr/learn/courses/30/lessons/42588
     * 06.멀쩡한 사각형
+      * https://programmers.co.kr/learn/courses/30/lessons/62048
     * 07.가장 큰 수
+      * https://programmers.co.kr/learn/courses/30/lessons/42746
     * 08.소수 찾기
+      * https://programmers.co.kr/learn/courses/30/lessons/42839
 * 2주차
     * 09.큰 수 만들기
     * 10.조이스틱
