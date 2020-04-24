@@ -108,8 +108,9 @@ Java로 DSL을 구현하는 경우 아래와 같은 장점을 얻을 수 있다
 
 ```
 # scala
-def times(i: Int)(f: => Unit): Unit = { f
-    if ( i > 1 times(i - 1)(f))
+def times(i: Int)(f: => Unit): Unit = { 
+    f
+    if ( i > 1 ) times(i - 1)(f)
 }
 ```
 
@@ -126,13 +127,11 @@ Java에 비해 DSL 친화적이지만 아래와 같은 단점을 가짐
 
 ### 외부 DSL
 호스팅 언어와는 독립적으로 자체의 문법을 가지는 DSL ex)XML, Makefile  
-외부 DSL이 제공하는 무한한 유연성이 장점으로 언어를 선택할때 필요한 특성을 제공하는 언어를 선택할 수 있다는 장점
+외부 DSL이 제공하는 무한한 유연성이 장점으로 언어를 선택할때 필요한 특성을 제공하는 언어를 선택할 수 있다는 장점  
+
 
 ## 10.2 최신 자바 API의 작은 DSL
-Java의 새로운 기능의 장점을 적용한 첫 API는 네이티브 Java 자신
-
-#### 네이티브 Java란 ?
-Java 7 까지의 version
+Java의 새로운 기능의 장점을 적용한 첫 API는 네이티브 Java 자신 (Java 1.7까지의 버전)
 
 ## 10.2.1 스트림 API는 컬렉션을 조작하는 DSL
 Stream은 컬렉션 항목을 필터, 정렬, 변환, 그룹화, 조작할 수 있어 작은 DSL로 볼 수 있음  
@@ -152,7 +151,7 @@ while (errorCount < 40 && line != null) {
 }
 ```
 
-코드에서 의무적으로 만들어져야 하는 코드와 수집하는 코드가 필요
+코드에서 의무적으로 만들어져야 하는 코드와 수집하는 코드가 필요  
 의무적 코드
 - FileReader가 만들어짐
 - 파일이 종료되었는지를 확인하는 while 루프의 두번째 조건 if(line.startsWith("Error"))
@@ -175,3 +174,4 @@ Stream을 통해 데이터 리스트를 조작하는 DSL형식 구현
 
 ## 10.2.2 데이터를 수집하는 DSL인 Collectors
 Collector 인터페이스는 데이터 수집을 수행하는 DSL라고 할 수 있음
+
