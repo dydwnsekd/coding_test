@@ -264,9 +264,9 @@ Order order = forCustomer("BigBank", buy(t -> t.quantity(80)
                                             .at(125.00)));
 ```
 
-### 10.3.5 DSL에서 메서드 참조 사용하기
+## 10.3.5 DSL에서 메서드 참조 사용하기
 
-#### 메서드 참조란
+### 메서드 참조란
 메소드 참조(Method Reference)는 말 그대로 메소드를 참조해서 매개 변수의 정보 및 리턴 타입을 알아내어, 람다식에서 불필요한 매개 변수를 제거하는 것
 메소드 참조는 정적 또는 인스턴스 메소드를 참조할 수 있고, 생성자 참조도 가능
 
@@ -284,3 +284,26 @@ Order order = forCustomer("BigBank", buy(t -> t.quantity(80)
 | |정적 메서드를 최소화하거나 없앨 수 있다.|람다 표현식으로 인한 문법적 잡음이 DSL에 존재한다.|
 | |람다 중첩으로 도메인 객체 계층을 반영한다.| |
 | |빌더의 접착 코드가 없다.|
+
+## 10.4 실생활의 자바 8 DSL
+자바에서 제공하는 라이브러리들 중 DSL 형식을 지원하는 것들이 있다.  
+SQL 매필도구, 동작 주도 개발(BDD) 프레임워크 엔터프라이즈 통합패턴을 구현하는 도구 세가지에 대해 알아보자.
+
+### 10.4.1 jOOQ
+Java에서 제공하는 기본적인 것으로 sql 형식과 같이 사용하게 해준다.  
+SQL코드와 jOOQ 코드를 비교해서 살펴보자
+
+SQL코드
+```
+SELECT * FROM BOOK
+WHERE BOOK.PUBLISHED_IN = 2016
+ORDER BY BOOK, TITLE
+```
+
+jOOQ Java 코드
+```
+create.selectFrom(BOOK)
+      .where BOOK.PUBLISHED_IN.eq(2016))
+      .orderBy(BOOK, TITLE)
+```
+
