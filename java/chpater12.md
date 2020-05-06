@@ -22,4 +22,103 @@ Java 1.1에서 새로운 Java.util.Calendar class 추가
 java 8에서 java.time 패키지로 추가
 
 ## 12.1 LocalDate, LocalTime, Instant, Duration, Period
+java.time 패키지에는 LocalDate, LocalTime, LocalDateTime, Instant, Duration, Period 클래스를 제공  
+
+### 12.1.1 LocalDate와 LocalTime 사용
+LocalDate는 어떤 시간대 정보도 가지지 않음
+
+LocalDate를 사용하는 간단한 예
+```
+LocalDate date = LocalDate.of(2017, 9, 21); // 2017-09-21 날짜 생성
+int year = date.getYear();
+Month month = date.getMonth();
+int day = date.getDayOfMonth();
+DayOfWeek dow = date.getDayOfWeek();
+int len = date.lengthOfMonth();
+boolean leap = date.isLeapYear();           // 윤년 여부 판단
+
+LocalDate today = LocalDate.now();          // 현재 날짜 생성
+
+System.out.println(date);
+System.out.println(today);
+```
+
+get 메서드로 TemporalField를 전당해 정보를 얻는 방법  
+TemporalField는 시간 관련 객체에서 어떤 필드의 값에 접근할지 정의하는 인터페이스  
+열거자 ChronoField는 TemporalField 인터페이스를 정의하므로 ChronoField의 열거자를 이용해 아래와 같이 사용 가능
+```
+int year = date.get(ChronoField.YEAR);
+int month = date.get(ChronoField.MONTH_OF_YEAR);
+int day = date.get(ChronoField.DAY_OF_MONTH);
+
+System.out.println(year);
+System.out.println(month);
+System.out.println(day);
+```
+
+날짜가 아닌 시간에 대한 것은 LocalTime를 이용해 사용  
+```
+LocalTime time = LocalTime.of(13,45, 20);
+int hour = time.getHour();
+int minute = time.getMinute();
+int second = time.getSecond();
+
+System.out.println(hour);
+System.out.println(minute);
+System.out.println(second);
+```
+
+문자열로 LocalDate와 LocalTime 만들기  
+parse를 이용해 문자열을 date, time로 변경
+```
+LocalDate date = LocalDate.parse("2017-09-21");
+LocalTime time = LocalTime.parse("13:45:20");
+
+System.out.println(date);
+System.out.println(time);
+```
+
+### 12.1.2 날짜와 시간 조합
+날짜와 시간을 모두 표현하는 LocalDateTime  
+LocalDateTime는 위의 예제에서 본 Date와 Time를 하나의 클래스로 나타냄
+```
+LocalDate date = LocalDate.parse("2017-09-21");
+LocalTime time = LocalTime.parse("13:45:20");
+
+LocalDateTime dt1 = LocalDateTime.of(2017, Month.SEPTEMBER, 21, 13, 45, 20);
+LocalDateTime dt2 = LocalDateTime.of(date, time);
+LocalDateTime dt3 = date.atTime(13,45,20);
+LocalDateTime dt4 = date.atTime(time);
+LocalDateTime dt5 = time.atDate(date);
+
+System.out.println(dt1);
+System.out.println(dt2);
+System.out.println(dt3);
+System.out.println(dt4);
+System.out.println(dt5);
+
+LocalDate date1 = dt1.toLocalDate();
+LocalTime time1 = dt1.toLocalTime();
+
+System.out.println(date1);
+System.out.println(time1);
+```
+
+### 12.1.3 Instant 클래스 : 기계와 날짜와 시간
+기계의 관점에서의 시간은 연속된 시간에서 특정 지점을 기준으로 하나의 큰 수로 표현하는 것이 자연스러움  
+java.time.Instant 클래스를 이용해 유닉스 시간(1970년 1월 1일 0시 0분 0초)로 표현  
+Instant 클래스를 이용해 나노초(10억분의 1초)까지 표현  
+모두 같은 시간의 표현하는 예
+```
+Instant t1 = Instant.ofEpochSecond(3);
+Instant t2 = Instant.ofEpochSecond(3, 0);
+Instant t3 = Instant.ofEpochSecond(2, 1_000_000_000);
+Instant t4 = Instant.ofEpochSecond(4, -1_000_000_000);
+
+System.out.println(t1);
+System.out.println(t2);
+System.out.println(t3);
+System.out.println(t4);
+```
+
 
