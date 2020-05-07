@@ -36,11 +36,7 @@ int day = date.getDayOfMonth();
 DayOfWeek dow = date.getDayOfWeek();
 int len = date.lengthOfMonth();
 boolean leap = date.isLeapYear();           // 윤년 여부 판단
-
 LocalDate today = LocalDate.now();          // 현재 날짜 생성
-
-System.out.println(date);
-System.out.println(today);
 ```
 
 get 메서드로 TemporalField를 전당해 정보를 얻는 방법  
@@ -50,10 +46,6 @@ TemporalField는 시간 관련 객체에서 어떤 필드의 값에 접근할지
 int year = date.get(ChronoField.YEAR);
 int month = date.get(ChronoField.MONTH_OF_YEAR);
 int day = date.get(ChronoField.DAY_OF_MONTH);
-
-System.out.println(year);
-System.out.println(month);
-System.out.println(day);
 ```
 
 날짜가 아닌 시간에 대한 것은 LocalTime를 이용해 사용  
@@ -62,10 +54,6 @@ LocalTime time = LocalTime.of(13,45, 20);
 int hour = time.getHour();
 int minute = time.getMinute();
 int second = time.getSecond();
-
-System.out.println(hour);
-System.out.println(minute);
-System.out.println(second);
 ```
 
 문자열로 LocalDate와 LocalTime 만들기  
@@ -73,9 +61,6 @@ parse를 이용해 문자열을 date, time로 변경
 ```
 LocalDate date = LocalDate.parse("2017-09-21");
 LocalTime time = LocalTime.parse("13:45:20");
-
-System.out.println(date);
-System.out.println(time);
 ```
 
 ### 12.1.2 날짜와 시간 조합
@@ -91,17 +76,8 @@ LocalDateTime dt3 = date.atTime(13,45,20);
 LocalDateTime dt4 = date.atTime(time);
 LocalDateTime dt5 = time.atDate(date);
 
-System.out.println(dt1);
-System.out.println(dt2);
-System.out.println(dt3);
-System.out.println(dt4);
-System.out.println(dt5);
-
 LocalDate date1 = dt1.toLocalDate();
 LocalTime time1 = dt1.toLocalTime();
-
-System.out.println(date1);
-System.out.println(time1);
 ```
 
 ### 12.1.3 Instant 클래스 : 기계와 날짜와 시간
@@ -114,11 +90,84 @@ Instant t1 = Instant.ofEpochSecond(3);
 Instant t2 = Instant.ofEpochSecond(3, 0);
 Instant t3 = Instant.ofEpochSecond(2, 1_000_000_000);
 Instant t4 = Instant.ofEpochSecond(4, -1_000_000_000);
+```
+Instant의 경우 기계 친화적 시간을 제공하여 사람이 읽기 편한 시간정보는 제공하지 않음
+```
+int day = Instant.now().get(ChronoField.DAY_OF_MONTH);
+```
+위의 코드는 UnsupportedTemporalTypeException 발생
 
-System.out.println(t1);
-System.out.println(t2);
-System.out.println(t3);
-System.out.println(t4);
+### 12.1.4 Duration과 Period 정의
+Duration과 Period를 이용해 두 시간 사이의 차이를 알 수 있음  
+Duration은 초 / 나노초
+Period는 연 / 월 / 일
+```
+LocalDate time1 = LocalDate.of(2012, 10, 24);
+LocalDate time2 = LocalDate.of(2013,12,20);
+
+Instant t1 = Instant.ofEpochSecond(3);
+Instant t2 = Instant.ofEpochSecond(5, 3);
+
+Duration d1 = Duration.between(t1, t2);
+Period d2 = Period.between(time1, time2);
+```
+
+맨 처음 기존 자바의 날짜와 시간 관련 API들은 모두 가변 클래스라 유지보수가 힘들다는 단점이 존재한다고 했다.  
+그 단점들을 보완하여 현재까지 살펴본 클래스들은 모두 불변 클래스라는 특징을 가지고 있다.  
+그렇다면 만들어진 날짜나 시간에 대한 연산이 필요한 경우 어떻게 해야할까
+
+## 12.2 날짜 조정, 파싱, 포매팅
+만들어진 날짜 / 시간을 조정하기 위해 withAttribute 메서드를 이용하는데 아래의 예를 살펴보자  
+해당 결과는 기존의 객체는 변경하지 않고 새로운 객체를 반환한다.
+
+절대적 변경 방법
+```
+LocalDate date1 = LocalDate.of(2014,3,18);
+LocalDate date2 = date1.withYear(2011);
+LocalDate date3 = date2.withDayOfMonth(25);
+LocalDate date4 = date3.with(ChronoField.MONTH_OF_YEAR, 9);
+```
+
+상대적 변경 방법
+```
+LocalDate date5 = LocalDate.of(2014,3,18);
+LocalDate date6 = date5.plusWeeks(1);
+LocalDate date7 = date6.minusYears(3);
+LocalDate date8 = date7.plus(6, ChronoUnit.MONTHS);
+```
+
+### 12.2.1 TemporalAdjusters 사용하기
+요일에 대한 내용이나 해당 월의 첫날, 마지막 날 등 특별한 날에 대한 조정이 필요할 때 사용  
+TemporalAdjuster을 이용하여 날짜 조정 가능
+```
+LocalDate date1 = LocalDate.of(2014, 3, 18);
+LocalDate date2 = date1.with(nextOrSame(DayOfWeek.SUNDAY));
+LocalDate date3 = date2.with(lastDayOfMonth());
+```
+
+### 12.2.2 날짜와 시간 객체 출력과 파싱
+날짜와 시간 관련 포매팅과 파싱은 꼭 필요한 작업  
+java.time.format가 새로 추가되어 해당 작업을 강화  
+DateTimeFormatter을 이용해 포매터를 정의할 수 있음  
+DateTimeFormatter에 정의된 BASIC_ISO_DATE와 ISO_LOCAL_DATE를 통해 날짜난 시간을 특정 형식의 문자열로 변경 (format)
+```
+LocalDate date1 = LocalDate.of(2014, 3, 18);
+String s1 = date1.format(DateTimeFormatter.BASIC_ISO_DATE);
+String s2 = date1.format(DateTimeFormatter.ISO_LOCAL_DATE);
+```
+
+문자열을 날짜로 변환 (parse)
+```
+LocalDate date2 = LocalDate.parse("20140318", DateTimeFormatter.BASIC_ISO_DATE);
+LocalDate date3 = LocalDate.parse("2014-03-20", DateTimeFormatter.ISO_LOCAL_DATE);
+```
+
+DateTimeFormat custom
+```
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+LocalDate date1 = LocalDate.of(2014, 3, 18);
+String formattedDate = date1.format(formatter);
+LocalDate date2 = LocalDate.parse(formattedDate, formatter);
 ```
 
 
