@@ -1,6 +1,6 @@
 # 새로운 날짜와 시간 API
 Java 1.0에서의 날짜 시간 클래스
-Java.util.Data
+java.util.Date
 ```
 Date date = new Date(117, 8, 21);
 
@@ -8,18 +8,18 @@ Date date = new Date(117, 8, 21);
 Thu Sep 21 00:00:00 CET 2017
 ```
 
-Data class의 문제점
+Date class의 문제점
 - 직관적이지 않음
 - Date 클래스의 toString로 반환되는 문자열을 추가로 활용하기 어려움  
 - CET(중앙 유럽 시간)으로 설정되어 있어 추가적인 변환작업이 필요
 
-Java 1.1에서 새로운 Java.util.Calendar class 추가
+Java 1.1에서 새로운 java.util.Calendar class 추가
 - 달의 index가 0부터 시작
 - Date와 Calendar 두 가지 클래스가 통일되지 않아 개발자들간의 문제 발생(DateFormat 같은 경우 Date class에만 존재)
 - Date와 Calendar 모두 가변 클래스로 유지보수가 어려움
 
 위와 같은 문제점으로 Joda-Time와 같은 third-party 날짜/시간 라이브러리 사용  
-java 8에서 java.time 패키지로 추가
+Joda-time의 많은 기능을 java 8에서 java.time 패키지로 추가
 
 ## 12.1 LocalDate, LocalTime, Instant, Duration, Period
 java.time 패키지에는 LocalDate, LocalTime, LocalDateTime, Instant, Duration, Period 클래스를 제공  
@@ -39,7 +39,7 @@ boolean leap = date.isLeapYear();           // 윤년 여부 판단
 LocalDate today = LocalDate.now();          // 현재 날짜 생성
 ```
 
-get 메서드로 TemporalField를 전당해 정보를 얻는 방법  
+get 메서드로 TemporalField를 전달해 정보를 얻는 방법  
 TemporalField는 시간 관련 객체에서 어떤 필드의 값에 접근할지 정의하는 인터페이스  
 열거자 ChronoField는 TemporalField 인터페이스를 정의하므로 ChronoField의 열거자를 이용해 아래와 같이 사용 가능
 ```
@@ -50,7 +50,7 @@ int day = date.get(ChronoField.DAY_OF_MONTH);
 
 날짜가 아닌 시간에 대한 것은 LocalTime를 이용해 사용  
 ```
-LocalTime time = LocalTime.of(13,45, 20);
+LocalTime time = LocalTime.of(13, 45, 20);
 int hour = time.getHour();
 int minute = time.getMinute();
 int second = time.getSecond();
@@ -99,7 +99,7 @@ int day = Instant.now().get(ChronoField.DAY_OF_MONTH);
 
 ### 12.1.4 Duration과 Period 정의
 Duration과 Period를 이용해 두 시간 사이의 차이를 알 수 있음  
-Duration은 초 / 나노초
+Duration은 초 / 나노초  
 Period는 연 / 월 / 일
 ```
 LocalDate time1 = LocalDate.of(2012, 10, 24);
@@ -171,3 +171,4 @@ LocalDate date2 = LocalDate.parse(formattedDate, formatter);
 ```
 
 
+타임존 관리방법(실무에서)
