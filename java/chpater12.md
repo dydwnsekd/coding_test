@@ -199,5 +199,18 @@ Instant instant = Instant.now();
 ZonedDateTime zdt3 = instant.atZone(romeZone);
 ```
 
+### 12.3.2 UTC/Greenwich 기준의 고정 오프셋
+UTC/GMT를 기준으로 시간대를 표현하는 방법에 대해서 알아보자  
+UTC의 기준인 런던을 기준으로 뉴욕은 5시간 느리기에 뉴욕의 시간은 UTC-5로 표현할 수 있다  
+코드를 통해 살펴보면 아래와 같다.
+```java
+ZoneOffset newYorkOffset = ZoneOffset.of("-5:00")
+```
+위와 같이 사용하는 것은 권장하는 방법은 아닌데 그 이유는 썸머타임을 사용하는 외국의 경우 고정적인 오프셋 적용이 힘들어 많이 사용하는 방법은 아니다
+
+### 12.3.3 대안 캘린더 시스템 사용하기
+기본적으로 사용하는 캘린더 시스템이 아닌 다른 캘린더 시스템도 있는데  
+ThaiBuddhistDate, MinguoDate, JappneseDate, HijraDate  
+위의 4개 클래스가 그런 클래스이다.
 
 타임존 관리방법(실무에서)
