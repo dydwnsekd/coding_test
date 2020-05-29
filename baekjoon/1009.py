@@ -12,9 +12,12 @@ for i in range(n):
 
 
 for i in range(n):
-    a,b = map(str, input().rstrip().split())
+    a,b = map(int, input().rstrip().split())
+
+    r = '1'
+    print (r[-1])
 
     for j in range(b):
-        temp = int(a[0]) * int(a[0])
-    
-    print(a[0])
+        r = str(int(r[-1]) * a)
+
+    print (r[-1])
