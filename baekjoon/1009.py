@@ -12,18 +12,22 @@ for i in range(n):
 
 
 for i in range(n):
-    r = 1
-    count = 2
+    count = 1
     
     a,b = map(int, input().rstrip().split())
+    a = a % 10
 
-    for j in range(b):
+    for j in range(100):
         count += 1
-        r = (r * a) % 10
-        if (r==a):
-            b = b % count
-            print ((r**b) % 10)
+        r = (a * a) % 10
+        if (r == 1):
             break
-        elif (r==0):
-            print (0)
-            break
+
+    b = b % count
+
+    result = ((a ** b) % 10)
+
+    if result == 0:
+        print (0)
+    else:
+        print (result)
