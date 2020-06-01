@@ -16,18 +16,21 @@ for i in range(n):
     
     a,b = map(int, input().rstrip().split())
     a = a % 10
+    r = a
 
-    for j in range(100):
+    while(True):
         count += 1
-        r = (a * a) % 10
-        if (r == 1):
+        r = (r * a) % 10
+        if (r == a):
             break
 
-    b = b % count
+    b = b % (count-1)
 
     result = ((a ** b) % 10)
 
-    if result == 0:
-        print (0)
+    if a == 6:
+        print (6)
+    elif result == 0:
+        print (10)
     else:
         print (result)
