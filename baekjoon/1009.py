@@ -3,16 +3,9 @@
 import sys
 
 n = int(sys.stdin.readline())
-'''
-for i in range(n):
-    a,b = map(int, input().rstrip().split())
-    b = b % 10
-    print (a**b % 10)
-'''
-
 
 for i in range(n):
-    count = 1
+    count = 0
     
     a,b = map(int, input().rstrip().split())
     a = a % 10
@@ -23,13 +16,13 @@ for i in range(n):
         r = (r * a) % 10
         if (r == a):
             break
-
-    b = b % (count-1)
+    
+    b = b % count
 
     result = ((a ** b) % 10)
-
-    if a == 6:
-        print (6)
+    
+    if (a==6 or a==5):
+        print (a)
     elif result == 0:
         print (10)
     else:
