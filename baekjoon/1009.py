@@ -5,25 +5,22 @@ import sys
 n = int(sys.stdin.readline())
 
 for i in range(n):
-    count = 0
-    
     a,b = map(int, input().rstrip().split())
     a = a % 10
-    r = a
+    r = 1
+    num_list = []
 
     while(True):
-        count += 1
         r = (r * a) % 10
-        if (r == a):
+        if (r in num_list):
             break
+        else:
+            num_list.append(r)
     
-    b = b % count
-
-    result = ((a ** b) % 10)
+    b -= 1
+    b %= len(num_list)
     
-    if (a==6 or a==5):
-        print (a)
-    elif result == 0:
+    if (num_list[b] == 0):
         print (10)
     else:
-        print (result)
+        print(num_list[b])
