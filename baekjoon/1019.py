@@ -10,6 +10,7 @@ for i in range(1, n+1):
     for j in str_num:
         result_list[int(j)] += 1
 
+#https://mygumi.tistory.com/180
 while(True):
     temp = n%10
     n = int(n/10)
