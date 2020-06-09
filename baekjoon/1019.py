@@ -11,6 +11,7 @@ for i in range(1, n+1):
         result_list[int(j)] += 1
 
 #https://mygumi.tistory.com/180
+#https://www.slideshare.net/Baekjoon/baekjoon-online-judge-1019
 while(True):
     temp = n%10
     n = int(n/10)
