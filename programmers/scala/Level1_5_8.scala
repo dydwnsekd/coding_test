@@ -7,12 +7,6 @@ object Solution {
         val n = readLine().split(" ")
         val (a, b) = (n(0).toInt, n(1).toInt)
         for ( i <- 0 until b)
-        {
-            for ( j <- 0 until  a)
-            {
-                print("*")    
-            }
-            println()
-        }
+            print("*" * a)
     }   
 }
