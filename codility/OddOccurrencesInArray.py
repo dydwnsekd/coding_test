@@ -23,3 +23,13 @@ def solution(A):
             return_value = temp
             break
     return return_value
+
+# https://app.codility.com/demo/results/training63NDEX-CW7/
+# 정확도, 시간초과 문제
+
+def solution(A):
+    B = set(A)
+    
+    for i in B:
+        if A.count(i) == 1:
+            return i
