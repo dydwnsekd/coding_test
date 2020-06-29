@@ -5,6 +5,6 @@ object Solution {
         if (s.length() % 2 == 0)
             return s.substring((s.length()/2)-1, s.length() / 2 + 1)
         else
-            return s.substring(int(s.length() / 2), int(s.length() / 2) + 1)
+            return s.substring((s.length()-1) / 2, (s.length()+1) / 2)
     }
 }
