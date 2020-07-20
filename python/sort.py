@@ -29,3 +29,24 @@ class sort(object):
                 else:
                     break
         return sort_list
+
+    def quick(self, sort_list):
+        if len(sort_list) == 1:
+            return sort_list
+        
+        pivot = sort_list[0]
+        left = 1
+        right = len(sort_list)-1
+
+        while (left < right):
+            if sort_list[left] < pivot:
+                left += 1
+                continue
+
+            if sort_list[right] > pivot:
+                right -= 1
+                continue
+
+            sort_list[left], sort_list[right] = sort_list[right], sort_list[left]
+
+        sort_list[0], sort_list[left] = sort_list[left], sort_list[0]
