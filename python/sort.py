@@ -30,13 +30,12 @@ class sort(object):
                     break
         return sort_list
 
-    def quick(self, sort_list):
+    def quick_partition(self, sort_list, left, right):
         if len(sort_list) == 1:
             return sort_list
         
-        pivot = sort_list[0]
-        left = 1
-        right = len(sort_list)-1
+        pivot = sort_list[left]
+        print(pivot)
 
         while (left < right):
             if sort_list[left] < pivot:
@@ -46,7 +45,19 @@ class sort(object):
             if sort_list[right] > pivot:
                 right -= 1
                 continue
-
+            
             sort_list[left], sort_list[right] = sort_list[right], sort_list[left]
 
-        sort_list[0], sort_list[left] = sort_list[left], sort_list[0]
+        sort_list[0], sort_list[left-1] = sort_list[left-1], sort_list[0]
+        pivot_index = left
+
+        return sort_list, pivot_index
+    
+    def quick(self, sort_list, left, right):
+        if left < right:
+            sort_list, pivot_index = self.quick_partition(sort_list, left, right)
+
+            self.quick(sort_list, 0, pivot_index-1)
+            self.quick(sort_list, pivot_index+1, right)
+
+        return sort_list
