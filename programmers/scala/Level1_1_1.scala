@@ -1,3 +1,5 @@
+import scala.collection.mutable.ListBuffer
+
 object Solution {
     def solution(answers: Vector[Int]): Vector[Int] = {
         
@@ -21,7 +23,13 @@ object Solution {
         }
         
         val max = result.max
-        val result_index = List(result.indexOf(max))
+        var result_index:ListBuffer[Int] = ListBuffer()
+
+        for (i <- 0 until 3)
+        {
+          if (result(i) == max)
+            result_index = result_index += i+1
+        }
         
         return result_index.toVector;
     }
