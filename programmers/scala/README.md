@@ -29,3 +29,8 @@ List = List += a
 ```scala
 List.slice(start_index, end_index)
 ```
+
+배열 안에 값이 포함되어 있는지 확인 여부
+```scala
+List.contains(value)
+```
