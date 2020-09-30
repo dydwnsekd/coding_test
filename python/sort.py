@@ -35,7 +35,6 @@ class sort(object):
             return sort_list
         
         pivot = sort_list[left]
-        print(pivot)
 
         while (left < right):
             if sort_list[left] < pivot:
