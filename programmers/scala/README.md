@@ -45,6 +45,47 @@ capitalizeAll("rarity", "applejack")
 // output ArrayBuffer(Rarity, Applejack)
 ```
 
+## 클래스
+class 키워드로 선언 class안에는 필드와 메소드를 선언할 수 있음
+```scala
+class Calculator {
+    val  brand: String = "HP"
+    def add(m: Int, n: Int): Int = m + n
+}
+
+val calc = new Calculator
+
+calc.add(1,2)
+// output 3
+
+calc.brand
+// output "HP"
+```
+
+### 상속
+extends keyword를 이용해 상속
+```scala
+class ScientificCalculator(brand: String) extends Calculator(brand) {
+    def long(m: Double, base: Double) = math.log(m) / math.log(base)
+}
+```
+
+### 추상 클래스(abstract class)
+메소드 정의는 있지만 구현은 없는 클래스  
+추상 클래스를 상속한 하위 클래스에서 메소드를 구현하영 사용하며 추상 클래스는 인스턴스를 만들 수 없음
+
+```scala
+// 추상클래스
+abstract class Shape {
+    def getArea(): Int //선언만 존재
+}
+
+// 상속받아 구현
+class Circle(r: Int) extends Shape {
+    def getArea():Int = { r * r * 3 }
+}
+```
+
 Scala는 기본적으로 immutable로 불변의 객체를 가짐  
 List를 mutable로 List를 만들기 위해서는  
 
