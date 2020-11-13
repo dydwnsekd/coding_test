@@ -136,6 +136,28 @@ bar()
 //output 0
 ```
 
+## 패턴매칭
+값 또는 조건물을 사용해 매칭 가능
+```scala
+val times = 1
+times match {
+    case 1 => "one"
+    case 2 => "two"
+    case _ => "some other number"
+    // 여기서 사용하는 _는 else와 같은 의미로 사용
+}
+
+times match {
+    case i if i == 1 => "one"
+    case i if i == 2 => "two"
+    case _ => "some other number"
+}
+```
+
+## 예외처리
+java에서와 같이 try-catch-finally와 같이 사용
+
+## 컬렉션
 List 계열의 특정 index 값에 접근하는 경우 ()사용 python은 []로 헷갈리지 않도록 조심  
 immutable로 되어 있는 List의 값 update 방법  
 ```scala
