@@ -95,6 +95,47 @@ ListBuffer, ArrayBuffer 등이 있음
 import scala.collection.mutable.*
 ```
 
+## 트레잇(Traits, 특성)
+다른 클래스가 확장(상속)하거나 섞어 넣을 수 있는 필드와 동작의 모음
+```scala
+trait Car {
+    val brand: String
+}
+
+trait Shiny {
+    val shineRefraction: Int
+}
+
+class BMW extends Car {
+    val brand = "BMW"
+}
+
+// 여러 trait 사용 class with keyword 사용
+class BMW extends Car with Shiny {
+    val brand = "BMW"
+    val shineRefraction = 12
+}
+```
+
+### 추상클래스와 트래잇  
+- 둘은 비슷한 역할을 수행
+- 추상클래스는 하나만 상속할 수 있지만 tarit는 여러 가지를 받아 사용할 수 있어 확장을 위해서는 trait를 사용하는것이 좋음
+- 생성자 매개변수가 필요하다면 추상클래스를 사용 trait은 생성자를 허용하지 않음
+
+
+## apply 메소드
+객체 인스턴스를 호출했을 때 대신해서 호출되는 메소드  
+bar만 호출해도 apply에 있는 0이 출력
+```scala
+class Bar {
+    def apply() = 0
+}
+
+val bar = new Bar
+bar()
+//output 0
+```
+
 List 계열의 특정 index 값에 접근하는 경우 ()사용 python은 []로 헷갈리지 않도록 조심  
 immutable로 되어 있는 List의 값 update 방법  
 ```scala
