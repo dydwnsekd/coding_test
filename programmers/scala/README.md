@@ -158,6 +158,12 @@ times match {
 java에서와 같이 try-catch-finally와 같이 사용
 
 ## 컬렉션
+
+## List(리스트)
+List()로 사용
+```scala
+val numbers = List(1,2,3,4)
+```
 List 계열의 특정 index 값에 접근하는 경우 ()사용 python은 []로 헷갈리지 않도록 조심  
 immutable로 되어 있는 List의 값 update 방법  
 ```scala
@@ -165,22 +171,51 @@ List = List.updated(index, value)
 ```
 List에 있는 updated method를 이용 index와 변경하고자 하는 값을 넣고 다시 List로 반환받아서 사용해야 함
 
-배열의 길이
+List의 길이
 ```scala
 List.length
 ```
 
-배열 요소 추가 += 연산자 사용
+List 요소 추가 += 연산자 사용
 ```scala
 List = List += a
 ```
 
-배열 자르기
+List 자르기
 ```scala
 List.slice(start_index, end_index)
 ```
 
-배열 안에 값이 포함되어 있는지 확인 여부
+List 안에 값이 포함되어 있는지 확인 여부
 ```scala
 List.contains(value)
 ```
+
+## set(집합)
+중복된 데이터가 없는 컬렉션
+```scala
+Set(1,1,2)
+//output : Set(1,2)
+```
+
+## tuple(튜플)
+클래스를 정의하지 않고 type가 다른 여러 값들을 묶어서 사용  
+List없이 ()롤 사용
+```scala
+val hostPort = ("localhost", 80)
+// hostPort: (String, Int) = (localhost, 80) 형태로 저장
+```
+
+## map(맵)
+key value 형식으로 저장하는 것  
+```scala
+val a = Map(1 -> 2)  
+a(1)
+//output : 2
+```
+1이 Key, 2가 Value형식으로 저장되어 사용  
+Key, Value의 type는 서로 다를 수 있음
+
+## Option(옵션)
+어떤 것이 존재하거나 존재하지 않을 수 있는데 이를 처리하기 위한 방법으로 Option 사용  
+
