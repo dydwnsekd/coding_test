@@ -218,4 +218,23 @@ Key, Value의 type는 서로 다를 수 있음
 
 ## Option(옵션)
 어떤 것이 존재하거나 존재하지 않을 수 있는데 이를 처리하기 위한 방법으로 Option 사용  
+```scala
+// Option의 기본 인터페이스
+trait Option[T] { def isDefined: Boolean def get: T def getOrElse(t: T): T }
+// 옵션 자체는 일반적 클래스며, Some[T] None의 하위 클래스를 가짐
+// Map.get은 Option을 반환
+
+val numbers = Map("one" -> 1, "two" -> 2)
+numbers.get("two")
+//output : Some(2)
+
+numbers.get("three")
+//output : None
+```
+None를 처리하기 위해서는 getOrElse나 패턴매칭를 이용해 처리할 수 있음
+아래와 비슷한 형식으로 사용 가능
+```scala
+val result = nunmbers.getOrElse(0) * 2
+```
+
 
