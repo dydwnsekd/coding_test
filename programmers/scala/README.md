@@ -258,7 +258,7 @@ numbers.map(timesTwo _)
 맵과 비슷하지만 반환하는 것이 없이 상태를 변환
 ```scala
 numbers.foreach((i: Int) => i * 2)
-// output 없음
+// output : 없음
 ```
 
 ### filter
@@ -266,4 +266,27 @@ numbers.foreach((i: Int) => i * 2)
 ```scala
 numbers.filter((i: Int) => i % 2 == 0)
 // output : List(2,4)
+```
+
+### zip
+zip은 두 리스트의 원소들의 쌍(튜플)로 이루어진 단일 리스트를 반환
+```scala
+List(1,2,3).zip(List("a", "b", "c"))
+// output : List((1,a), (2,b), (3,c))
+```
+1,2,3과 a,b,c 를 묶어서 반환
+
+### partition
+partition은 술어 함수가 반환하는 값에 따라 리스트를 둘로 나눈다
+```scala
+val numbers = List(1,2,3,4,5,6,7,8,9,10)
+numbers.partion(_ % 2 == 0)
+// output : List(2,4,6,8,10), List(1,3,5,7,9)
+```
+
+### find
+리스트에서 술어함수를 만족하는 가장 첫 원소 반환
+```scala
+numbers.find((i: Int) => i > 5)
+// output : Some(6)
 ```
