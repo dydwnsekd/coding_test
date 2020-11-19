@@ -290,3 +290,55 @@ numbers.partion(_ % 2 == 0)
 numbers.find((i: Int) => i > 5)
 // output : Some(6)
 ```
+
+## drop
+첫 i개의 원소를 제거하며 나머지의 원소만 남음
+```scala
+numbers.drop(5)
+//output : List(6,7,8,9,10)
+```
+
+## dropWhile
+리스트의 앞에서 술어함수를 만족하는 최초의 원소까지만 자르고 뒤는 남겨짐  
+filter와 drop가 하나로 합쳐진 느낌
+```scala
+numbers.dropWhile(_ % 2 != 0)
+// output : List(2,3,4,5,6,7,8,9,10)
+```
+
+## foldLeft
+누적 연산을 진행하며 초기값, 연산을 지정하면 반환값이 나온다
+```scala
+numbers.foldLeft(0)((m: Int, n: Int) => m + n)
+//output : 55
+```
+foldLeft의 동작과정은 아래와 같음  
+m: 0, n: 1  
+m: 1, n: 2  
+m: 3, n: 3  
+m: 6, n: 4  
+m: 10, n: 5  
+m: 15, n: 6  
+m: 21, n: 7  
+m: 28, n: 8  
+m: 36, n: 9  
+m: 35, n: 10  
+output : 55  
+
+기준값을 m(왼쪽)에 넣고 n(오른쪽)을 계속 더하는 연산 진행
+
+## foldRight
+foldLeft와 반대로 누적값을 오른쪽으로 넣는데 List연산의 순서가 반대
+m: 10, n: 0  
+m: 9, n: 10  
+m: 8, n: 19  
+m: 7, n: 27  
+m: 6, n: 34  
+m: 5, n: 40  
+m: 4, n: 45  
+m: 3, n: 49  
+m: 2, n: 52  
+m: 1, n: 54  
+output : 1  
+
+위의 2가지는 +연산에서는 동일한 결과를 가지지만 다른 연산을 진행하는 경우에는 다른 결과가 나올 수 있음  
