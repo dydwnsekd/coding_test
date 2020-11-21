@@ -342,3 +342,19 @@ m: 1, n: 54
 output : 1  
 
 위의 2가지는 +연산에서는 동일한 결과를 가지지만 다른 연산을 진행하는 경우에는 다른 결과가 나올 수 있음  
+
+## flatten
+2개의 리스트를 하나로 연결해 상위 하나의 리스트로 병합
+```scala
+List(List(1,2), List(3,4)).flatten
+// output : List(1,2,3,4)
+```
+
+## flatMap
+map와 flatten을 합성한 것으로 내포 리스트에 적용할 수 있는 함수를 중첩된 리스트 안에 각각 적용한 후 하나로 합치는 작업
+```scala
+val nestedNumbers = List(List(1,2), List(3,4))
+
+nestedNumbers.flatMap(x => x.map(_ * 2))
+// output : List(2,4,6,8)
+```
