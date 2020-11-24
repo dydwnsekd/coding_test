@@ -260,6 +260,16 @@ numbers.map(timesTwo _)
 numbers.foreach((i: Int) => i * 2)
 // output : 없음
 ```
+for문을 foreach로 바꿔 사용할 수 있음
+구구단 출력의 예
+```scala
+for(i <- 1 until 10)
+    println("2 * " + i + " = " + 2*i)
+
+//위의 for문을 foreach를 사용해 아래와 같이 사용가능
+val a = 1 until 10  // val a = 1 to 9
+a.foreach(i => println("2 * " + i + " = " + 2*i))
+```
 
 ### filter
 전달된 함수가 거짓을 반환하는 원소들을 제외한 나머지 원소들로 이루어진 리스트를 반환  
