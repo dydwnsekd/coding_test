@@ -263,12 +263,15 @@ numbers.foreach((i: Int) => i * 2)
 for문을 foreach로 바꿔 사용할 수 있음
 구구단 출력의 예
 ```scala
-for(i <- 1 until 10)
-    println("2 * " + i + " = " + 2*i)
+for (i <- 1 until 10) {
+      for (j <- 1 to 9)
+        println(i + " * " + j + " = " + i * j)
+}
 
 //위의 for문을 foreach를 사용해 아래와 같이 사용가능
-val a = 1 until 10  // val a = 1 to 9
-a.foreach(i => println("2 * " + i + " = " + 2*i))
+val a = 1 until 10
+val b = 1 to 9
+a.foreach(i => b.foreach(j => println(i + " * " + j + " = " + i * j)))
 ```
 
 ### filter
