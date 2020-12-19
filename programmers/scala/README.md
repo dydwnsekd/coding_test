@@ -90,9 +90,17 @@ Scala는 기본적으로 immutable로 불변의 객체를 가짐
 List를 mutable로 List를 만들기 위해서는  
 
 scala.collection.mutable에 있는 것들을 import해서 사용
-ListBuffer, ArrayBuffer 등이 있음
+ListBuffer, ArrayBuffer 등이 있음  
+ArrayBuffer, ListBuffer을 사용할 때 타입 선언이 필요 
 ```scala
 import scala.collection.mutable.*
+var a = ListBuffer[Int]()
+var b = ArrayBuffer[Int]()
+
+// 요소 추가
+a+=1
+println(a)
+//output : ListBuffer(1)
 ```
 
 ## 트레잇(Traits, 특성)
