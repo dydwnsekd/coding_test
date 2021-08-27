@@ -1,0 +1,6 @@
+-- https://programmers.co.kr/learn/courses/30/lessons/59040
+SELECT ANIMAL_TYPE, COUNT(ANIMAL_TYPE) as count
+FROM ANIMAL_INS
+WHERE ANIMAL_TYPE in ('Cat', 'Dog')
+GROUP BY ANIMAL_TYPE
+ORDER BY ANIMAL_TYPE;
