@@ -1,17 +1,18 @@
 # https://programmers.co.kr/learn/courses/30/lessons/83201?language=python3
 def solution(scores):
     answer = ''
-    student_score = [ [] for _ in range(len(scores))]
+    ss = [ [] for _ in range(len(scores))]
     
     for i in range(len(scores)):
         for j in range(len(scores)):
-            student_score[i].append(scores[j][i])
+            ss[i].append(scores[j][i])
             
     for i in range(len(scores)):
-        if student_score[i][i] == min(student_score[i]) or student_score[i][i] == max(student_score[i]):
-            student_score[i].pop(i)
+        if (ss[i][i] == min(ss[i]) and ss[i].count(min(ss[i])) == 1) or \
+        (ss[i][i] == max(ss[i]) and ss[i].count(max(ss[i])) == 1):
+            ss[i].pop(i)
             
-        avg_score = sum(student_score[i])//len(student_score[i])
+        avg_score = sum(ss[i])//len(ss[i])
         if avg_score >= 90:
             answer += "A"
         elif avg_score >= 80:
