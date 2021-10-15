@@ -1,17 +1,13 @@
 # https://programmers.co.kr/learn/courses/30/lessons/86491
 def solution(sizes):
-    answer = 0
-    
-    x = []
-    y = []
+    max_x = -999999
+    max_y = -999999
     
     for i in sizes:
         i.sort()
-        print (i)
-        x.append(i[0])
-        y.append(i[1])
+        if i[0] > max_x:
+            max_x = i[0]
+        if i[1] > max_y:
+            max_y = i[1]
         
-    x.sort()
-    y.sort()
-    
-    return x[-1] * y[-1]
+    return max_x * max_y
