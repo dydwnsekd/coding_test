@@ -1,4 +1,12 @@
 # https://programmers.co.kr/learn/courses/30/lessons/87390?language=python3
+
+def solution(n, left, right):
+    answer = []
+    for i in range(left,right+1):
+        answer.append(max(i//n,i%n)+1)
+    return answer
+
+"""
 def solution(n, left, right):
     answer = []
     
@@ -16,3 +24,4 @@ def solution(n, left, right):
                 break
     
     return answer[left%n:end_index]
+"""
