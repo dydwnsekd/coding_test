@@ -5,15 +5,14 @@ def solution(n, left, right):
     start_index = left // n + 1
     end_index = right - n * (start_index - 1) + 1
     
-    # print(start_index)
-    # print(end_index)
-    
     for i in range(start_index, n+1):
         for j in range(1, n+1):
-            if i >= j:
-                answer.append(i)
+            if len(answer) < (right - left) * 2:
+                if i >= j:
+                    answer.append(i)
+                else:
+                    answer.append(j)
             else:
-                answer.append(j)
+                break
     
-    # print(answer)
     return answer[left%n:end_index]
