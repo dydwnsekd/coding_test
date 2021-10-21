@@ -12,3 +12,5 @@ def solution(s):
         pre_string = s[i]
     
     return answer
+
+    # return ' '.join([word.capitalize() for word in s.split(" ")])
