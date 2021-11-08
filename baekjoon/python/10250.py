@@ -7,9 +7,12 @@ for i in range(n):
     if n <= h:
         floor = str(n)
         room_num = '1'
+    elif h == 1:
+        floor = '1'
+        room_num = str(n)
     elif n % h == 0:
-        floor = str(n // h)
-        room_num = str(w)
+        floor = str(h)
+        room_num = str(n // h)
     else:
         room_num = str((n // h) + 1)
         floor = str(n % h)
