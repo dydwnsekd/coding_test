@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class sol_1016 {
@@ -9,18 +10,23 @@ public class sol_1016 {
 
         ArrayList<Long> num_list = new ArrayList<>();
 
-        long n = (long) Math.ceil(Math.sqrt(min));
+        long n = 2;
         long m = (long) Math.floor(Math.sqrt(max));
-
-        if(n<=1)
-            n=2;
 
         for(long i=n;i<=m;i++) {
             long temp = i*i;
             long count = 1;
+
+            if(num_list.contains(temp))
+                continue;
+
             while(true) {
                 if(temp*count > max)
                     break;
+                else if(temp*count < min) {
+                    count++;
+                    continue;
+                }
                 else if(!num_list.contains(temp*count)) {
                     num_list.add(temp * count);
                     count++;
