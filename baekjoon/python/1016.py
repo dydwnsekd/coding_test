@@ -1,21 +1,27 @@
 #https://www.acmicpc.net/problem/1016
 
 import sys
+import math
 
 min, max = map(int, (sys.stdin.readline().split()))
 
-squared = [True] * max
-
-for i in range(2, max+1):
+squared = [True] * (max-min+1)
+answer = max-min+1
+sqrt_max = int(math.sqrt(max))+2
+for i in range(2, sqrt_max):
     pow_num = i * i
-    count = 1
 
-    while(True):
-        temp = pow_num * count
-        if(temp > max):
-            break
-        else:
-            squared[i] = False
-            count+=1
-    
-print(squared[min:max+1].count(True))
+    if min % pow_num == 0:
+        remainder = 0
+    else:
+        remainder = pow_num - (min % pow_num)
+
+    for j in range(min+remainder, max+1, pow_num):
+        # print("{} : {} : {}".format(j, pow_num, remainder))
+        if squared[j-min] == False:
+            pass
+        elif j % pow_num == 0:
+            squared[j-min] = False
+            answer -= 1
+
+print(answer)
