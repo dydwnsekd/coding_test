@@ -9,16 +9,19 @@ def solution(new_id):
     for i in new_id:
         if ord(i) in range(97, 123):
             answer += i
+        elif ord(i) in range(48, 58):
+            answer += i
         elif i in ["-","_","."]:
             answer += i
     
     # 3단계
+    print(answer)
     answer = re.sub("\.+", ".", answer)
     
     # 4단계
-    if answer[0] == ".":
+    if len(answer) > 0 and answer[0] == ".":
         answer = answer[1:]
-    if answer[-1] == ".":
+    if len(answer) > 0 and answer[-1] == ".":
         answer = answer[:-1]
     
     # 5단계
