@@ -7,8 +7,9 @@ def solution(id_list, reports, k):
     
     for report in reports:
         key, value = report.split()
-        plaintiff_dict[key].append(value)
-        defendant_dict[value] = defendant_dict[value] + 1
+        if value not in plaintiff_dict[key]:
+            plaintiff_dict[key].append(value)
+            defendant_dict[value] = defendant_dict[value] + 1    
     
     for id_index in range(len(id_list)):
         id = id_list[id_index]
@@ -17,7 +18,4 @@ def solution(id_list, reports, k):
                 if defendant_dict[i] >= int(k):
                     answer[id_index] = answer[id_index] + 1
                     
-    print(plaintiff_dict)
-    print(defendant_dict)
-    
     return answer
