@@ -2,20 +2,13 @@ from collections import defaultdict
 
 def solution(id_list, reports, k):
     answer = [0] * len(id_list)
-    plaintiff_dict = defaultdict(list)
-    defendant_dict = defaultdict(int)
+    defendant_dict = {x : 0 for x in id_list}
     
-    for report in reports:
-        key, value = report.split()
-        if value not in plaintiff_dict[key]:
-            plaintiff_dict[key].append(value)
-            defendant_dict[value] = defendant_dict[value] + 1    
+    for report in set(reports):
+        defendant_dict[report.split()[1]] += 1
     
-    for id_index in range(len(id_list)):
-        id = id_list[id_index]
-        if id in plaintiff_dict:
-            for i in plaintiff_dict[id]:
-                if defendant_dict[i] >= int(k):
-                    answer[id_index] = answer[id_index] + 1
-                    
+    for report in set(reports):
+        if defendant_dict[report.split()[1]] >= k:
+            answer[id_list.index(report.split()[0])] += 1
+    
     return answer
