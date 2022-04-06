@@ -12,4 +12,10 @@ class eratos:
 
         return [i for i in range(2, num) if prime_flag[i]]
 
-    
+    @staticmethod
+    def is_decimal(num):
+        for i in range(2, num):
+            if num % i == 0:
+                return False
+        
+        return True
