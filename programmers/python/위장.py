@@ -13,5 +13,6 @@ def solution(clothes):
         count += len(clothes_dict[k])
         temp_count *= len(clothes_dict[k])
     
-    count += temp_count
+    if len(clothes_dict.keys()) != 1:
+        count += temp_count
     return count
