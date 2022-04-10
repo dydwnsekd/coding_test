@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 def solution(id_list, reports, k):
     answer = [0] * len(id_list)
     defendant_dict = {x : 0 for x in id_list}
@@ -12,3 +10,4 @@ def solution(id_list, reports, k):
             answer[id_list.index(report.split()[0])] += 1
     
     return answer
+
