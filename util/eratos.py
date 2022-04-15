@@ -19,3 +19,13 @@ class eratos:
                 return False
         
         return True
+
+    @staticmethod
+    def prime_count(num):
+        return len(eratos.prime_list(num))
+
+
+if __name__ == "__main__":
+    print(eratos.prime_list(100))
+    print(eratos.is_decimal(10))
+    print(eratos.prime_count(100))
