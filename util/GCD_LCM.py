@@ -10,3 +10,8 @@ def getGCD(num1, num2):
     
 def getLCM(num1, num2):
     return int((num1 * num2) / getGCD(num1, num2))
+
+
+if __name__ == "__main__":
+    print(getGCD(2, 5))
+    print(getLCM(2, 5))
