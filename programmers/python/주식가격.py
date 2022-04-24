@@ -1,15 +1,3 @@
-def solution(prices):
-    answer =[0] * len(prices)
-    for i in range(len(prices)):
-        for j in range(i+1, len(prices)):
-            if prices[i] <= prices[j]:
-                answer[i]+=1
-            else:
-                answer[i]+=1
-                break
-    return answer
-
-"""
 # stack 이용 형식
 # stack를 사용할 수 있는 이유
 # 가장 최근의 값과 현재 값을 비교하는데 stack의 가장 마지막 값은 로직 상 stack의 어떤 값보다 크거나 같음을 의미
@@ -29,4 +17,3 @@ def solution(prices):
         answer[j] = len(prices) - 1 - j
  
     return answer
-"""
