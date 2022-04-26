@@ -12,7 +12,10 @@ def solution(N, stages):
             failure_rate[i] = 0.0
         else:
             failure_rate[i] = stages.count(i+1) / float(try_counter[i])
-    print(try_counter)
-    print(failure_rate)
+
+    for i in range(len(failure_rate)):
+        max_index = failure_rate.index(max(failure_rate))
+        answer.append(max_index+1)
+        failure_rate[max_index] = -1
 
     return answer
