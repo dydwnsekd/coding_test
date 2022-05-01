@@ -18,5 +18,3 @@ def solution(n):
             break
     
     return answer[::-1]
-
-print(solution(6))
