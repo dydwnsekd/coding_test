@@ -1,19 +1,19 @@
 class binary_converter:
 
     def decimal_to_octal(self, decimal_number):
-        binary_num = ""
+        octal_num = ""
         while decimal_number > 0:
-            binary_num = str(decimal_number % 8) + binary_num
+            octal_num = str(decimal_number % 8) + octal_num
             decimal_number = decimal_number // 8
 
-        return binary_num
+        return octal_num
 
-    def octal_to_decimal(self, binary_num):
+    def octal_to_decimal(self, octal_num):
         decimal_num = 0
 
-        binary_num = binary_num[::-1]
-        for i in range(len(binary_num)):
-            decimal_num += int(binary_num[i]) * 8 ** i
+        octal_num = octal_num[::-1]
+        for i in range(len(octal_num)):
+            decimal_num += int(octal_num[i]) * 8 ** i
         
         return decimal_num
 
