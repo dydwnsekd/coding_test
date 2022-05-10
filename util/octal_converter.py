@@ -1,7 +1,9 @@
-class binary_converter:
+class octal_converter:
 
     def decimal_to_octal(self, decimal_number):
         octal_num = ""
+        if decimal_number == 0:
+            return "0"
         while decimal_number > 0:
             octal_num = str(decimal_number % 8) + octal_num
             decimal_number = decimal_number // 8
@@ -19,25 +21,9 @@ class binary_converter:
 
 
 if __name__ == "__main__":
-    converter = binary_converter()
-    print(converter.decimal_to_octal(1))
-    print(converter.decimal_to_octal(2))
-    print(converter.decimal_to_octal(3))
-    print(converter.decimal_to_octal(4))
-    print(converter.decimal_to_octal(5))
-    print(converter.decimal_to_octal(6))
-    print(converter.decimal_to_octal(7))
-    print(converter.decimal_to_octal(8))
-    print(converter.decimal_to_octal(9))
-    print(converter.decimal_to_octal(10))
-
-    print(converter.octal_to_decimal("1"))
-    print(converter.octal_to_decimal("2"))
-    print(converter.octal_to_decimal("3"))
-    print(converter.octal_to_decimal("4"))
-    print(converter.octal_to_decimal("5"))
-    print(converter.octal_to_decimal("6"))
-    print(converter.octal_to_decimal("7"))
-    print(converter.octal_to_decimal("10"))
-    print(converter.octal_to_decimal("11"))
-    print(converter.octal_to_decimal("12"))
+    converter = octal_converter()
+    for i in range(17):
+        octal_num = converter.decimal_to_octal(i)
+        print(f"========== i = {i} ==========")
+        print(f"2진수 : {octal_num}")
+        print(f"10진수 : {converter.octal_to_decimal(octal_num)}")
