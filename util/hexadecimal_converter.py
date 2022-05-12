@@ -5,7 +5,8 @@ class hexadecimal_converter:
 
     def decimal_to_hexadecimal(self, decimal_number):
         hexadecimal_num = ""
-        
+        if decimal_number == 0:
+            return "0"
         while decimal_number > 0:
             hexadecimal_num = self.hexadecimal_nums[decimal_number % 16] + hexadecimal_num
             decimal_number = decimal_number // 16
