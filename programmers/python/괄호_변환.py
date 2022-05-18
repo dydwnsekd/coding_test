@@ -8,6 +8,7 @@ def solution(p):
     3. 균형잡힌 괄호지만 올바른 괄호가 아닌 경우 문제에 나와있는 조건에 따라 올바른 괄호로 변경
     """
     balance_flag = False
+    correct_flag = True
 
     left_count = p.count("(")
     right_count = p.count(")")
@@ -15,7 +16,21 @@ def solution(p):
     if left_count == right_count:
         balance_flag = True
 
+    temp_count = 0
+    for i in p:
+        if i == "(":
+            temp_count += 1
+        else:
+            temp_count -= 1
+
+        if temp_count < 0:
+            correct_flag = False
+
+    if temp_count != 0:
+        correct_flag = False
+
     print(balance_flag)
+    print(correct_flag)
 
 if __name__ == "__main__":
-    solution("(()())()")
+    solution(")(")
