@@ -12,6 +12,23 @@ def divide_uv(p):
             return p[:i+1], p[i+1:]
 
 
+def is_right_bracket(bracket):
+    temp_count = 0
+    for i in bracket:
+        if i == "(":
+            temp_count += 1
+        else:
+            temp_count -= 1
+
+        if temp_count < 0:
+            return False
+
+    if temp_count != 0:
+        return False
+
+    return True
+
+
 def solution(p):
     """
     1. 균형잡힌 괄호인지 판별
@@ -24,20 +41,9 @@ def solution(p):
         - 각 괄호 문자열에 대해 올바른 괄호 문자열인지 판별
         - 문제에서 제시한 방법을 통해 재귀적으로 올바른 괄호 문자열로 변경
     """
-    correct_flag = True
 
-    temp_count = 0
-    for i in p:
-        if i == "(":
-            temp_count += 1
-        else:
-            temp_count -= 1
-
-        if temp_count < 0:
-            correct_flag = False
-
-    if temp_count != 0:
-        correct_flag = False
 
 if __name__ == "__main__":
-    print(divide_uv("()))((()"))
+    u, v = divide_uv("(()())()")
+    print(u)
+    print(v)
