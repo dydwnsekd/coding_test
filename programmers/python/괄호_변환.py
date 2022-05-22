@@ -41,9 +41,26 @@ def solution(p):
         - 각 괄호 문자열에 대해 올바른 괄호 문자열인지 판별
         - 문제에서 제시한 방법을 통해 재귀적으로 올바른 괄호 문자열로 변경
     """
+    answer = ""
+    if len(p) == 0:
+        return ""
+
+    u, v = divide_uv(p)
+    if is_right_bracket(u):
+        answer = u + solution(v)
+    else:
+        temp = "("
+        temp += solution(v)
+        temp += ")"
+        for t in u[1:-1]:
+            if t == "(":
+                temp += ")"
+            else:
+                temp += "("
+        answer += temp
+
+    return answer
 
 
 if __name__ == "__main__":
-    u, v = divide_uv("(()())()")
-    print(u)
-    print(v)
+    print(solution(")("))
