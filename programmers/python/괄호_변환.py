@@ -29,6 +29,29 @@ def is_right_bracket(bracket):
     return True
 
 
+def sol(p):
+    result = ""
+
+    if len(p) == 0:
+        return ""
+
+    u, v = divide_uv(p)
+    if is_right_bracket(u):
+        result = u + solution(v)
+    else:
+        temp = "("
+        temp += solution(v)
+        temp += ")"
+        for t in u[1:-1]:
+            if t == "(":
+                temp += ")"
+            else:
+                temp += "("
+        result += temp
+
+    return result
+
+
 def solution(p):
     """
     1. 균형잡힌 괄호인지 판별
@@ -41,25 +64,8 @@ def solution(p):
         - 각 괄호 문자열에 대해 올바른 괄호 문자열인지 판별
         - 문제에서 제시한 방법을 통해 재귀적으로 올바른 괄호 문자열로 변경
     """
-    answer = ""
-    if len(p) == 0:
-        return ""
 
-    u, v = divide_uv(p)
-    if is_right_bracket(u):
-        answer = u + solution(v)
-    else:
-        temp = "("
-        temp += solution(v)
-        temp += ")"
-        for t in u[1:-1]:
-            if t == "(":
-                temp += ")"
-            else:
-                temp += "("
-        answer += temp
-
-    return answer
+    return sol(p)
 
 
 if __name__ == "__main__":
