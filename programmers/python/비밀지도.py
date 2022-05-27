@@ -15,4 +15,16 @@ def solution(n, arr1, arr2):
     3. 1 => "#", 0 => ""으로 변경
     """
     answer = []
+
+    binary1 = []
+    binary2 = []
+
+    for i in arr1:
+        print(decimal_to_binary(i))
+
+
     return answer
+
+
+if __name__ == "__main__":
+    solution(0, [9, 20, 28, 18, 11], [])
