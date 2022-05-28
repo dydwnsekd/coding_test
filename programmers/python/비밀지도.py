@@ -20,8 +20,7 @@ def solution(n, arr1, arr2):
     binary2 = []
 
     for i in arr1:
-        print(decimal_to_binary(i))
-
+        print(decimal_to_binary(i).zfill(5))
 
     return answer
 
