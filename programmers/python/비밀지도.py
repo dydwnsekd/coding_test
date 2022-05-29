@@ -19,11 +19,21 @@ def solution(n, arr1, arr2):
     binary1 = []
     binary2 = []
 
-    for i in arr1:
-        print(decimal_to_binary(i).zfill(5))
+    for i in range(n):
+        binary1.append(decimal_to_binary(arr1[i]).zfill(n))
+        binary2.append(decimal_to_binary(arr2[i]).zfill(n))
+
+    for i in range(n):
+        temp_answer = ""
+        for j in range(n):
+            if binary1[i][j] == "1" or binary2[i][j] == "1":
+                temp_answer += "1"
+            else:
+                temp_answer += "0"
+        answer.append(temp_answer)
 
     return answer
 
 
 if __name__ == "__main__":
-    solution(0, [9, 20, 28, 18, 11], [])
+    print(solution(5, [9, 20, 28, 18, 11], [30, 1, 21, 17, 28]))
