@@ -27,13 +27,9 @@ def solution(n, arr1, arr2):
         temp_answer = ""
         for j in range(n):
             if binary1[i][j] == "1" or binary2[i][j] == "1":
-                temp_answer += "1"
+                temp_answer += "#"
             else:
-                temp_answer += "0"
+                temp_answer += " "
         answer.append(temp_answer)
 
     return answer
-
-
-if __name__ == "__main__":
-    print(solution(5, [9, 20, 28, 18, 11], [30, 1, 21, 17, 28]))
