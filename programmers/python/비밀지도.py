@@ -1,13 +1,3 @@
-def decimal_to_binary(decimal_number):
-    binary_num = ""
-    if decimal_number == 0:
-        return "0"
-    while decimal_number > 0:
-        binary_num = str(decimal_number % 2) + binary_num
-        decimal_number = decimal_number // 2
-
-    return binary_num
-
 def solution(n, arr1, arr2):
     """
     1. 10진수 -> 2진수로 변환
@@ -20,8 +10,8 @@ def solution(n, arr1, arr2):
     binary2 = []
 
     for i in range(n):
-        binary1.append(decimal_to_binary(arr1[i]).zfill(n))
-        binary2.append(decimal_to_binary(arr2[i]).zfill(n))
+        binary1.append(bin(arr1[i])[2:].zfill(n))
+        binary2.append(bin(arr2[i])[2:].zfill(n))
 
     for i in range(n):
         temp_answer = ""
@@ -33,3 +23,7 @@ def solution(n, arr1, arr2):
         answer.append(temp_answer)
 
     return answer
+
+
+if __name__ == "__main__":
+    print(solution(5, [9, 20, 28, 18, 11], [30, 1, 21, 17, 28]))
