@@ -23,7 +23,3 @@ def solution(n, arr1, arr2):
         answer.append(temp_answer)
 
     return answer
-
-
-if __name__ == "__main__":
-    print(solution(5, [9, 20, 28, 18, 11], [30, 1, 21, 17, 28]))
