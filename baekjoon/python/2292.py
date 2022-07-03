@@ -6,4 +6,7 @@ while temp < num:
     temp += 6 * c
     c += 1
 
-print(c)
+if num == 1:
+    print(1)
+else:
+    print(c)
