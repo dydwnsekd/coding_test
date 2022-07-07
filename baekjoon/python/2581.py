@@ -1,14 +1,14 @@
 import sys
 
-end_num = int(1000 ** 0.5)
+end_num = int(10000 ** 0.5)
 
-sosu_list = [True for i in range(1001)]
+sosu_list = [True for i in range(10001)]
 sosu_list[0] = False
 sosu_list[1] = False
 
 for i in range(2, end_num+1):
     if sosu_list[i]:
-        for j in range(i+i, 1001, i):
+        for j in range(i+i, 10001, i):
             sosu_list[j] = False
 
 min_value = int(sys.stdin.readline())
