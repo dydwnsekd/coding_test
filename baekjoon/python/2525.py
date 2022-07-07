@@ -5,7 +5,7 @@ m += int(sys.stdin.readline())
 
 if m >= 60:
     h_t = m // 60
-    m = m%60
+    m = m % 60
 
     h += h_t
     if h >= 24:
