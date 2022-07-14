@@ -1,17 +1,13 @@
 n = int(input())
-fraction_num = 0
-counter = 1
+counter = 2
+sum_num_list = [1]
+temp = 2
 
-while True:
-    prev_counter = counter - 1
-    if fraction_num == n:
-        print(f"{prev_counter}/{prev_counter}")
-        break
-    if fraction_num > n:
-        print(fraction_num)
-        print(counter)
-        print(f"{n%(fraction_num-prev_counter)}/{prev_counter}")
-        break
-    else:
-        fraction_num += counter
-        counter += 1
+while sum_num_list[-1] < 10000000:
+    sum_num_list.append(temp)
+    temp += counter
+    counter += 1
+
+for i in range(len(sum_num_list)):
+    if n >= sum_num_list[i]:
+        print(f"/{i-1}")
