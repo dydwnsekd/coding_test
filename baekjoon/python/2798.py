@@ -9,7 +9,7 @@ num_list = list(map(int, sys.stdin.readline().split()))
 sum_list = list(map(sum, list(combinations(num_list, 3))))
 
 for i in sum_list:
-    if abs(m-i) < abs(m-answer):
+    if (m >= i) and (m-i < abs(m-answer)):
         answer = i
 
 print(answer)
