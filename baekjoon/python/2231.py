@@ -9,4 +9,6 @@ for i in range(int(n)+1):
 
     if temp == int(n):
         print(i)
-        break
+        exit()
+
+print(0)
