@@ -14,7 +14,7 @@ def isInList(sorted_list, m):
             middle_index = (left + right) // 2
         elif m == sorted_list[middle_index]:
             return True
-        if right <= left:
+        if right < left:
             return False
 
 n = int(sys.stdin.readline())
