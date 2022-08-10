@@ -1,4 +1,5 @@
 import sys
+from collections import Counter
 
 n = int(sys.stdin.readline())
 num_list = []
@@ -8,11 +9,23 @@ for _ in range(n):
 num_list.sort()
 set_list = set(num_list)
 many_count = 0
-many_value = None
+many_value = []
 
-for i in set_list:
-    if num_list.count(i) > many_count:
-        many_value = i
+num_counter = Counter(num_list)
+print(num_counter)
+
+for k, v in num_counter.items():
+    if many_count < v:
+        many_count = v
+        many_value = [k]
+    elif many_count == v:
+        many_value.append(k)
+
+if len(many_value) == 1:
+    many_value = many_value[0]
+else:
+    many_value.sort()
+    many_value = many_value[1]
 
 print(round(sum(num_list) / len(num_list)))
 print(num_list[len(num_list)//2])
