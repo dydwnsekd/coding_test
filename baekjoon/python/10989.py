@@ -1,18 +1,14 @@
-from collections import Counter
-
+from collections import defaultdict
 import sys
 
 n = int(sys.stdin.readline())
-num_list = []
+num_dict = defaultdict(int)
 
 for _ in range(n):
-    num_list.append(int(sys.stdin.readline()))
+    num_dict[int(sys.stdin.readline())] += 1
 
-num_dict = Counter(num_list)
 num_list = sorted(num_dict.items())
 
-for n_count in num_list:
-    num = n_count[0]
-    count = n_count[1]
-    for _ in range(count):
-        print(num)
+for k, v in num_list:
+    for i in range(num_dict[k]):
+        print(k)
