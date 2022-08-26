@@ -1,15 +1,12 @@
 from itertools import combinations
 import sys
 
-s = sys.stdin.readline().strip()
-result_list = []
-count = 0
+s = sys.stdin.readline().replace("\n", "")
+partial_s = []
 
-for i in range(len(s)+1):
-    set_list = (set(combinations(s, i)))
-    for j in set_list:
-        temp = "".join(sorted(j))
-        if temp not in result_list:
-            result_list.append(temp)
+for i in range(1, len(s)+1):
+     for j in range(len(s)-i+1):
+         if s[j:i+j] not in partial_s:
+             partial_s.append(s[j:i+j])
 
-print(len(result_list))
+print(len(partial_s))
