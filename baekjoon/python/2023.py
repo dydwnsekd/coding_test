@@ -28,6 +28,7 @@ class eratos:
 
 
 n = sys.stdin.readline()
+answer = []
 int_n = int(n)
 
 sosu_list = eratos.prime_list(10 ** int_n)
@@ -37,4 +38,15 @@ for sosu in sosu_list:
     if len(str(sosu)) == int_n:
         filtered_sosu.append(sosu)
 
-print(filtered_sosu)
+for n in filtered_sosu:
+    str_n = str(n)
+    flag = True
+    for i in range(1, len(str_n)+1):
+        if int(str_n[:i]) not in filtered_sosu:
+            flag = False
+
+    if flag:
+        answer.append(n)
+
+print(answer)
+
