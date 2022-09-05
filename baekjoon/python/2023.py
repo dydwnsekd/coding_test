@@ -42,11 +42,12 @@ for n in filtered_sosu:
     str_n = str(n)
     flag = True
     for i in range(1, len(str_n)+1):
-        if int(str_n[:i]) not in filtered_sosu:
+        if int(str_n[:i]) not in sosu_list:
             flag = False
 
     if flag:
         answer.append(n)
 
-print(answer)
+for i in answer:
+    print(i)
 
