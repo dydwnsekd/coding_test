@@ -17,7 +17,16 @@ def add_sosu_num(arr: list):
             if is_decimal(int(i+j)):
                 answer.append(i+j)
 
+    return answer
+
 
 n = int(sys.stdin.readline())
-init_list = ["2", "3", "5", "7"]
+num_len = 1
+sosu_list = ["2", "3", "5", "7"]
 
+while num_len != n:
+    sosu_list = add_sosu_num(sosu_list)
+    num_len += 1
+
+for i in sosu_list:
+    print(i)
