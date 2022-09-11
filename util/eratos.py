@@ -1,3 +1,6 @@
+import math
+
+
 class eratos:
 
     @staticmethod
@@ -14,10 +17,10 @@ class eratos:
 
     @staticmethod
     def is_decimal(num):
-        for i in range(2, num):
+        for i in range(2, int(math.sqrt(num)) + 1):
             if num % i == 0:
                 return False
-        
+
         return True
 
     @staticmethod
