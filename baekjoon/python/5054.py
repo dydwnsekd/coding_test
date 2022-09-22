@@ -6,7 +6,4 @@ for _ in range(n):
     answer = 0
     store_list = list(map(int, sys.stdin.readline().split()))
 
-    avg = sum(store_list) // m
-    for i in store_list:
-        answer += abs(avg - i)
-    print(answer)
+    print((max(store_list) - min(store_list)) * 2)
