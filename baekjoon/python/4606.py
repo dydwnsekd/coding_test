@@ -1,7 +1,7 @@
 import sys
 
 while True:
-    s = sys.stdin.readline()
+    s = sys.stdin.readline().strip()
     if s == "#":
         break
     else:
