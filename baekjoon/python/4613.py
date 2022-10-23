@@ -1,6 +1,6 @@
 import sys
 
-alpha_dict = {}
+alpha_dict = {" ": 0}
 
 for i in range(1, 27):
     alpha_dict[chr(i+64)] = i
