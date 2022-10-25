@@ -9,4 +9,4 @@ for _ in range(n):
     elif s.count("b") + s.count("B") == s.count("g") + s.count("G"):
         print(f"{s} is NEUTRAL")
     else:
-        print(f"{s} is BADDY")
+        print(f"{s} is A BADDY")
