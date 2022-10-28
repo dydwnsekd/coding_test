@@ -30,6 +30,16 @@ for _ in range(n):
 
     for _ in range(case):
         p1, p2 = list(sys.stdin.readline().split())
-        if p1 == p2:
-            pass
+        result = RPS(p1, p2)
+        if result == 1:
+            p1_score += 1
+        elif result == 2:
+            p2_score += 1
+
+    if p1_score > p2_score:
+        print("Player 1")
+    elif p2_score > p1_score:
+        print("Player 2")
+    else:
+        print("TIE")
 
