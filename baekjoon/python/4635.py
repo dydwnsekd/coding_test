@@ -10,4 +10,5 @@ while True:
     for i in range(n):
         s, t = list(map(int, sys.stdin.readline().split()))
         result += s * (t-before_t)
-    print(result)
+        before_t = t
+    print(f"{result} miles")
