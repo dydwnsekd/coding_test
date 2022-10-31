@@ -21,6 +21,6 @@ while True:
             flag = False
             print("Quarterback ", end="")
         if flag:
-            print("No positions")
+            print("No positions ", end="")
         print()
 
