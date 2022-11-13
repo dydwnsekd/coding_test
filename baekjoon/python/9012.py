@@ -13,7 +13,6 @@ for i in range(n):
         elif j == ")":
             right_parentheses += 1
         if right_parentheses > left_parentheses:
-            print("NO")
             break
     if left_parentheses == right_parentheses:
         print("YES")
