@@ -21,7 +21,7 @@ else:
         if pre_value < i:
             asc_length += 1
 
-            if desc_length > length:
+            if desc_length + equal_count > length:
                 length = desc_length + equal_count
             desc_length = 1
             equal_count = 0
@@ -32,16 +32,16 @@ else:
         else:
             desc_length += 1
 
-            if asc_length > length:
+            if asc_length + equal_count > length:
                 length = asc_length + equal_count
             asc_length = 1
             equal_count = 0
 
         pre_value = i
 
-if asc_length > length:
+if asc_length + equal_count > length:
     length = asc_length + equal_count
-elif desc_length > length:
+elif desc_length + equal_count > length:
     length = desc_length + equal_count
 
 print(length)
