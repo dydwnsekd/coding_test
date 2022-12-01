@@ -5,7 +5,7 @@ n = int(sys.stdin.readline())
 length = 0
 asc_length = 1
 desc_length = 1
-equal_count = 0
+equal_count = 1
 pre_value = None
 flag = None     # True = 커지고 있을 때, False = 작아지고 있을 때
 
@@ -18,13 +18,17 @@ if n <= 2:
 
 else:
     for i in num_list[1:]:
+        # print(i)
+        # print("asc_length:::", asc_length)
+        # print("equal_count:::", equal_count)
+        # print("===============================")
         if pre_value < i:
             asc_length += 1
 
             if desc_length + equal_count > length:
                 length = desc_length + equal_count
+                equal_count = 1
             desc_length = 1
-            equal_count = 0
 
         elif pre_value == i:
             equal_count += 1
@@ -34,8 +38,8 @@ else:
 
             if asc_length + equal_count > length:
                 length = asc_length + equal_count
+                equal_count = 1
             asc_length = 1
-            equal_count = 0
 
         pre_value = i
 
