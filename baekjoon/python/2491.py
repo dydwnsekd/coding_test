@@ -2,10 +2,10 @@
 import sys
 
 n = int(sys.stdin.readline())
-length = 0
-asc_length = 1
-desc_length = 1
-equal_count = 1
+length = 1
+asc_length = 0
+desc_length = 0
+equal_count = 0
 pre_value = None
 flag = None     # True = 커지고 있을 때, False = 작아지고 있을 때
 
@@ -18,34 +18,26 @@ if n <= 2:
 
 else:
     for i in num_list[1:]:
-        # print(i)
-        # print("asc_length:::", asc_length)
-        # print("equal_count:::", equal_count)
-        # print("===============================")
-        if pre_value < i:
+        if i >= pre_value:
             asc_length += 1
-
-            if desc_length + equal_count > length:
-                length = desc_length + equal_count
-                equal_count = 1
-            desc_length = 1
-
-        elif pre_value == i:
-            equal_count += 1
-
         else:
-            desc_length += 1
-
-            if asc_length + equal_count > length:
-                length = asc_length + equal_count
-                equal_count = 1
-            asc_length = 1
-
+            if length < asc_length + 1:
+                length = asc_length + 1
+                asc_length = 0
         pre_value = i
 
-if asc_length + equal_count > length:
-    length = asc_length + equal_count
-elif desc_length + equal_count > length:
-    length = desc_length + equal_count
+    for i in num_list[1:]:
+        if i <= pre_value:
+            desc_length += 1
+        else:
+            if length < desc_length + 1:
+                length = desc_length + 1
+                desc_length = 0
+        pre_value = i
+
+if asc_length + 1 > length:
+    length = asc_length + 1
+elif desc_length + 1 > length:
+    length = desc_length + 1
 
 print(length)
