@@ -1,16 +1,14 @@
 import sys
 
 
-def prime_list(num):
-    prime_flag = [True] * num
+def divisor_list(num):
+    divisor_list = []
 
-    m = int(num ** 0.5)
-    for i in range(2, m + 1):
-        if prime_flag[i]:
-            for j in range(i * i, num, i):
-                prime_flag[j] = False
+    for i in range(1, num):
+        if num % i == 0:
+            divisor_list.append(i)
 
-    return [i for i in range(1, num) if prime_flag[i]]
+    return divisor_list
 
 
 while True:
@@ -19,9 +17,9 @@ while True:
     if n == -1:
         break
     else:
-        if n == sum(prime_list(n)[:-1]):
-            prime_str = [str(i) for i in prime_list(n)]
-            print("{n} = {prime_list}".format(n=n, prime_list=" + ".join(prime_str)))
+        divisor_str = [str(i) for i in divisor_list(n)]
+        if n == sum(divisor_list(n)[:-1]):
+            print("{n} = {prime_list}".format(n=n, prime_list=" + ".join(divisor_str)))
         else:
-            prime_str = [str(i) for i in prime_list(n)]
+            print("test => {n} = {prime_list}".format(n=n, prime_list=" + ".join(divisor_str)))
             print(f"{n} is NOT perfect.")
