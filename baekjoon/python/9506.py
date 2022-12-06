@@ -10,21 +10,18 @@ def prime_list(num):
             for j in range(i * i, num, i):
                 prime_flag[j] = False
 
-    return [i for i in range(2, num) if prime_flag[i]]
+    return [i for i in range(1, num) if prime_flag[i]]
 
 
 while True:
     n = int(sys.stdin.readline())
 
-    print("n :::", n)
-    print("sum :::")
-    for i in prime_list(n)[:-1]:
-        print(i, end=" ")
-
     if n == -1:
         break
     else:
-        if n == sum(prime_list(n)):
-            print(f"{n} = {prime_list}".format(n=n, prime_list=" + ".join(prime_list(n))))
+        if n == sum(prime_list(n)[:-1]):
+            prime_str = [str(i) for i in prime_list(n)]
+            print("{n} = {prime_list}".format(n=n, prime_list=" + ".join(prime_str)))
         else:
-            print("{n} is NOT perfect.".format(n=n))
+            prime_str = [str(i) for i in prime_list(n)]
+            print(f"{n} is NOT perfect.")
