@@ -18,8 +18,7 @@ while True:
         break
     else:
         divisor_str = [str(i) for i in divisor_list(n)]
-        if n == sum(divisor_list(n)[:-1]):
+        if n == sum(divisor_list(n)):
             print("{n} = {prime_list}".format(n=n, prime_list=" + ".join(divisor_str)))
         else:
-            print("test => {n} = {prime_list}".format(n=n, prime_list=" + ".join(divisor_str)))
             print(f"{n} is NOT perfect.")
