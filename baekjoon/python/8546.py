@@ -5,7 +5,7 @@ def get_fibonacci_list(num):
     fibonacci_list = [0, 1, 1]
 
     for i in range(3, num+1):
-        fibonacci_list.append(fibonacci_list[i-2] + fibonacci_list[i-1])
+        fibonacci_list.append((fibonacci_list[i-2] + fibonacci_list[i-1]) % 10)
 
     return fibonacci_list
 
