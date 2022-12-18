@@ -1,3 +1,7 @@
+# TODO
+# http://www.slideshare.net/ssuser81b91b/sqrt-decomposition
+# https://blog.anudeep2011.com/mos-algorithm/
+
 import sys
 from collections import defaultdict
 
