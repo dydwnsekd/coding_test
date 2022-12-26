@@ -7,4 +7,3 @@ if w-k < 0:
     print(0)
 else:
     print(((w-k) // m) + 1)
-과
