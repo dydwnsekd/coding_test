@@ -14,9 +14,9 @@ for i in range(n):
     total = 0
     scores = list(map(int, sys.stdin.readline().split()))
     for j in range(7):
-        if i in t_index:
-            total += math.floor(a_score[i] * pow(b_score[i] - scores[i], c_score[i]))
+        if j in t_index:
+            total += math.floor(a_score[j] * pow(b_score[j] - scores[j], c_score[j]))
         else:
-            total += math.floor(a_score[i] * pow(scores[i] - b_score[i], c_score[i]))
+            total += math.floor(a_score[j] * pow(scores[j] - b_score[j], c_score[j]))
 
     print(total)
