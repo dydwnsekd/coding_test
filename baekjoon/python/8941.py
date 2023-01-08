@@ -8,13 +8,20 @@ num_regex = re.compile("[0-9]")
 n = int(sys.stdin.readline())
 
 for i in range(n):
+    result = 0
     atomic = sys.stdin.readline().strip()
+    atomic_len = len(atomic)
     atomic_count = {"C": 0, "H": 0, "O": 0, "N": 0}
 
-    for j in range(len(atomic)):
-        if atomic_regex.match(atomic[j]):
-            atomic_count[atomic[j]] += 1
+    t = atomic_regex.finditer(atomic)
+    index_list = [j.start() for j in t]
+    for j in range(len(index_list)-1):
+        if index_list[j+1] - index_list[j] == 1:
+            atomic_count[atomic[index_list[j]]] += 1
         else:
-            atomic_count[atomic[j-1]] += int(atomic[j])-1
+            atomic_count[atomic[index_list[j]]] += int(atomic[index_list[j]+1:index_list[j+1]])
 
-    print(atomic_count)
+    for k, v in atomic_count.items():
+        result += atomic_weight[k] * atomic_count[k]
+
+    print("{:.3f}".format(result))
