@@ -15,6 +15,7 @@ for i in range(n):
 
     t = atomic_regex.finditer(atomic)
     index_list = [j.start() for j in t]
+    index_list.append(atomic_len)
     for j in range(len(index_list)-1):
         if index_list[j+1] - index_list[j] == 1:
             atomic_count[atomic[index_list[j]]] += 1
