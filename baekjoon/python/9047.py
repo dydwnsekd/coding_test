@@ -11,8 +11,9 @@ for _ in range(n):
             break
 
         count += 1
-        max_value = int(''.join(sorted(num, reverse=True)))
-        min_value = int(''.join(sorted(num)))
+        max_str = ''.join(sorted(num, reverse=True))
+        max_value = int(max_str)
+        min_value = int(max_str[::-1])
 
         num = str(max_value - min_value)
 
