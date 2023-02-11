@@ -6,10 +6,13 @@ n = int(sys.stdin.readline())
 o = int(sys.stdin.readline())
 result = []
 
-min_value = math.floor(o * (n / (n-1)))
-max_value = math.ceil(o * (n / (n-1)))
+estimated_value = math.ceil(o * (n / (n-1)))
 
-if min_value - o <= min_value // 2:
-    result.append(min_value)
-if max_value - o <= max_value // 2:
-    result.append(max_value)
+if estimated_value-1-o <= estimated_value // n:
+    result.append(estimated_value-1)
+if estimated_value-o <= estimated_value // n:
+    result.append(estimated_value)
+else:
+    result.append(estimated_value-1)
+
+print(result)
