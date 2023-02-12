@@ -1,4 +1,3 @@
-#TODO
 import sys
 import math
 
@@ -15,4 +14,4 @@ if estimated_value-o <= estimated_value // n:
 else:
     result.append(estimated_value-1)
 
-print(result)
+print(f"{result[0]} {result[1]}")
