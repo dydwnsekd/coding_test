@@ -16,3 +16,4 @@ for _ in range(cases):
 print(result)
 for c in result_list:
     print(c)
+
