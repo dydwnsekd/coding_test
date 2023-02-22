@@ -1,3 +1,4 @@
+#TODO
 import sys
 
 num_count, result_value = list(map(int, sys.stdin.readline().split(" ")))
