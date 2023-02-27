@@ -1,19 +1,21 @@
 import sys
-import re
-
-p = re.compile('0*$')
 
 while True:
     n = int(sys.stdin.readline())
+    even_zero = True
     count = 1
-    temp = 1
+    last_num = 1
     if n == -1:
         break
 
     for i in range(1, n+1):
-        temp *= i
+        last_num *= i
+        # print(i, last_num)
 
-        if len(p.findall(str(temp))[0]) % 2 == 0:
+        if last_num % 10 == 0:
+            even_zero = not even_zero
+        last_num = last_num // 10
+        if even_zero:
             count += 1
 
     print(count)
