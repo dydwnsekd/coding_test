@@ -1,3 +1,4 @@
+# TODO https://vsfe.tistory.com/24
 import sys
 
 while True:
