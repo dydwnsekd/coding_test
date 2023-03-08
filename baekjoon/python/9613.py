@@ -16,6 +16,7 @@ for _ in range(cases):
     num_list = list(map(int, sys.stdin.readline().split()))
 
     for i in range(1, len(num_list)-1):
-        result += getGCD(num_list[i], num_list[i+1])
+        for j in range(i+1, len(num_list)):
+            result += getGCD(num_list[i], num_list[j])
 
     print(result)
