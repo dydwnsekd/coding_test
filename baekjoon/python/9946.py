@@ -10,15 +10,13 @@ while True:
     if word == "END" and piece == "END":
         break
 
-    # print(word)
-    # print(len(word))
-    # print(piece)
-    # print(len(piece))
     if len(word) == len(piece):
         for w in word:
             if w not in piece:
                 flag = False
                 break
+    else:
+        flag = False
 
     if flag:
         print(f"Case {case_count}: same")
