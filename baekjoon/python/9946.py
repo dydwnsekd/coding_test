@@ -15,6 +15,9 @@ while True:
             if w not in piece:
                 flag = False
                 break
+            else:
+                del_index = piece.find(w)
+                del piece[del_index]
     else:
         flag = False
 
