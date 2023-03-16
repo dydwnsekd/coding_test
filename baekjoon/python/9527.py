@@ -17,22 +17,6 @@ def to_binary(n):
     return str(int(''.join(binary_list)))
 
 
-def to_binary_reverse(n):
-
-    binary_list = list()
-    
-    while n > 1:
-        if math.floor(n % 2) == 1:
-            binary_list.append('1')
-        elif math.floor(n % 2) == 0:
-            binary_list.append('0')
-        n = math.floor(n / 2)
-
-    binary_list.append(str(n))
-    return (''.join(binary_list))
-
-
-
 start_num, end_num = map(int, sys.stdin.readline().split(" "))
 
 count = 0
@@ -43,6 +27,6 @@ for i in range(start_num, end_num+1):
         if j == '1':
             count += 1
 
-print (count)
+print(count)
 
 
