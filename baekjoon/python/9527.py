@@ -23,9 +23,7 @@ count = 0
 
 for i in range(start_num, end_num+1):
     temp = to_binary(i)
-    for j in temp:
-        if j == '1':
-            count += 1
+    count += temp.count("1")
 
 print(count)
 
