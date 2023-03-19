@@ -1,4 +1,6 @@
 # TODO
+# https://yiyj1030.tistory.com/490
+# https://degurii.tistory.com/158
 import sys
 import math
 
