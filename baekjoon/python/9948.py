@@ -1,21 +1,28 @@
 import sys
+from datetime import datetime
 
-birthday_month = ["January", "February", "March", "April", "May", "June", "July"]
-non_birthday_month = ["September", "October", "November", "December"]
+month_dict = {"January": "1", "February": "2", "March": "3", "April": "4", "May": "5", "June": "6",
+              "July": "7", "August": "8", "September": "9", "October": "10", "November": "11", "December": "12"}
+
+today = datetime(2007, 8, 4)
 
 while True:
     day, month = sys.stdin.readline().strip().split()
     if day == "0" and month == "#":
         break
-    elif day == "29" and month == "February":
+
+    month = month_dict[month]
+    dt = "2007-" + month + "-" + day
+
+    try:
+        dt = datetime.strptime(dt, "%Y-%m-%d")
+        if dt < today:
+            print("Yes")
+        elif dt == today:
+            print("Happy birthday")
+        else:
+            print("No")
+    except:
         print("Unlucky")
-    elif day == "4" and month == "August":
-        print("Happy birthday")
-    elif int(day) < 4 and month == "August":
-        print("Yes")
-    elif int(day) > 4 and month == "August":
-        print("No")
-    elif month in birthday_month:
-        print("Yes")
-    else:
-        print("No")
+
+
