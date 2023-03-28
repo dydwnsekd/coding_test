@@ -1,11 +1,12 @@
+# TODO
 import sys
-from collections import defaultdict
 
-n, m = int(sys.stdin.readline().split())
+n, m = map(int, sys.stdin.readline().split())
 
 n_list = []
 m_list = []
 vote_list = []
+result = 0
 
 for _ in range(n):
     n_list.append(int(sys.stdin.readline()))
@@ -15,8 +16,13 @@ for _ in range(m):
 
 for m_score in m_list:
     for i in range(len(n_list)):
-        if m_score >= n_list(i):
+        if m_score >= n_list[i]:
             vote_list.append(i)
             break
 
+for i in range(len(n_list)):
+    if result < n_list.count(i):
+        result = n_list.count(i)
+
+print(result)
 
