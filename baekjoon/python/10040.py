@@ -20,9 +20,9 @@ for m_score in m_list:
             vote_list.append(i)
             break
 
-for i in range(len(n_list)):
-    if result < n_list.count(i):
-        result = n_list.count(i)
+for i in range(len(vote_list)):
+    if result < vote_list.count(i):
+        result = vote_list.count(i)
 
 print(result)
 
