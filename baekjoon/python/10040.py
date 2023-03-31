@@ -21,8 +21,8 @@ for m_score in m_list:
             break
 
 for i in range(len(vote_list)):
-    if result < vote_list.count(i):
-        result = i
+    if result < vote_list.count(i+1):
+        result = i+1
 
 print(result)
 
