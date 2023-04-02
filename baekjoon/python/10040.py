@@ -21,7 +21,7 @@ for m_score in m_list:
             vote_list[i] += 1
             break
 
-for i in vote_list:
+for i in range(len(vote_list)):
     if result < vote_list[i]:
         max_index = i+1
         result = vote_list[i]
