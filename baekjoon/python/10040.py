@@ -33,14 +33,15 @@ import sys
 
 n, m = map(int, sys.stdin.readline().split())
 costs = [int(sys.stdin.readline()) for _ in range(n)]
-votes = [0] * (n + 1)
+votes = [0] * n
 
 for i in range(m):
-    song_cost = int(sys.stdin.readline())
+    cost = int(sys.stdin.readline())
     min_idx = -1
     for j in range(n):
-        if costs[j] <= song_cost:
+        if costs[j] <= cost:
             min_idx = j
+            break
     if min_idx >= 0:
         votes[min_idx] += 1
 
@@ -49,4 +50,4 @@ for i in range(1, n):
     if votes[i] > votes[max_idx]:
         max_idx = i
 
-print(max_idx)
+print(max_idx+1)
