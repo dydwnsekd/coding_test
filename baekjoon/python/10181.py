@@ -19,7 +19,7 @@ while True:
 
     if sum(divisor_list(num)) == num:
         print(f"{num} = ", end="")
-        print(" + ".join(divisor_list(num)))
+        print(" + ".join(map(str, divisor_list(num))))
     else:
         print(f"{num} is NOT perfect.")
 
