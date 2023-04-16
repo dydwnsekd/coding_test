@@ -1,19 +1,15 @@
 import sys
 
-t1 = 300
-t2 = 60
-t3 = 10
+t_list = [300, 60, 10]
+c_list = []
 
-t = int(sys.stdin.readline())
+total = int(sys.stdin.readline())
 
-if t % t3 == 0:
-    c1 = t // t1
-    t = t % t1
-    c2 = t // t2
-    t = t % t2
-    c3 = t // t3
-    t = t % t3
+if total % 10 == 0:
+    for t in t_list:
+        c_list.append(total // t)
+        total = total % t
 
-    print(f"{c1} {c2} {c3}")
+    print(f"{' '.join(map(str, c_list))}")
 else:
     print(-1)
