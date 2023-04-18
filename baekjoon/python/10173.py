@@ -1,10 +1,12 @@
 import sys
 
 while True:
-    text = sys.stdin.readline().strip().lower()
+    text = sys.stdin.readline().strip()
 
-    if text == "eoi":
+    if text == "EOI":
         break
+
+    text = text.lower()
 
     if "nemo" in text:
         print("Found")
