@@ -16,7 +16,7 @@ for _ in range(cases):
     remove_index.reverse()
 
     for i in remove_index:
-        human_list.remove(i)
+        human_list.pop(i)
 
 for h in human_list[1:]:
     print(h)
