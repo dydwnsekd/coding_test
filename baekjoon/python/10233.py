@@ -1,4 +1,5 @@
 import sys
+import math
 
 while True:
     x, y, s = list(map(int, sys.stdin.readline().split()))
@@ -8,11 +9,11 @@ while True:
     else:
         for i in range(1, s//2):
             j = s - i
-            i_origin = round(i*100/(100+x))
-            j_origin = round(j*100/(100+x))
+            i_origin = math.floor(i*100/(100+x))
+            j_origin = math.floor(j*100/(100+x))
 
-            i_value = round(i_origin * (100 + y) / 100)
-            j_value = round(j_origin * (100 + y) / 100)
+            i_value = math.floor(i_origin * (100 + y) / 100)
+            j_value = math.floor(j_origin * (100 + y) / 100)
 
             temp = i_value + j_value
 
