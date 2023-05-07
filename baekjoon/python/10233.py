@@ -12,12 +12,20 @@ while True:
             i_origin = math.floor(i*100/(100+x))
             j_origin = math.floor(j*100/(100+x))
 
-            i_value = math.floor(i_origin * (100 + y) / 100)
-            j_value = math.floor(j_origin * (100 + y) / 100)
+            while True:
+                j_temp = math.floor(j_origin * (100 + x) / 100)
 
-            temp = i_value + j_value
+                if i + j_temp == s:
+                    i_value = math.floor(i_origin * (100 + y) / 100)
+                    j_value = math.floor(j_origin * (100 + y) / 100)
 
-            if temp > max_value:
-                max_value = temp
+                    temp = i_value + j_value
+
+                    if temp > max_value:
+                        max_value = temp
+                elif i + j_temp > s:
+                    break
+
+                j_origin += 1
 
         print(max_value)
