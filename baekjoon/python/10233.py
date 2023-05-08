@@ -9,8 +9,8 @@ while True:
     else:
         for i in range(1, s//2):
             j = s - i
-            i_origin = math.floor(i*100/(100+x))
-            j_origin = math.floor(j*100/(100+x))
+            i_origin = math.ceil(i*100/(100+x))
+            j_origin = math.ceil(j*100/(100+x))
 
             while True:
                 j_temp = math.floor(j_origin * (100 + x) / 100)
