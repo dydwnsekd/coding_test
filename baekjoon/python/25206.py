@@ -8,7 +8,8 @@ for _ in range(20):
     subject, grade, grade_score = sys.stdin.readline().strip().split()
     grade = float(grade)
 
-    result_grade += grade * grade_dict[grade_score]
-    sum_grade = grade
+    if grade_score != "P":
+        result_grade += grade * grade_dict[grade_score]
+        sum_grade += grade
 
-print(result_grade/sum_grade)
+print(round(result_grade/sum_grade, 6))
