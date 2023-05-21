@@ -12,4 +12,4 @@ for _ in range(20):
         result_grade += grade * grade_dict[grade_score]
         sum_grade += grade
 
-print(round(result_grade/sum_grade, 6))
+print(format(round(result_grade/sum_grade, 6), "0.6f"))
