@@ -13,7 +13,7 @@ while True:
     else:
         min_value = 999999
         for s in sim:
-            temp = s[0] * c + s[0] * d
+            temp = s[0] * c + s[1] * d
             if temp < min_value:
                 min_value = temp
         print(min_value)
