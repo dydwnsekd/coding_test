@@ -1,9 +1,9 @@
 import sys
 
 cases = int(sys.stdin.readline())
-n = int(sys.stdin.readline())
 
 for _ in range(cases):
+    n = int(sys.stdin.readline())
     sales_list = list(map(int, sys.stdin.readline().split()))
     count = 0
 
