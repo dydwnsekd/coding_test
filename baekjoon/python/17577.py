@@ -1,9 +1,8 @@
 import sys
 
-score_list = []
-
 while True:
     n, m = map(int, sys.stdin.readline().split())
+    score_list = []
     max_sum = 0
 
     if n == 0 and m == 0:
@@ -20,4 +19,3 @@ while True:
                 max_sum = temp
 
     print(max_sum)
-
