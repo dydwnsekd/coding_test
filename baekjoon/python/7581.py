@@ -17,6 +17,4 @@ while True:
         change_index = values.index(0)
         values[change_index] = values[3] // temp
 
-    for i in values:
-        print(i, end=" ")
-    print()
+    print(*values)
