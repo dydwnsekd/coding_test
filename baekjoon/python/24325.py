@@ -9,8 +9,8 @@ for _ in range(cases):
     remain_value = b - a
 
     for i in value_list:
+        remain_count.append(int(remain_value//i))
         remain_value = remain_value % i
-        remain_count.append(remain_value//i)
 
     for i in range(len(value_list)):
         print(f"{remain_count[i]}-${value_list[i]}", end=", ")
