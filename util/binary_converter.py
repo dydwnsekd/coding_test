@@ -19,6 +19,15 @@ class binary_converter:
         
         return decimal_num
 
+    def ones_complement(self, decimal_number: int, length: int):
+        bin_number = bin(decimal_number)[2:].zfill(length)
+        return_number = ''.join('1' if b == '0' else '0' for b in bin_number)
+
+        return return_number
+
+    def twos_complement(self, decimal_number, length):
+        pass
+
 
 if __name__ == "__main__":
     converter = binary_converter()
@@ -27,3 +36,4 @@ if __name__ == "__main__":
         print(f"========== i = {i} ==========")
         print(f"2진수 : {binary_num}")
         print(f"10진수 : {converter.binary_to_decimal(binary_num)}")
+        print(f"1의 보수 : {converter.ones_complement(i, 8)}")
