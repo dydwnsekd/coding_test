@@ -26,7 +26,11 @@ class binary_converter:
         return return_number
 
     def twos_complement(self, decimal_number, length):
-        pass
+        bin_number = bin(decimal_number)[2:].zfill(length)
+        temp_number = ''.join('1' if b == '0' else '0' for b in bin_number)
+        return_number = bin(int("0b" + temp_number, 2) + 1)[2:].zfill(length)
+
+        return return_number
 
 
 if __name__ == "__main__":
@@ -37,3 +41,4 @@ if __name__ == "__main__":
         print(f"2진수 : {binary_num}")
         print(f"10진수 : {converter.binary_to_decimal(binary_num)}")
         print(f"1의 보수 : {converter.ones_complement(i, 8)}")
+        print(f"2의 보수 : {converter.twos_complement(i, 8)}")
