@@ -27,4 +27,4 @@ for _ in range(cases):
     if playtime > 0:
         result_text += f"{playtime} minutes(s)"
 
-    print(result_text)
+    print(game_name + " - " + result_text)
