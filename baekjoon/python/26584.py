@@ -13,7 +13,7 @@ for _ in range(cases):
     result_text = ""
 
     if playtime // min_year > 0:
-        result_text += f"{playtime // min_year} hour(s) "
+        result_text += f"{playtime // min_year} year(s) "
         playtime = playtime % min_year
 
     if playtime // min_day > 0:
@@ -25,6 +25,6 @@ for _ in range(cases):
         playtime = playtime % min_hour
 
     if playtime > 0:
-        result_text += f"{playtime} minutes(s)"
+        result_text += f"{playtime} minute(s)"
 
     print(game_name + " - " + result_text)
