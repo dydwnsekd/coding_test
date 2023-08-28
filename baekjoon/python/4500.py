@@ -8,6 +8,6 @@ for _ in range(cases):
     start_index = p_list.index(start_p)
     n = int(sys.stdin.readline())
 
-    result_index = start_index - n % len(p_list) - 1
+    result_index = (start_index + n) % len(p_list) - 1
 
     print(p_list[result_index])
