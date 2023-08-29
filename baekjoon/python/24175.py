@@ -17,5 +17,7 @@ while True:
 
         medal_dict[year] += 1
 
-    print(gold_dict)
-    print(medal_dict)
+    sorted_gold = sorted(gold_dict.items(), key=lambda item: item[1], reverse=True)
+    sorted_medal = sorted(medal_dict.items(), key=lambda item: item[1], reverse=True)
+
+    print(sorted_gold[0][0], sorted_medal[0][0])
