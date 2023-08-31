@@ -1,3 +1,5 @@
+# https://developer-next-to-you.tistory.com/m/246
+
 import sys
 from collections import defaultdict
 
@@ -9,6 +11,8 @@ while True:
 
     gold_dict = defaultdict(int)
     medal_dict = defaultdict(int)
+    gold_year = 9999
+    medal_year = 9999
 
     for _ in range(n):
         year, event, medal = sys.stdin.readline().strip().split()
@@ -22,18 +26,15 @@ while True:
     gold_max = sorted_gold[0][1]
     medal_max = sorted_medal[0][1]
 
-    gold_year = 9999
-    medal_year = 9999
-
     for i in sorted_gold:
-        if i[1] == gold_max:
+        if i[1] >= gold_max:
             if gold_year > int(i[0]):
                 gold_year = int(i[0])
             else:
                 break
 
     for i in sorted_medal:
-        if i[1] == medal_max:
+        if i[1] >= medal_max:
             if medal_year > int(i[0]):
                 medal_year = int(i[0])
             else:
