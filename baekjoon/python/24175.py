@@ -1,47 +1,6 @@
 # https://developer-next-to-you.tistory.com/m/246
-
+"""
 import sys
-from collections import defaultdict
-"""
-while True:
-    n = int(sys.stdin.readline())
-
-    if n == 0:
-        break
-
-    gold_dict = defaultdict(int)
-    medal_dict = defaultdict(int)
-    gold_year = 9999
-    medal_year = 9999
-
-    for _ in range(n):
-        year, event, medal = sys.stdin.readline().strip().split()
-        if medal == "Gold":
-            gold_dict[year] += 1
-
-        medal_dict[year] += 1
-
-    sorted_gold = sorted(gold_dict.items(), key=lambda item: item[1], reverse=True)
-    sorted_medal = sorted(medal_dict.items(), key=lambda item: item[1], reverse=True)
-    gold_max = sorted_gold[0][1]
-    medal_max = sorted_medal[0][1]
-
-    for i in sorted_gold:
-        if i[1] >= gold_max:
-            if gold_year > int(i[0]):
-                gold_year = int(i[0])
-            else:
-                break
-
-    for i in sorted_medal:
-        if i[1] >= medal_max:
-            if medal_year > int(i[0]):
-                medal_year = int(i[0])
-            else:
-                break
-
-    print(gold_year, medal_year)
-"""
 
 while True:
     n = int(sys.stdin.readline())
@@ -84,4 +43,30 @@ while True:
                 medal_year = m
 
     print(gold_year, medal_year)
+"""
 
+import sys
+from collections import Counter
+
+while True:
+    n = int(sys.stdin.readline())
+
+    if n == 0:
+        break
+
+    gold_count = Counter()
+    medal_count = Counter()
+
+    for _ in range(n):
+        year, event, medal = sys.stdin.readline().strip().split()
+        if medal == "Gold":
+            gold_count[year] += 1
+        medal_count[year] += 1
+
+    max_gold = max(gold_count.values())
+    max_medal = max(medal_count.values())
+
+    gold_years = [year for year, count in gold_count.items() if count == max_gold]
+    medal_years = [year for year, count in medal_count.items() if count == max_medal]
+
+    print(min(gold_years), min(medal_years))
