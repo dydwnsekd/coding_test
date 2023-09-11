@@ -7,10 +7,9 @@ num_list = []
 
 for i in k:
     temp = i
-    while temp < n+1:
+    while temp <= n:
         if temp not in num_list:
             num_list.append(temp)
-        temp += temp
+        temp += i
 
-print(num_list)
 print(sum(num_list))
