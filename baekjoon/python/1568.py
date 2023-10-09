@@ -11,6 +11,7 @@ while True:
         s += 1
         seconds += 1
     elif n == s:
+        seconds += 1
         break
     elif n < s:
         s = 1
