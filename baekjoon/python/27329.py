@@ -4,7 +4,7 @@ n = int(sys.stdin.readline())
 s = sys.stdin.readline().strip()
 
 if s[:n//2] == s[n//2:]:
-    print("YES")
+    print("Yes")
 else:
-    print("NO")
+    print("No")
 
