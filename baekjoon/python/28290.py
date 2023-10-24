@@ -10,3 +10,7 @@ elif s == "asdfjkl;":
     print("stairs")
 elif s == ";lkjfdsa":
     print("reverse")
+else:
+    print("molu")
+
+
