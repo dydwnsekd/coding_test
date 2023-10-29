@@ -22,5 +22,9 @@ while True:
             result *= int(s)
         elif operator == "/":
             result //= int(s)
-        elif operator == "=":
-            print(result)
+    if s == "=":
+        print(result)
+        break
+
+    sequence += 1
+
