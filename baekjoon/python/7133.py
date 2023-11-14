@@ -12,20 +12,22 @@ for _ in range(cases):
 
     m_value = []
     h_value = []
+    m_temp = m
+    h_temp = h
 
     for i in range(c, 0, -1):
-        m_value.append(m)
-        if m < dm:
-            m = 0
+        m_value.append(m_temp)
+        if m_temp < dm:
+            m_temp = 0
         else:
-            m -= dm
+            m_temp -= dm
 
     for i in range(b, 0, -1):
-        h_value.append(h)
-        if h < dh:
-            h = 0
+        h_value.append(h_temp)
+        if h_temp < dh:
+            h_temp = 0
         else:
-            h -= dh
+            h_temp -= dh
 
     if sum(m_value) > sum(h_value):
         result += sum(m_value)
@@ -33,6 +35,3 @@ for _ in range(cases):
         result += sum(h_value)
 
 print(result)
-
-
-
