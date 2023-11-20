@@ -8,5 +8,8 @@ for _ in range(cases):
     all_str += sys.stdin.readline().strip().replace(" ", "")
 
 count_str = Counter(all_str)
-print(count_str)
+sorted_dict = sorted(count_str.items())
+
+for i in sorted_dict:
+    print(i[0], i[1])
 
