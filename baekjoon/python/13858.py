@@ -15,8 +15,9 @@ def bobs_encoding(s):
 k, pos = map(int, sys.stdin.readline().split())
 
 s = sys.stdin.readline()
-s_1 = bobs_encoding(s)
-s_2 = bobs_encoding(s_1)
 
-print(s_2[pos+1])
+for _ in range(k):
+    s = bobs_encoding(s)
+
+print(s[pos+1])
 
