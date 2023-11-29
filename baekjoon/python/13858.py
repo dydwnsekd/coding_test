@@ -19,5 +19,5 @@ s = sys.stdin.readline()
 for _ in range(k):
     s = bobs_encoding(s)
 
-print(s[pos+1])
+print(s[pos])
 
