@@ -1,4 +1,3 @@
-# commit 대기
 import sys
 
 cases = int(sys.stdin.readline())
