@@ -5,7 +5,7 @@ n, m = map(int, sys.stdin.readline().split())
 
 count += n
 
-while n // m >= m:
+while n // m >= 1:
     count += n // m
     n = n // m
 
