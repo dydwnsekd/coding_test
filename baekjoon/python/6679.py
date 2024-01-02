@@ -48,7 +48,17 @@ class duodecimal_converter:
 
         return digit_sum
 
+def digit_sum(num):
+    digit_sum = 0
+    for i in str(num):
+        digit_sum += int(i)
 
+    return digit_sum
+
+hex_converter = hexadecimal_converter()
+duo_converter = duodecimal_converter()
 
 for i in range(1000, 10000):
-    pass
+    if digit_sum(i) == hex_converter.digit_sum(i) == duo_converter.digit_sum(i):
+        print(i)
+
