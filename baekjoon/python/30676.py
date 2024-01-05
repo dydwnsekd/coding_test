@@ -1,4 +1,3 @@
-# commit 대기(init)
 import sys
 
 n = int(sys.stdin.readline())
@@ -15,5 +14,5 @@ elif n < 590:
     print("Yellow")
 elif n < 620:
     print("Orange")
-elif n < 780:
+elif n <= 780:
     print("Red")
