@@ -1,12 +1,10 @@
-# TODO
-
 import sys
 
 x_list = []
 y_list = []
 
 for i in range(3):
-    x,y = map(int, sys.stdin.readline().split(" "))
+    x, y = map(int, sys.stdin.readline().split(" "))
 
     if x in x_list:
         x_list.remove(x)
