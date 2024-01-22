@@ -6,7 +6,7 @@ cases = int(sys.stdin.readline())
 
 for _ in range(cases):
     alphabet, binary_code = sys.stdin.readline().split()
-    alphabet_dict[alphabet] = binary_code
+    alphabet_dict[binary_code] = alphabet
 
 s = sys.stdin.readline().strip()
 
