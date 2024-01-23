@@ -1,4 +1,3 @@
-# commit 대기
 import sys
 
 n = int(sys.stdin.readline())
