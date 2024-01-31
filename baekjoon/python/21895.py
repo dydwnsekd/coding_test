@@ -11,27 +11,21 @@ for i in range(cases):
     t2 = b[i]
 
     if t1 == "R":
-        if t2 == "R":
-            result += "P"
-        elif t2 == "P":
-            result += "P"
-        elif t2 == "S":
+        if t2 == "S":
             result += "R"
+        else:
+            result += "P"
 
     if t1 == "P":
         if t2 == "R":
             result += "P"
-        elif t2 == "P":
-            result += "S"
-        elif t2 == "S":
+        else:
             result += "S"
 
     if t1 == "S":
-        if t2 == "R":
-            result += "R"
-        elif t2 == "P":
+        if t2 == "P":
             result += "S"
-        elif t2 == "S":
+        else:
             result += "R"
 
 print(result)
