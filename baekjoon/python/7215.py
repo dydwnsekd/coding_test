@@ -11,7 +11,7 @@ else:
     socks_list.sort()
 
     for i in socks_list:
-        if i > n:
+        if i >= n:
             result += n - 1
         else:
             result += i
