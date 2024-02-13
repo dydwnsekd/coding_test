@@ -8,7 +8,8 @@ n, b = sys.stdin.readline().strip().split()
 n = int(n)
 
 for _ in range(4*n):
-    s = sys.stdin.readline().split()
+    s = list(sys.stdin.readline().strip())
+    print(s)
     if s[1] in dominant_score.keys():
         result += dominant_score[s[0]]
     else:
