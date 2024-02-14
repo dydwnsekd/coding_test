@@ -9,8 +9,7 @@ n = int(n)
 
 for _ in range(4*n):
     s = list(sys.stdin.readline().strip())
-    print(s)
-    if s[1] in dominant_score.keys():
+    if s[1] == b:
         result += dominant_score[s[0]]
     else:
         result += not_dominant_score[s[0]]
