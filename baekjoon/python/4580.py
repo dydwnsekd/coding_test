@@ -17,6 +17,7 @@ while True:
         else:
             result += (str(current_num) + " ") * (i - last_sequence)
 
+        last_sequence = i
         current_num += 1
 
     print(result)
