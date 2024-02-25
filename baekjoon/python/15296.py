@@ -6,7 +6,7 @@ for _ in range(cases):
     num_list = []
     k, b, n = map(int, sys.stdin.readline().strip().split())
 
-    while n > b:
+    while n >= b:
         num_list.append(n % b)
         n = n // b
 
