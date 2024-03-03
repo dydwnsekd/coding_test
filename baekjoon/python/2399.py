@@ -4,8 +4,10 @@ result = 0
 n = int(sys.stdin.readline())
 x_list = list(map(int, sys.stdin.readline().strip().split()))
 
-for i in range(len(x_list)-1):
-    for j in range(i+1, len(x_list)):
-        result += abs(x_list[i] - x_list[j])
+x_list.sort()
+
+for i in range(n-1):
+    for j in range(i+1, n):
+        result += abs(x_list[j] - x_list[i])
 
 print(result * 2)
