@@ -6,8 +6,11 @@ x_list = list(map(int, sys.stdin.readline().strip().split()))
 
 x_list.sort()
 
-for i in range(n-1):
-    for j in range(i+1, n):
-        result += abs(x_list[j] - x_list[i])
+prefix_sum = [0] * n
+
+for i in range(1, n):
+    prefix_sum[i] = prefix_sum[i - 1] + (x_list[i] - x_list[i - 1]) * i
+
+result = sum(prefix_sum)
 
 print(result * 2)
