@@ -1,9 +1,6 @@
 import sys
 
-a = sys.stdin.readline()
-a = int(a)
+a = int(sys.stdin.readline())
 
 for i in range(1, a+1):
-    p = '%s%s' % (' '* int(a-i), '*' * i)
-
-    print (p)
+    print('%s%s' % (' ' * (a-i), '*' * i))
