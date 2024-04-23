@@ -10,7 +10,12 @@ for _ in range(t):
     elif s.count('1') == 1:
         s = s[:s.index('1')+1]
 
-    if len(s) % 2 == 0:
+    if s[-1] == "1" and len(s) % 2 == 0:
         print(0)
-    else:
+    elif s[-1] == "1" and len(s) % 2 == 1:
         print(1)
+    elif s[-1] == "0" and len(s) % 2 == 0:
+        print(1)
+    elif s[-1] == "0" and len(s) % 2 == 1:
+        print(0)
+
