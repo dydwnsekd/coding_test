@@ -6,5 +6,5 @@ while True:
     if w < 0:
         break
 
-    print("Objects weighing {} on Earth will weigh {:.2f} on the moon.".format(w, w * 0.167))
+    print("Objects weighing {:.2f} on Earth will weigh {:.2f} on the moon.".format(w, w * 0.167))
 
