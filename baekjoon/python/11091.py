@@ -6,6 +6,8 @@ alphabet_dict = {}
 n = int(sys.stdin.readline())
 
 for i in range(n):
+    no_alphabet = []
+
     for alphabet in alphabet_list:
         alphabet_dict[alphabet] = False
 
@@ -15,9 +17,13 @@ for i in range(n):
         if j in alphabet_dict.keys():
             alphabet_dict[j] = True
 
-    if all(alphabet for alphabet in alphabet_dict.values()):
+    for key in alphabet_dict.keys():
+        if not alphabet_dict[key]:
+            no_alphabet.append(key)
+
+    if len(no_alphabet) == 0:
         print("pangram")
     else:
-        print("missing")
-
+        no_alphabet = sorted(no_alphabet)
+        print(f"missing {''.join(no_alphabet)}")
 
