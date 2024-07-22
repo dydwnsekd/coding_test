@@ -1,3 +1,4 @@
+"""
 import sys
 
 alphabet_list = list("abcdefghijklmnopqrstuvwxyz")
@@ -26,4 +27,20 @@ for i in range(n):
     else:
         no_alphabet = sorted(no_alphabet)
         print(f"missing {''.join(no_alphabet)}")
+"""
 
+import sys
+
+alphabet_list = set("abcdefghijklmnopqrstuvwxyz")
+
+n = int(sys.stdin.readline())
+
+for i in range(n):
+    input_set = set(sys.stdin.readline().strip().lower())
+
+    missing_alphabet = alphabet_list - input_set
+
+    if not missing_alphabet:
+        print("pangram")
+    else:
+        print(f"missing {''.join(sorted(missing_alphabet))}")
