@@ -1,11 +1,7 @@
+'''
 import sys
 
 result = ""
-
-capital = [i for i in range(65, 91)]
-rot_capital = []
-small_letter = [i for i in range(97, 123)]
-rot_small_letter = []
 c = ord("z") - ord("a") + 1
 
 s = sys.stdin.readline()
@@ -25,4 +21,19 @@ for i in s:
         result += i
 
 print(result)
+'''
 
+import sys
+
+s = sys.stdin.readline()
+result = []
+
+for i in s:
+    if 'A' <= i <= 'Z':
+        result.append(chr((ord(i) - ord('A') + 13) % 26 + ord('A')))
+    elif 'a' <= i <= 'z':
+        result.append(chr((ord(i) - ord('a') + 13) % 26 + ord('a')))
+    else:
+        result.append(i)
+
+print("".join(result))
