@@ -8,7 +8,7 @@ small_letter = [i for i in range(97, 123)]
 rot_small_letter = []
 c = ord("z") - ord("a") + 1
 
-s = sys.stdin.readline().strip()
+s = sys.stdin.readline()
 
 for i in s:
     if ord("A") <= ord(i) <= ord("Z"):
@@ -24,6 +24,5 @@ for i in s:
     else:
         result += i
 
-(result.strip())
-
+print(result)
 
