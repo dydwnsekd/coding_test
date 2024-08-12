@@ -1,3 +1,4 @@
+'''
 import sys
 
 cases = int(sys.stdin.readline())
@@ -18,3 +19,18 @@ for _ in range(cases):
     for r in result:
         print(r, end=" ")
     print()
+'''
+
+import sys
+
+cases = int(sys.stdin.readline())
+
+for _ in range(cases):
+    str1, str2 = sys.stdin.readline().strip().split()
+
+    result = [
+        (ord(str2[i]) - ord(str1[i])) % 26
+        for i in range(len(str1))
+    ]
+
+    print("Distances: " + " ".join(map(str, result)))
