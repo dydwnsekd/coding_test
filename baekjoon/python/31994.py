@@ -1,5 +1,3 @@
-# 백준 30794 가희와 클럽 오디션 1 python 완료
-
 import sys
 
 seminar_dict = {}
