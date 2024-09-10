@@ -1,7 +1,7 @@
 import sys
 
 while True:
-    s = sys.stdin.readline().strip()
+    s = sys.stdin.readline().replace("\n", "")
 
     if s == "***":
         break
