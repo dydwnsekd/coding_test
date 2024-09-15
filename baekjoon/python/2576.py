@@ -8,5 +8,8 @@ for _ in range(7):
     if n % 2 == 1:
         odd_number_list.append(n)
 
-print(sum(odd_number_list))
-print(min(odd_number_list))
+if len(odd_number_list) == 0:
+    print(-1)
+else:
+    print(sum(odd_number_list))
+    print(min(odd_number_list))
