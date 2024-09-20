@@ -1,11 +1,8 @@
 import sys
 
-def get_fibonacci_num(num):
-    if num == 0:
-        return 0
-    elif num == 1:
-        return 1
-    else:
-        return get_fibonacci_num(num - 1) + get_fibonacci_num(num - 2)
+fibonacci = [0, 1]
 
-print(get_fibonacci_num(int(sys.stdin.readline().strip())))
+for i in range(2, 50):
+    fibonacci.append(fibonacci[i-1] + fibonacci[i-2])
+
+print(fibonacci[int(sys.stdin.readline())])
