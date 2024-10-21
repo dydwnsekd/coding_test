@@ -7,13 +7,14 @@ n = int(sys.stdin.readline()) - 1
 quotient = n // word_count
 remainder = n % word_count
 
-print(word_count, quotient, remainder)
-
 for _ in range(quotient):
     s = s.replace("turu", "tururu")
 
 split_s = s.split()
-print(split_s)
 
-print(split_s[remainder])
+if split_s[remainder].count("ru") >= 5:
+    print(f"tu+ru*{split_s[remainder].count('ru')}")
+else:
+    print(split_s[remainder])
+
 
