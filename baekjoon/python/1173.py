@@ -5,6 +5,10 @@ total_time = 0
 working_time = 0
 current_m = m
 
+if m + T > M:
+    print(-1)
+    exit()
+
 while True:
     if current_m + T > M:
         total_time += 1
@@ -12,7 +16,6 @@ while True:
             current_m = m
         else:
             current_m -= R
-
     else:
         working_time += 1
         total_time += 1
