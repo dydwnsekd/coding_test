@@ -8,6 +8,9 @@ while True:
 
     s = sys.stdin.readline().strip()
 
+    if s == "":
+        break
+
     for i in s:
         if ord("A") <= ord(i) <= ord("Z"):
             upper_count += 1
