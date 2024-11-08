@@ -6,7 +6,7 @@ while True:
     num_count = 0
     blank_count = 0
 
-    s = sys.stdin.readline().strip()
+    s = sys.stdin.readline().replace('\n', "")
 
     if s == "":
         break
