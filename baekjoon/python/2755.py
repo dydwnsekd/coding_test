@@ -1,6 +1,7 @@
 import sys
+from decimal import Decimal, ROUND_HALF_UP
 
-result = 0
+total = 0
 total_grade = 0
 
 grade_dict = {"A+": 4.3, "A0": 4.0, "A-": 3.7, "B+": 3.3, "B0": 3.0, "B-": 2.7,
@@ -12,7 +13,8 @@ for i in range(n):
     subject_info = sys.stdin.readline().strip().split()
     total_grade += int(subject_info[1])
 
-    result += int(subject_info[1]) * grade_dict[subject_info[2]]
+    total += int(subject_info[1]) * grade_dict[subject_info[2]]
 
+result = Decimal(total / total_grade).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
 
-print(f"{(result / total_grade):.2f}")
+print(f"{result:.2f}")
