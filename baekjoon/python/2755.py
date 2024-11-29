@@ -15,6 +15,6 @@ for i in range(n):
 
     total += int(subject_info[1]) * grade_dict[subject_info[2]]
 
-result = Decimal(total / total_grade).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+result = Decimal(str(total / total_grade)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
 
 print(f"{result:.2f}")
