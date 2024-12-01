@@ -1,13 +1,16 @@
 import sys
 
 s_list = []
+find_string = ["l", "k", "p"]
 
 for _ in range(3):
-    s_list.append(sys.stdin.readline().strip()[0])
+    temp = sys.stdin.readline().strip()[0]
 
-if all(s in ["l", "p", "k"] for s in s_list):
+    if temp in find_string and temp not in s_list:
+        s_list.append(temp)
+
+if len(s_list) == 3:
     print("GLOBAL")
 else:
     print("PONIX")
-
 
