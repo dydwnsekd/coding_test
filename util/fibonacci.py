@@ -1,24 +1,27 @@
-def get_fibonacci_num(num):
-    if num == 0:
-        return 0
-    elif num == 1:
-        return 1
-    else:
-        return get_fibonacci_num(num - 1) + get_fibonacci_num(num - 2)
+class Fibonacci:
+    def __init__(self):
+        self.fibonacci = {0: 0, 1: 1}
 
+    def calculate(self, n):
+        if n in self.fibonacci:
+            return self.fibonacci[n]
+        else:
+            self.fibonacci[n] = self.calculate(n - 1) + self.calculate(n - 2)
+            return self.fibonacci[n]
 
-def get_fibonacci_list(num):
-    fibonacci_list = [0, 1, 1]
+    def get_fibonacci_num(self, n):
+        return self.calculate(n)
 
-    for i in range(3, num+1):
-        fibonacci_list.append(fibonacci_list[i-2] + fibonacci_list[i-1])
-
-    return fibonacci_list
+    def get_fibonacci_list(self, n):
+        return [self.calculate(i) for i in range(n + 1)]
 
 
 if __name__ == "__main__":
-    for i in range(10):
-        print(i, get_fibonacci_num(i))
+    fibonacci = Fibonacci()
 
-    print(get_fibonacci_list(10))
+    for i in range(10):
+        print(i, fibonacci.get_fibonacci_num(i))
+
+    print(fibonacci.get_fibonacci_list(10))
+    print(fibonacci.get_fibonacci_num(100))
 
