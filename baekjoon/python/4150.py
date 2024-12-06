@@ -21,6 +21,9 @@ class Fibonacci:
 
 fibonacci = Fibonacci()
 
+for i in range(1, 50):
+    fibonacci.get_fibonacci_num(i * 100)
+
 num = int(sys.stdin.readline())
 
 print(fibonacci.get_fibonacci_num(num))
