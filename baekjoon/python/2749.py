@@ -16,16 +16,13 @@ class Fibonacci:
         return self.calculate(n)
 
     def get_fibonacci_list(self, n):
-        return [self.calculate(i) for i in range(n + 1)]
+        return [self.calculate(i) % 1000000 for i in range(n + 1)]
 
 
 fibonacci = Fibonacci()
 
 num = int(sys.stdin.readline())
 
-for i in range(1, num + 1):
-    fibonacci.get_fibonacci_num(i)
-
-print(fibonacci.get_fibonacci_num(num))
+print(fibonacci.get_fibonacci_list(num)[num])
 
 
