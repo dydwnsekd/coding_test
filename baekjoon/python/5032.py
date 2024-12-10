@@ -6,7 +6,7 @@ result = 0
 
 while empty_bottle >= c:
     temp = empty_bottle // c
-    empty_bottle += temp
     empty_bottle = (empty_bottle % c) + temp
+    result += temp
 
 print(result)
