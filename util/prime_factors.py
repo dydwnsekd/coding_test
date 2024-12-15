@@ -1,6 +1,3 @@
-import sys
-
-
 def prime_factors(n):
     factors = []
     while n % 2 == 0:
