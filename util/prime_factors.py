@@ -1,5 +1,5 @@
 class PrimeFactors:
-    def prime_factors(n):
+    def prime_factors(self, n):
         factors = []
         while n % 2 == 0:
             factors.append(2)
