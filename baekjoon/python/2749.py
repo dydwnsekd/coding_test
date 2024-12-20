@@ -1,28 +1,30 @@
 import sys
 
 
-class Fibonacci:
-    def __init__(self):
-        self.fibonacci = {0: 0, 1: 1}
+class PisanoPeriod:
 
-    def calculate(self, n):
-        if n in self.fibonacci:
-            return self.fibonacci[n]
-        else:
-            self.fibonacci[n] = self.calculate(n - 1) + self.calculate(n - 2)
-            return self.fibonacci[n]
+    @staticmethod
+    def pisano_period(m):
+        previous, current = 0, 1
+        for i in range(0, m * m):
+            previous, current = current, (previous + current) % m
 
-    def get_fibonacci_num(self, n):
-        return self.calculate(n)
+            if previous == 0 and current == 1:
+                return i + 1
 
-    def get_fibonacci_list(self, n):
-        return [self.calculate(i) % 1000000 for i in range(n + 1)]
+    @staticmethod
+    def pisano_period_list(m):
+        previous, current = 0, 1
+        pisano_list = [0]
+        for i in range(0, m * m):
+            previous, current = current, (previous + current) % m
 
+            if previous == 0 and current == 1:
+                return pisano_list
+            pisano_list.append(previous)
 
-fibonacci = Fibonacci()
 
 num = int(sys.stdin.readline())
 
-print(fibonacci.get_fibonacci_list(num)[num])
-
-
+pisano_list = PisanoPeriod.pisano_period_list(1000000)
+print(pisano_list[num] % PisanoPeriod.pisano_period(1000000))
