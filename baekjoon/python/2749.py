@@ -25,6 +25,7 @@ class PisanoPeriod:
 
 
 num = int(sys.stdin.readline())
-
 pisano_list = PisanoPeriod.pisano_period_list(1000000)
-print(pisano_list[num] % PisanoPeriod.pisano_period(1000000))
+
+print(pisano_list[num % PisanoPeriod.pisano_period(1000000)])
+
