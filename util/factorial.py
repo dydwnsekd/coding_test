@@ -1,11 +1,18 @@
 class Factorial:
 
     @staticmethod
-    def get_factorial_num(num):
+    def get_factorial_num_recursion(num):
         if num == 1:
             return 1
         else:
             return num * Factorial.get_factorial_num(num - 1)
+
+    @staticmethod
+    def get_factorial_num_repeat(num):
+        result = 1
+        for i in range(1, num + 1):
+            result *= i
+        return result
 
 
 if __name__ == '__main__':
