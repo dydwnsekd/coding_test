@@ -1,10 +1,10 @@
 import sys
 
 def get_factorial_num(num):
-    if num == 1:
-        return 1
-    else:
-        return num * get_factorial_num(num - 1)
+    result = 1
+    for i in range(1, num + 1):
+        result *= i
+    return result
 
 n, k = map(int, sys.stdin.readline().strip().split())
 
