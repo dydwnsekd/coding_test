@@ -1,18 +1,15 @@
 import sys
 
-artist_list = []
-artist_double_list = []
+artist_set = set()
+artist_double_set = set()
 
 n = int(sys.stdin.readline())
 
-for i in range(n):
+for _ in range(n):
     artist = sys.stdin.readline().strip()
-    if artist in artist_list:
-        if artist in artist_double_list:
-            pass
-        else:
-            artist_double_list.append(artist)
+    if artist in artist_set:
+        artist_double_set.add(artist)
     else:
-        artist_list.append(artist)
+        artist_set.add(artist)
 
-print(len(artist_double_list))
+print(len(artist_double_set))
