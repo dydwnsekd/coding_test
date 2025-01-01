@@ -16,8 +16,14 @@ count = 1
 
 while True:
     count += 1
+
     sequence_list.append(sequence(count))
+
+    if n == 1:
+        print(1)
+        break
 
     if sequence_list[count-1] == 1:
         print(count)
         break
+
