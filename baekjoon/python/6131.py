@@ -1,9 +1,12 @@
 import sys
 
-pow_gap = [1]
-for i in range(2, 1000):
-    pow_gap.append(i ** 2 - pow_gap[-1])
-
+count = 0
 n = int(sys.stdin.readline())
 
-print(pow_gap.count(n))
+for i in range(1, 1000):
+    for j in range(i, 1000):
+        if j ** 2 - i ** 2 == n:
+            count += 1
+
+
+print(count)
