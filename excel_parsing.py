@@ -47,6 +47,10 @@ def parse_and_merge_tables(file_path):
         # 수집된 모든 행을 하나의 DataFrame으로 결합합니다
         result_df = pd.DataFrame(merged_data)
 
+        # 불필요한 열 제거 (네 번째 열 제거)
+        if len(result_df.columns) > 3:
+            result_df = result_df.iloc[:, :3]
+
         # 첫 번째 열과 두 번째 열을 합치기 (중복 컬럼 존재 시 기존 컬럼 제거)
         if "지역" in result_df.columns:
             result_df.drop(columns=["지역"], inplace=True)
@@ -65,15 +69,11 @@ def parse_and_merge_tables(file_path):
         aggregated_df.rename(columns={numeric_columns[0]: "합계"}, inplace=True)
 
         # 전체 학생 수 계산 후 백분율 컬럼 추가
-        total_students = aggregated_df["합계"].sum()
+        total_students = int(aggregated_df["합계"].sum())
         if total_students > 0:
-            aggregated_df["비율(%)"] = (aggregated_df["합계"] / total_students * 100).round(2)
+            aggregated_df["비율(%)"] = (aggregated_df["합계"] / total_students)
         else:
             aggregated_df["비율(%)"] = 0
-
-        # 불필요한 열 제거 (네 번째 열 제거)
-        if len(aggregated_df.columns) > 3:
-            aggregated_df = aggregated_df.iloc[:, :3]
 
         # 결과를 Excel 파일로 저장
         output_file = "output.xlsx"
