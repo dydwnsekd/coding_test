@@ -3,11 +3,10 @@ import sys
 a_score = 0
 b_score = 0
 
-n = int(sys.stdin.readline())
+n = int(sys.stdin.readline().strip())
 
 for i in range(n):
-    a = int(sys.stdin.readline())
-    b = int(sys.stdin.readline())
+    a, b  = map(int, sys.stdin.readline().strip().split())
 
     if a > b:
         a_score += 1
