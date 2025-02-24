@@ -15,7 +15,7 @@ for _ in range(n):
         elif c == " ":
             question_size += 1
 
-    if question_size == j:
+    if question_size <= j:
         result += 1
 
 print(result)
