@@ -7,7 +7,7 @@ find_num = sys.stdin.readline().strip()
 
 for num in num_list:
     if num.startswith(find_num) and num != find_num:
-			  count += 1
+        count += 1
 
 print(count)
 
