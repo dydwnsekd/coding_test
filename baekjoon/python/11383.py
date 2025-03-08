@@ -1,18 +1,28 @@
 import sys
 
 n, m = map(int, sys.stdin.readline().strip().split())
+s_list = []
+ss_list = []
 
 for _ in range(n):
-    s = sys.stdin.readline().strip()
-    ss = sys.stdin.readline().strip()
+    s_list.append(sys.stdin.readline().strip())
 
+for _ in range(n):
+    ss_list.append(sys.stdin.readline().strip())
+
+flag = True
+
+for i in range(n):
     result = ""
 
-    for i in s:
-        result += f"{i}{i}"
+    for j in s_list[i]:
+        result += f"{j}{j}"
 
-    if result == ss:
-        print("Eyfa")
-    else:
-        print("Not Eyfa")
+    if result != ss_list[i]:
+        flag = False
+
+if flag:
+    print("Eyfa")
+else:
+    print("Not Eyfa")
 
