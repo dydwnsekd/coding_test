@@ -34,7 +34,7 @@ for _ in range(t):
             flag = False
             break
 
-    if n <= divisor_sum and flag:
+    if n < divisor_sum and flag:
         print("Good Bye")
     else:
         print("BOJ 2022")
