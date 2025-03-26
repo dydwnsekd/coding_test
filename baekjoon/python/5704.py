@@ -3,7 +3,7 @@ import string
 
 while True:
     alphabet_dict = {ch: 0 for ch in string.ascii_lowercase}
-    s = sys.stdin.readline().strip()
+    s = sys.stdin.readline().strip().replace(' ', '')
 
     if s == "*":
         break
