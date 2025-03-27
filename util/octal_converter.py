@@ -25,5 +25,5 @@ if __name__ == "__main__":
     for i in range(17):
         octal_num = converter.decimal_to_octal(i)
         print(f"========== i = {i} ==========")
-        print(f"2진수 : {octal_num}")
+        print(f"8진수 : {octal_num}")
         print(f"10진수 : {converter.octal_to_decimal(octal_num)}")
