@@ -5,10 +5,11 @@ import numpy as np
 # === 설정 ===
 text_sequence = ["테", "스", "트", "용" ,"👍"]
 image_size = (128, 128)
-font_size = 60
+font_size = 128
 bg_color = "black"
 text_color = "white"
 frame_duration = 300  # ms
+loop = 0 # 반복 횟수
 font_path = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
 emoji_image_path = "thumbs_up.png"
 output_path = "slack_emoji_test.gif"
@@ -49,5 +50,5 @@ for i, text in enumerate(text_sequence):
     frames.append(np.array(base_img.convert("RGB")))
 
 # === GIF 저장 ===
-imageio.mimsave(output_path, frames, format="GIF", duration=frame_duration)
+imageio.mimsave(output_path, frames, format="GIF", duration=frame_duration, loop=loop)
 print(f"완성된 GIF 저장됨: {output_path}")
