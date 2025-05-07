@@ -20,8 +20,8 @@ for i in range(k):
             if ad_list[j-1][0] == 1:
                 result += ad_list[j-1][1]
 
-        if ad_list[ad_view[click_index-1]][0] == 0:
-            result += ad_list[ad_view[click_index-1]][1]
+        if ad_list[ad_view[click_index-1]-1][0] == 0:
+            result += ad_list[ad_view[click_index-1]-1][1]
 
     print(result)
 
