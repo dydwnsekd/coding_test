@@ -23,7 +23,7 @@ for i in range(k):
     if ad_list[ad_view[click_index-1]-1][0] == 0:
         result += ad_list[ad_view[click_index-1]-1][1]
 
-    print(f"Data Set {i}:")
+    print(f"Data Set {i+1}:")
     print(result)
 
 
