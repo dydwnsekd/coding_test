@@ -5,6 +5,7 @@ k = int(sys.stdin.readline())
 for i in range(k):
     result = 0
     ad_list = []
+    ad_info = []
 
     n, v = map(int, sys.stdin.readline().split())
 
@@ -12,16 +13,19 @@ for i in range(k):
         ad_list.append(list(map(int, sys.stdin.readline().split())))
 
     for _ in range(v):
-        ad_info = list(map(int, sys.stdin.readline().split()))
-        ad_view = ad_info[:2]
-        click_index = ad_info[-1]
+        ad_info.append(list(map(int, sys.stdin.readline().split())))
 
-        for j in ad_view:
-            if ad_list[j-1][0] == 1:
-                result += ad_list[j-1][1]
+    print(ad_list)
+    print(ad_info)
 
-    if ad_list[ad_view[click_index-1]-1][0] == 0:
-        result += ad_list[ad_view[click_index-1]-1][1]
+    for j in ad_info:
+        if j[0] == 1:
+            result += j[1]
+
+        if j[2] == 1 and ad_list[j[0]-1][0] == 0:
+            result += ad_list[j[0]-1][1]
+        elif j[2] == 2 and ad_list[j[1]-1][0] == 0:
+            result += ad_list[j[1]-1][1]
 
     print(f"Data Set {i+1}:")
     print(result)
