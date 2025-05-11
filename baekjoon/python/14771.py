@@ -19,13 +19,17 @@ for i in range(k):
     print(ad_info)
 
     for j in ad_info:
-        if j[0] == 1:
-            result += j[1]
-
-        if j[2] == 1 and ad_list[j[0]-1][0] == 0:
+        if j[2] == 0:
+            if ad_list[j[0] - 1][0] == 1:
+                result += ad_list[j[0]-1][1]
+            if ad_list[j[1] - 1][0] == 1:
+                result += ad_list[j[1]-1][1]
+        elif j[2] == 1 and ad_list[j[0]-1][0] == 0:
             result += ad_list[j[0]-1][1]
+            result += ad_list[j[1] - 1][1]
         elif j[2] == 2 and ad_list[j[1]-1][0] == 0:
             result += ad_list[j[1]-1][1]
+            result += ad_list[j[0] - 1][1]
 
     print(f"Data Set {i+1}:")
     print(result)
