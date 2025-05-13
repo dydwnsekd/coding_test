@@ -15,9 +15,6 @@ for i in range(k):
     for _ in range(v):
         ad_info.append(list(map(int, sys.stdin.readline().split())))
 
-    print(ad_list)
-    print(ad_info)
-
     for j in ad_info:
         if ad_list[j[0] - 1][0] == 1:
             result += ad_list[j[0]-1][1]
@@ -26,10 +23,8 @@ for i in range(k):
 
         if j[2] == 1 and ad_list[j[0]-1][0] == 0:
             result += ad_list[j[0]-1][1]
-            result += ad_list[j[1] - 1][1]
         elif j[2] == 2 and ad_list[j[1]-1][0] == 0:
             result += ad_list[j[1]-1][1]
-            result += ad_list[j[0] - 1][1]
 
     print(f"Data Set {i+1}:")
     print(result)
