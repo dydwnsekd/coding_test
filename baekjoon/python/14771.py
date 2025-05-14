@@ -28,5 +28,6 @@ for i in range(k):
 
     print(f"Data Set {i+1}:")
     print(result)
+    print()
 
 
