@@ -8,9 +8,9 @@ for i in range(ord("A"), ord("Z") + 1):
 
 for _ in range(n):
     s = sys.stdin.readline().strip()
-    result = ""
+    result = s[0].lower()
 
-    for c in s:
+    for c in s[1:]:
         if c in upper_alphabet:
             result += "_" + c.lower()
         else:
