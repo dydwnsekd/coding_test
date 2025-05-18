@@ -15,7 +15,7 @@ money = m * -10
 
 for _ in range(m):
     result = int(sys.stdin.readline())
-    if result not in win_dict:
+    if result in win_dict:
         money += win_dict[result]
 
 print(money)
