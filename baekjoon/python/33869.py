@@ -1,3 +1,4 @@
+"""
 import sys
 
 alphabet_list = []
@@ -25,4 +26,30 @@ result = ''
 for c in s:
     result += secret_dict[c]
 
+print(result)
+"""
+
+import sys
+import string
+
+w = sys.stdin.readline().strip()
+s = sys.stdin.readline().strip()
+
+used = set()
+secret_dict = {}
+
+next_key_idx = 0
+
+for c in w:
+    if c not in used:
+        secret_dict[chr(ord('A') + next_key_idx)] = c
+        used.add(c)
+        next_key_idx += 1
+
+for c in string.ascii_uppercase:
+    if c not in used:
+        secret_dict[chr(ord('A') + next_key_idx)] = c
+        next_key_idx += 1
+
+result = ''.join(secret_dict[c] for c in s)
 print(result)
