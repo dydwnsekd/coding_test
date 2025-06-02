@@ -1,3 +1,4 @@
+"""
 import sys
 from collections import defaultdict
 
@@ -19,3 +20,29 @@ for _ in range(q):
         print("ambiguous")
     else:
         print("nobody")
+"""
+
+import sys
+from collections import defaultdict
+
+n, q = map(int, sys.stdin.readline().strip().split())
+
+name_dict = defaultdict(set)
+
+for _ in range(n):
+    name = input().strip()
+    first, last = name.split()
+    initials = first[0] + last[0]
+    name_dict[initials].add(name)
+
+for _ in range(q):
+    initials = input().strip()
+    names = name_dict.get(initials, set())
+
+    if len(names) == 1:
+        print(next(iter(names)))
+    elif names:
+        print("ambiguous")
+    else:
+        print("nobody")
+
