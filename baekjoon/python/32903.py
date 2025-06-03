@@ -11,3 +11,4 @@ for _ in range(n):
 for i in range(4):
     print("".join(alphabet_list[6*i:6*i+6]))
 
+print("".join(alphabet_list[24:]))
