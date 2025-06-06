@@ -28,7 +28,7 @@ while True:
     max_num = m
 
     for i in range(m, n):
-        if i > max_num and get_divisor_counter(i) > max_division_count:
+        if i >= max_num and get_divisor_counter(i) >= max_division_count:
             max_division_count = get_divisor_counter(i)
             max_num = i
 
