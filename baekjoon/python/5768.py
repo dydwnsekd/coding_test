@@ -1,3 +1,4 @@
+"""
 import sys
 
 def get_divisor_counter(num):
@@ -33,5 +34,34 @@ while True:
             max_num = i
 
     print(max_num, max_division_count)
+"""
 
+import sys
+import math
+
+def count_divisors(n):
+    count = 0
+    for i in range(1, int(math.isqrt(n)) + 1):
+        if n % i == 0:
+            if i * i == n:
+                count += 1
+            else:
+                count += 2
+    return count
+
+while True:
+    m, n = map(int, sys.stdin.readline().split())
+    if m == 0 and n == 0:
+        break
+
+    max_count = 0
+    max_number = m
+
+    for num in range(m, n + 1):
+        div_count = count_divisors(num)
+        if div_count > max_count or (div_count == max_count and num > max_number):
+            max_count = div_count
+            max_number = num
+
+    print(max_number, max_count)
 
