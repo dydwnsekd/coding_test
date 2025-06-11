@@ -13,6 +13,6 @@ for _ in range(t):
     keyword = keyword[:len(plaintext)]
 
     for i in range(len(plaintext)):
-        result += chr(ord(plaintext[i]) + (ord(keyword[i]) - ord("A")))
+        result += chr((ord(plaintext[i]) + ord(keyword[i]) - ord("A") - ord("A") ) % 26 + ord("A"))
 
-    print(result)
+    print("Ciphertext:", result)
