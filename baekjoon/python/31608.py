@@ -7,6 +7,7 @@ s = sys.stdin.readline().strip()
 t = sys.stdin.readline().strip()
 
 for i in range(n):
-    result += ord(s[i]) - ord(t[i])
+    if s[i] != t[i]:
+        result += 1
 
 print(result)
