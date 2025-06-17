@@ -1,4 +1,3 @@
-# commit 대기
 import sys
 
 num_list = list(map(int, sys.stdin.readline().strip().split()))
