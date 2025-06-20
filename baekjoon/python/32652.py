@@ -1,3 +1,4 @@
+"""
 import sys
 
 s = "AKARAKA"
@@ -10,3 +11,14 @@ if n == 1:
 else:
     s += add_s * (n - 1)
     print(s)
+"""
+
+import sys
+
+prefix = "AKARAKA"
+repeat = "RAKA"
+
+n = int(sys.stdin.readline())
+
+result = prefix + repeat * (n - 1) if n > 1 else prefix
+print(result)
