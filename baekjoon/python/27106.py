@@ -1,6 +1,6 @@
 import sys
 
-p = int(sys.stdin.readline())
+p = 100 - int(sys.stdin.readline())
 
 cent_count = []
 cent_value = [25, 10, 5, 1]
