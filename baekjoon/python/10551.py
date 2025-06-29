@@ -18,7 +18,7 @@ s = sys.stdin.readline().strip()
 
 for c in s:
     for i in range(len(type_text)):
-        if c == type_text[i]:
+        if c in type_text[i]:
             finger_count[i] += 1
 
 for i in range(len(finger_count)):
