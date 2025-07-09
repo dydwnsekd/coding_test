@@ -20,7 +20,7 @@ while True:
         elif c == "P":
             participant_count += 1
 
-    if total_count >= participant_count // 2:
+    if total_count // 2 < participant_count:
         if y_count > n_count:
             print("yes")
         elif y_count < n_count:
