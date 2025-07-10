@@ -1,3 +1,4 @@
+"""
 import sys
 
 while True:
@@ -26,6 +27,30 @@ while True:
         elif y_count < n_count:
             print("no")
         elif y_count == n_count:
+            print("tie")
+    else:
+        print("need quorum")
+"""
+
+import sys
+
+for line in sys.stdin:
+    s = line.strip()
+    if s == "#":
+        break
+
+    total_count = len(s)
+    y_count = s.count("Y")
+    n_count = s.count("N")
+    p_count = s.count("P")
+    participant_count = y_count + n_count + p_count
+
+    if participant_count > total_count // 2:
+        if y_count > n_count:
+            print("yes")
+        elif y_count < n_count:
+            print("no")
+        else:
             print("tie")
     else:
         print("need quorum")
