@@ -17,8 +17,8 @@ for _ in range(n):
         else:
             temp_s += first_s[i]
 
-        output_line += temp_s + temp_s[::-1] + "\n"
+    output_line += temp_s + temp_s[::-1] + "\n"
 
 
-    print(output_line)
+print(output_line)
 
