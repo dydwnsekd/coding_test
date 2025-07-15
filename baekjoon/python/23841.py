@@ -1,3 +1,4 @@
+"""
 import sys
 
 output_line = ""
@@ -21,4 +22,26 @@ for _ in range(n):
 
 
 print(output_line)
+"""
+
+import sys
+
+n, m = map(int, sys.stdin.readline().split())
+output_lines = []
+
+for _ in range(n):
+    s = sys.stdin.readline().strip()
+    half = m // 2
+    first_half = s[:half]
+    second_half = s[half:][::-1]
+
+    merged_half = ''.join(
+        second_half[i] if first_half[i] == '.' else first_half[i]
+        for i in range(half)
+    )
+
+    full_line = merged_half + merged_half[::-1]
+    output_lines.append(full_line)
+
+print('\n'.join(output_lines))
 
