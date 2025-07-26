@@ -7,6 +7,6 @@ total = 0
 n = sys.stdin.readline().strip()
 
 for i in range(len(weight)):
-    total += int(n[1]) * weight[i]
+    total += int(n[i]) * weight[i]
 
 print(mapping_dict[total % 11])
