@@ -1,3 +1,4 @@
+"""
 import sys
 
 t = int(sys.stdin.readline())
@@ -14,5 +15,17 @@ for _ in range(t):
         print("|", end="")
 
     print()
+"""
 
+import sys
+
+t = int(sys.stdin.readline())
+
+for _ in range(t):
+    n = int(sys.stdin.readline())
+
+    quotient, remainder = divmod(n, 5)
+
+    output = "++++ " * quotient + "|" * remainder
+    print(output.strip())
 
