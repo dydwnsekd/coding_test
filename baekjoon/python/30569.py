@@ -9,11 +9,11 @@ p2h -= p1d
 p1k = 1
 p2k = 1
 
-if p1h < 0 and p2h < 0:
+if p1h <= 0 and p2h <= 0:
     print("draw")
-elif p1h > 0 and p2h < 0:
+elif p1h > 0 and p2h <= 0:
     print("player one")
-elif p1h < 0 and p2h > 0:
+elif p1h <= 0 and p2h > 0:
     print("player two")
 else:
     while True:
