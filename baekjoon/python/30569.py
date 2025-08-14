@@ -1,3 +1,4 @@
+"""
 import sys
 
 p1h, p1d, p1t = map(int, sys.stdin.readline().strip().split())
@@ -34,5 +35,36 @@ else:
         print("player two")
     elif p1k < p2k:
         print("player one")
+    else:
+        print("draw")
+"""
+
+import sys
+
+p1h, p1d, p1t = map(int, sys.stdin.readline().split())
+p2h, p2d, p2t = map(int, sys.stdin.readline().split())
+
+p1h -= p2d
+p2h -= p1d
+
+if p1h <= 0 and p2h <= 0:
+    print("draw")
+
+elif p1h <= 0:
+    print("player two")
+elif p2h <= 0:
+    print("player one")
+else:
+
+    def hits_needed(hp, dmg):
+        return (hp + dmg - 1) // dmg
+
+    p1_kill_time = hits_needed(p2h, p1d) * p1t
+    p2_kill_time = hits_needed(p1h, p2d) * p2t
+
+    if p1_kill_time < p2_kill_time:
+        print("player one")
+    elif p1_kill_time > p2_kill_time:
+        print("player two")
     else:
         print("draw")
