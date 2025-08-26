@@ -11,8 +11,7 @@ for _ in range(n):
     current_passenger -= a
     current_passenger += b
 
-    if current_passenger > max_passenger:
-        max_passenger = current_passenger
+    max_passenger = max(current_passenger, max_passenger)
 
 print(max_passenger)
 
