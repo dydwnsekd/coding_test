@@ -3,4 +3,6 @@ import math
 
 n = int(sys.stdin.readline())
 
-print(round((((math.sqrt(n/math.pi)+1)*2)**2), 10))
+r = math.sqrt(n / math.pi)
+value = ((r + 1) * 2) ** 2
+print(f"{value:.10f}")
