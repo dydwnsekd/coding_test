@@ -23,16 +23,22 @@ def rps(p1, p2):
 
 n = int(sys.stdin.readline())
 
-p1 = sys.stdin.readline()
-p2 = sys.stdin.readline()
+p1 = sys.stdin.readline().strip()
+p2 = sys.stdin.readline().strip()
 
 win_count = 0
+lose_count = 0
 
 for i in range(n):
-    if rps(p1, p2) == 1:
+    if rps(p1[i], p2[i]) == 1:
         win_count += 1
+    elif rps(p1[i], p2[i]) == 2:
+        lose_count += 1
 
-if win_count > n // 2:
+print(win_count)
+print(lose_count)
+
+if win_count > lose_count:
     print("victory")
 else:
     print("defeat")
