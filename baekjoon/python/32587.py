@@ -1,24 +1,15 @@
 import sys
 
 def rps(p1, p2):
-    if p1 == "R" and p2 == "R":
+    RPS_RULES = {
+        ("R", "S"): 1, ("R", "P"): 2,
+        ("P", "R"): 1, ("P", "S"): 2,
+        ("S", "P"): 1, ("S", "R"): 2,
+    }
+
+    if p1 == p2:
         return 0
-    elif p1 == "R" and p2 == "P":
-        return 2
-    elif p1 == "R" and p2 == "S":
-        return 1
-    elif p1 == "P" and p2 == "R":
-        return 1
-    elif p1 == "P" and p2 == "P":
-        return 0
-    elif p1 == "P" and p2 == "S":
-        return 2
-    elif p1 == "S" and p2 == "R":
-        return 2
-    elif p1 == "S" and p2 == "P":
-        return 1
-    elif p1 == "S" and p2 == "S":
-        return 0
+    return RPS_RULES.get((p1, p2), 0)
 
 
 n = int(sys.stdin.readline())
