@@ -35,9 +35,6 @@ for i in range(n):
     elif rps(p1[i], p2[i]) == 2:
         lose_count += 1
 
-print(win_count)
-print(lose_count)
-
 if win_count > lose_count:
     print("victory")
 else:
