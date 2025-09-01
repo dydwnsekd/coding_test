@@ -1,3 +1,4 @@
+"""
 import sys
 
 def rps(p1, p2):
@@ -30,4 +31,27 @@ if win_count > lose_count:
     print("victory")
 else:
     print("defeat")
+"""
+
+import sys
+
+def rps(p1, p2):
+    SCORES = {
+        ("R", "S"): 1, ("R", "P"): -1,
+        ("P", "R"): 1, ("P", "S"): -1,
+        ("S", "P"): 1, ("S", "R"): -1,
+    }
+
+    if p1 == p2:
+        return 0
+    return SCORES[(p1, p2)]
+
+
+n = int(sys.stdin.readline())
+p1 = sys.stdin.readline().strip()
+p2 = sys.stdin.readline().strip()
+
+score = sum(rps(p1[i], p2[i]) for i in range(n))
+
+print("victory" if score > 0 else "defeat")
 
