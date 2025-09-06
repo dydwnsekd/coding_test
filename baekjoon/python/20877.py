@@ -1,3 +1,4 @@
+"""
 import sys
 
 result = 0
@@ -15,4 +16,16 @@ for i in range(len(storkes)):
         result += storkes[i] - 3
 
 print(result)
+"""
 
+import sys
+
+n = int(sys.stdin.readline())
+strokes = list(map(int, sys.stdin.readline().split()))
+
+result = sum(
+    min(s, 7) - (2 if i % 2 == 0 else 3)
+    for i, s in enumerate(strokes)
+)
+
+print(result)
