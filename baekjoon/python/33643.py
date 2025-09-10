@@ -4,7 +4,7 @@ n = int(sys.stdin.readline())
 items = []
 
 for _ in range(n):
-    items.append(int(sys.stdin.readline().strip()))
+    items.append(sys.stdin.readline().strip())
 
 if "keys" not in items:
     print("keys")
