@@ -10,7 +10,7 @@ while True:
     for c in y:
         num_dict[c] += 1
 
-    if len(num_dict) == 4:
+    if len(num_dict) == len(y):
         break
 
 print(y)
