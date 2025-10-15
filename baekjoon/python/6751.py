@@ -1,3 +1,4 @@
+"""
 import sys
 from collections import defaultdict
 
@@ -14,4 +15,16 @@ while True:
         break
 
 print(y)
+"""
+
+import sys
+
+year = sys.stdin.readline().strip()
+
+while True:
+    year = str(int(year) + 1)
+    if len(set(year)) == len(year):
+        break
+
+print(year)
 
