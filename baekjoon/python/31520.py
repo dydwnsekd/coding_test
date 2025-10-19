@@ -1,3 +1,4 @@
+"""
 import sys
 
 n = sys.stdin.readline().strip()
@@ -20,3 +21,20 @@ if champernowne_flag:
     print(int(find_num) - 1)
 else:
     print(-1)
+"""
+
+import sys
+
+sequence = sys.stdin.readline().strip()
+target = '1'
+index = 0
+
+while index < len(sequence):
+    current = sequence[index:index + len(target)]
+    if current != target:
+        print(-1)
+        break
+    index += len(target)
+    target = str(int(target) + 1)
+else:
+    print(int(target) - 1)
