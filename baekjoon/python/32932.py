@@ -1,3 +1,4 @@
+"""
 import sys
 
 block = []
@@ -24,4 +25,23 @@ for controll in controlls:
             coordinate = [coordinate[0] + 1, coordinate[1]]
 
 print(' '.join(map(str, coordinate)))
+"""
 
+import sys
+
+n, k = map(int, sys.stdin.readline().strip().split())
+
+blocked = {tuple(map(int, sys.stdin.readline().strip().split())) for _ in range(n)}
+
+controls = sys.stdin.readline().strip()
+
+x, y = 0, 0
+DIR = {'U': (0, 1), 'D': (0, -1), 'L': (-1, 0), 'R': (1, 0)}
+
+for c in controls:
+    dx, dy = DIR[c]
+    nx, ny = x + dx, y + dy
+    if (nx, ny) not in blocked:
+        x, y = nx, ny
+
+print(x, y)
