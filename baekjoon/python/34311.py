@@ -32,9 +32,6 @@ keyboard_dict = {
 
 n = int(sys.stdin.readline())
 s = sys.stdin.readline().strip()
-change_s = ''
 
-for c in s:
-    change_s += keyboard_dict[c]
-
-print(change_s)
+result = [keyboard_dict[ch] for ch in s]
+print(''.join(result))
