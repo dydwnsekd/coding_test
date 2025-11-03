@@ -1,11 +1,12 @@
 import sys
 
 s = sys.stdin.readline().strip()[:-1]
-sentences = s[:-1].split('.')
-result = ''
+sentences = s.split('.')
+result_list = []
 
 for sentence in sentences:
-    result += ' '.join(sentence.split(' ')[::-1]) + '. '
+    reversed_sentence = ' '.join(sentence.split()[::-1])
+    result_list.append(reversed_sentence)
 
-print(result)
+print('. '.join(result_list) + '.')
 
