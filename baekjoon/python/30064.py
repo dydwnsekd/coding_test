@@ -1,3 +1,4 @@
+"""
 import sys
 
 n = int(sys.stdin.readline())
@@ -15,3 +16,21 @@ while True:
         break
 
 print(change_count)
+"""
+
+import sys
+
+n = int(sys.stdin.readline().strip())
+seats = list(map(int, sys.stdin.readline().strip().split()))
+
+count = 0
+index = 1
+
+while True:
+    next_index = seats[index - 1]
+    if next_index == 0:
+        break
+    count += 1
+    index = next_index
+
+print(count)
