@@ -1,8 +1,6 @@
 import sys
 from collections import defaultdict
 
-from redis import UsernamePasswordCredentialProvider
-
 n = int(sys.stdin.readline())
 
 for _ in range(n):
@@ -12,9 +10,11 @@ for _ in range(n):
 
     for c in s:
         spell_count[c] += 1
-        sorted_values = [v for k, v in spell_count]
 
-    while len(sorted_values) <= 2:
+    sorted_items = sorted(spell_count.items(), key=lambda x: x[1])
+    sorted_values = [v for k, v in sorted_items]
+
+    while len(sorted_values) > 2:
         delete_count += 1
         if sorted_values[0] == 1:
             sorted_values.pop(0)
