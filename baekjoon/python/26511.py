@@ -1,3 +1,4 @@
+"""
 import sys
 from collections import defaultdict
 
@@ -22,5 +23,20 @@ for _ in range(n):
             sorted_values[0] -= 1
 
     print(delete_count)
+"""
 
+import sys
+from collections import Counter
+
+n = int(sys.stdin.readline().strip())
+
+for _ in range(n):
+    s = sys.stdin.readline().strip()
+    freq = Counter(s)
+
+    counts = sorted(freq.values(), reverse=True)
+
+    delete_count = sum(counts[2:]) if len(counts) > 2 else 0
+
+    print(delete_count)
 
