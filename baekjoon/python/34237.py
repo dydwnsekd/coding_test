@@ -11,7 +11,7 @@ for _ in range(m):
     g, x, y = map(int, sys.stdin.readline().strip().split())
 
     for i in range(n):
-        if g >= predict_list[i][0] and x <= predict_list[i][1] and y <= predict_list[i][2]:
+        if g >= predict_list[i][0] + predict_list[i][1] and x <= predict_list[i][0] and y <= predict_list[i][1]:
             count += 1
 
     print(count)
