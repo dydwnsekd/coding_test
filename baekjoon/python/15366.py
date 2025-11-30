@@ -4,6 +4,10 @@ n = int(sys.stdin.readline())
 
 x_list = list(map(int, sys.stdin.readline().split()))
 y_list = list(map(int, sys.stdin.readline().split()))
+
+x_list.sort()
+y_list.sort()
+
 flag = True
 
 for i in range(n):
