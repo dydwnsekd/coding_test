@@ -1,3 +1,4 @@
+"""
 import sys
 
 index = 1
@@ -20,3 +21,28 @@ for i in box_command:
             index -= 1
 
 print(result)
+"""
+
+import sys
+
+index = 1
+result = 0
+
+n = int(sys.stdin.readline().strip())
+commands = sys.stdin.readline().strip()
+
+for cmd in commands:
+    if cmd == 'R':
+        if index == 1:
+            index = 2
+        else:
+            result += 1
+            index = 3
+    else:  # cmd == 'L'
+        if index == 3:
+            index = 2
+        else:
+            index = 1
+
+print(result)
+
