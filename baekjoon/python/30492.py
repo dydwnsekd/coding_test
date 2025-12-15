@@ -13,7 +13,7 @@ for i in range(m):
     for j in range(n):
         word_count[words[j][i]] += 1
 
-    result += sorted(word_count.items(), key=lambda x: x[1], reverse=True)[0][0]
+    result += sorted(word_count.items(), key=lambda x: (-x[1], x[0]))[0][0]
 print(result)
 
 
