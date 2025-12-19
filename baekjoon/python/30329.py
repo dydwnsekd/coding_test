@@ -1,5 +1,10 @@
 import sys
 
+count = 0
 s = sys.stdin.readline().strip()
 
-print(s.count('kick'))
+for i in range(len(s)):
+    if s[i:i+4] == 'kick':
+        count += 1
+
+print(count)
