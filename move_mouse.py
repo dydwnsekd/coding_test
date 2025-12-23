@@ -15,7 +15,9 @@ def move_random_mouse(duration=10):
         time.sleep(0.3)
 
 def main():
-    hour = 10
+    print("input running hour :", end=" ")
+    hour = int(input())
+    print("Press Ctrl+C to exit")
 
     run_limit = 3600 * hour
     start_time = time.time()
