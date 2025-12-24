@@ -17,6 +17,8 @@ def move_random_mouse(duration=10):
 def main():
     print("input running hour :", end=" ")
     hour = int(input())
+    print("input sleep minute :", end=" ")
+    sleep_minute = int(input())
     print("Press Ctrl+C to exit")
 
     run_limit = 3600 * hour
@@ -30,8 +32,8 @@ def main():
         else:
             print(f"경과 시간(s) : {round(time.time() - start_time)}")
 
-        print("[INFO] 3분 대기중...")
-        time.sleep(180)
+        print(f"[INFO] {sleep_minute}분 대기중...")
+        time.sleep(sleep_minute)
 
         # 종료 여부 체크
         if time.time() - start_time >= run_limit:
