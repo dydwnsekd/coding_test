@@ -43,7 +43,7 @@ def main():
             print(f"경과 시간(s) : {round(time.time() - start_time)}")
 
         print("[INFO] 마우스 랜덤 이동 시작 (10초)")
-        move_random_mouse(duration=10)
+        move_random_mouse()
         print("[INFO] 완료")
 
 if __name__ == "__main__":
