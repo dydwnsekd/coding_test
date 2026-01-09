@@ -1,14 +1,19 @@
 import sys
 
-result = 0
-m_list = list(map(int, sys.stdin.readline().strip().split()))
-n = int(sys.stdin.readline())
+scores = list(map(int, sys.stdin.readline().strip().split()))
+n = int(sys.stdin.readline().strip())
 
-for i in range(n):
-    b, l, s = map(float, sys.stdin.readline().strip().split())
+total = 0
 
-    if l >= 2.0 and s >= 17:
-        result += m_list[int(b)]
+for _ in range(n):
+    b, l, s = sys.stdin.readline().strip().split()
+    b = int(b)
+    l = float(l)
+    s = int(s)
 
-print(result)
+    if l < 2.0 or s < 17:
+        continue
 
+    total += scores[b]
+
+print(total)
