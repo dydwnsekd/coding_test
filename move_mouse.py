@@ -4,7 +4,7 @@ import time
 
 pyautogui.FAILSAFE = True
 
-def move_random_mouse(duration=10):
+def move_random_mouse(duration=3):
     end_time = time.time() + duration
     screen_width, screen_height = pyautogui.size()
 
@@ -33,7 +33,7 @@ def main():
             print(f"경과 시간(s) : {round(time.time() - start_time)}")
 
         print(f"[INFO] {sleep_minute}분 대기중...")
-        time.sleep(sleep_minute)
+        time.sleep(sleep_minute * 60)
 
         # 종료 여부 체크
         if time.time() - start_time >= run_limit:
