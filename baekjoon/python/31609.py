@@ -1,8 +1,7 @@
 import sys
 
 n = int(sys.stdin.readline())
-num = sys.stdin.readline().strip()
-num_list = list(set([int(n) for n in num]))
+num_list = list(set(map(int, sys.stdin.readline().strip().split())))
 num_list.sort()
 
 for n in num_list:
