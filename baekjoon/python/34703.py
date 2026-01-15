@@ -1,12 +1,12 @@
 import sys
 
 n = int(sys.stdin.readline())
-num_list = []
+unique_num = set()
 
 for i in range(n):
-    num_list.append(int(sys.stdin.readline()))
+    unique_num.add(int(sys.stdin.readline()))
 
-if len(set(num_list)) < 5:
+if len(unique_num) < 5:
     print("YES")
 else:
     print("NO")
