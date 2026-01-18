@@ -10,7 +10,7 @@ for _ in range(n):
         print(subject)
         break
 """
-
+"""
 import sys
 from collections import defaultdict
 
@@ -22,5 +22,18 @@ for _ in range(n):
     subject_dict[year].append(subject)
 
 print(subject_dict['2026'][0])
+"""
 
+import sys
+from collections import defaultdict
 
+n = int(sys.stdin.readline())
+subject_dict = defaultdict(list)
+
+for _ in range(n):
+    subject, year = sys.stdin.readline().strip().split()
+    subject_dict[year].append(subject)
+
+latest_year = sorted(subject_dict.keys(), reverse=True)[0]
+
+print(subject_dict[latest_year][0])
