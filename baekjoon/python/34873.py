@@ -1,3 +1,4 @@
+"""
 import sys
 from collections import defaultdict
 
@@ -20,4 +21,16 @@ if success_count >= n:
     print('Yes')
 else:
     print('No')
+"""
 
+import sys
+from collections import Counter
+
+n = int(sys.stdin.readline().strip())
+candies = list(map(int, sys.stdin.readline().strip().split()))
+
+counter = Counter(candies)
+
+score = sum(1 if cnt > 1 else 0.5 for cnt in counter.values())
+
+print("Yes" if score >= n else "No")
