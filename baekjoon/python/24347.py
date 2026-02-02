@@ -10,3 +10,13 @@ for i in permutations(num_list, 4):
 
 print(max_value)
 
+"""
+import sys
+
+digits = sys.stdin.readline().strip().split()
+
+digits.sort(reverse=True)
+max_value = int("".join(digits[:4]))
+
+print(max_value)
+"""
