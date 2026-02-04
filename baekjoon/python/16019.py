@@ -1,11 +1,15 @@
 import sys
 
-distance_list = list(map(int, sys.stdin.readline().strip().split()))
+d = list(map(int, sys.stdin.readline().strip().split()))
 
+pos = [0] * 5
+for i in range(1, 5):
+    pos[i] = pos[i - 1] + d[i - 1]
+
+# 거리 행렬 출력
 for i in range(5):
     for j in range(5):
-        if i == j:
-            print(0, end=' ')
-        else:
-            print(distance_list[j], end=' ')
-
+        if j > 0:
+            print(' ', end='')
+        print(abs(pos[i] - pos[j]), end='')
+    print()
