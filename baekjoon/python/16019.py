@@ -1,5 +1,7 @@
 import sys
 
+# git commit test
+
 d = list(map(int, sys.stdin.readline().strip().split()))
 
 pos = [0] * 5
