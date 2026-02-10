@@ -1,3 +1,4 @@
+"""
 import sys
 
 score = 0
@@ -14,5 +15,24 @@ for c in s:
         score = 1
         current_c = c
         result += score
+
+print(result)
+"""
+
+import sys
+
+s = sys.stdin.readline().strip()
+
+score = 0
+result = 0
+prev = ""
+
+for c in s:
+    if prev < c:
+        score += 1
+    else:
+        score = 1
+    result += score
+    prev = c
 
 print(result)
