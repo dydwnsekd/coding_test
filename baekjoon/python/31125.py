@@ -12,7 +12,7 @@ def sum_dice(n, f, m):
 for i in range(t):
     b, n ,f, m = map(int, sys.stdin.readline().split())
 
-    if b in sum_dice(n, m, f):
+    if b in sum_dice(n, f, m):
         print('YES')
     else:
         print('NO')
