@@ -1,3 +1,4 @@
+"""
 import sys
 
 t = int(sys.stdin.readline())
@@ -16,4 +17,16 @@ for i in range(t):
         print('YES')
     else:
         print('NO')
+"""
 
+import sys
+
+t = int(sys.stdin.readline().strip())
+
+for _ in range(t):
+    b, n, f, m = map(int, sys.stdin.readline().strip().split())
+
+    min_sum = n + m
+    max_sum = n * f + m
+
+    print("YES" if min_sum <= b <= max_sum else "NO")
