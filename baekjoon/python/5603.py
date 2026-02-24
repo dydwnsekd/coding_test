@@ -1,3 +1,4 @@
+"""
 import sys
 
 n = int(sys.stdin.readline())
@@ -18,5 +19,17 @@ while n > 0:
             num_count = 1
 
     s = result
+
+print(s)
+"""
+
+import sys
+from itertools import groupby
+
+n = int(sys.stdin.readline().strip())
+s = sys.stdin.readline().strip()
+
+for _ in range(n):
+    s = "".join(f"{len(list(g))}{k}" for k, g in groupby(s))
 
 print(s)
