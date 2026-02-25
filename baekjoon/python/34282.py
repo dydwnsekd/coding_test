@@ -1,3 +1,4 @@
+"""
 import sys
 
 x, y, z = map(int, sys.stdin.readline().strip().split())
@@ -10,6 +11,24 @@ elif result >= 80:
 elif result >= 70:
     print("C")
 elif result >= 60:
+    print("D")
+else:
+    print("F")
+"""
+
+import sys
+
+x, y, z = map(int, sys.stdin.readline().split())
+
+score = x + y + 2 * z
+
+if score >= 360:
+    print("A")
+elif score >= 320:
+    print("B")
+elif score >= 280:
+    print("C")
+elif score >= 240:
     print("D")
 else:
     print("F")
