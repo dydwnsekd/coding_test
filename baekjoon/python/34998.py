@@ -7,10 +7,19 @@ for _ in range(n):
     expression = sys.stdin.readline().strip()
 
     if x == 1:
-        result = int(expression[0]) + int(expression[4])
+        if expression[0] == "!" or expression[4] == "!":
+            result = "!"
+        else:
+            result = int(expression[0]) + int(expression[4])
     elif x == 2:
-        result = int(expression[0]) + int(expression[4]) + int(expression[8])
+        if expression[0] == "!" or expression[4] == "!" or expression[8] == "!":
+            result = "!"
+        else:
+            result = int(expression[0]) + int(expression[4]) + int(expression[8])
     else:
-        result = int(expression[0]) + int(expression[4]) + int(expression[8]) + int(expression[12])
+        if expression[0] == "!" or expression[4] == "!" or expression[8] == "!" or expression[12] == "!":
+            result = "!"
+        else:
+            result = int(expression[0]) + int(expression[4]) + int(expression[8]) + int(expression[12])
 
     print(result)
