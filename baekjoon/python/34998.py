@@ -22,4 +22,7 @@ for _ in range(n):
         else:
             result = int(expression[0]) + int(expression[4]) + int(expression[8]) + int(expression[12])
 
-    print(result)
+    if result >= 10 or result == "!":
+        print("!")
+    else:
+        print(result)
