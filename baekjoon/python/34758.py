@@ -1,3 +1,4 @@
+"""
 import sys
 
 x, y = map(int, sys.stdin.readline().strip().split())
@@ -9,3 +10,14 @@ for _ in range(n):
         print(0)
     else:
         print(1)
+"""
+
+import sys
+
+x, y = map(int, sys.stdin.readline().split())
+n = int(sys.stdin.readline())
+
+for _ in range(n):
+    temp_x, temp_y = map(int, sys.stdin.readline().split())
+    print(0 if (temp_x == x or temp_y == y) else 1)
+
