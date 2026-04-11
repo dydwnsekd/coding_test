@@ -10,8 +10,12 @@ for _ in range(m):
     elif l not in problem_dict[p]:
         problem_dict[p].append(l)
 
+problem_result = []
+
 for problem, language in problem_dict.items():
     if 1 in language and 2 in language:
-        print(problem)
+        problem_result.append(problem)
+
+print(*sorted(problem_result))
 
 
