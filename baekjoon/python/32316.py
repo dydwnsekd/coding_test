@@ -1,3 +1,4 @@
+"""
 import sys
 
 n, m = map(int, sys.stdin.readline().strip().split())
@@ -17,5 +18,18 @@ for problem, language in problem_dict.items():
         problem_result.append(problem)
 
 print(*sorted(problem_result))
+"""
 
+import sys
+
+n, m = map(int, sys.stdin.readline().split())
+problem_dict = {}
+
+for _ in range(m):
+    p, l = map(int, sys.stdin.readline().split())
+    problem_dict.setdefault(p, set()).add(l)
+
+result = [p for p, langs in problem_dict.items() if {1, 2}.issubset(langs)]
+
+print(*sorted(result))
 
