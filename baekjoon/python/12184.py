@@ -1,3 +1,4 @@
+"""
 import sys
 
 t = int(sys.stdin.readline())
@@ -24,3 +25,28 @@ for i in range(t):
     print(f"Case #{i+1}: {' '.join(result)}")
 
     t = sys.stdin.readline()
+"""
+
+import sys
+
+t = int(sys.stdin.readline())
+
+for case in range(1, t + 1):
+    n = int(sys.stdin.readline())
+    bus_temp = list(map(int, sys.stdin.readline().split()))
+    bus_list = [(bus_temp[i], bus_temp[i + 1]) for i in range(0, 2 * n, 2)]
+
+    p = int(sys.stdin.readline())
+    result = []
+
+    for _ in range(p):
+        bus_line = int(sys.stdin.readline())
+        count = 0
+
+        for start, end in bus_list:
+            if start <= bus_line <= end:
+                count += 1
+
+        result.append(str(count))
+
+    print(f"Case #{case}: {' '.join(result)}")
