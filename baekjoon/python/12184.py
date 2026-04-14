@@ -36,11 +36,11 @@ for case in range(1, t + 1):
     bus_temp = list(map(int, sys.stdin.readline().split()))
     bus_list = [(bus_temp[i], bus_temp[i + 1]) for i in range(0, 2 * n, 2)]
 
-    p = int(sys.stdin.readline())
+    p = int(sys.stdin.readline().strip())
     result = []
 
     for _ in range(p):
-        bus_line = int(sys.stdin.readline())
+        bus_line = int(sys.stdin.readline().strip())
         count = 0
 
         for start, end in bus_list:
@@ -50,3 +50,5 @@ for case in range(1, t + 1):
         result.append(str(count))
 
     print(f"Case #{case}: {' '.join(result)}")
+
+    sys.stdin.readline()
