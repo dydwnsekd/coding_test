@@ -1,4 +1,3 @@
-# commit 대기
 import sys
 
 L, R, A = map(int, sys.stdin.readline().strip().split())
